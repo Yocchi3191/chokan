@@ -66,7 +66,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     <h2>一面　脆弱性ニュース</h2>
     <p class="lead">PHPの重大な脆弱性2件、CISAの「悪用確認済みリスト」に追加</p>
     <p>PHP本体のメモリ破壊と内部状態の不整合に関する2件（CVE-2026-109618／109619）が10月26日付で登録された。PHP公式は10月21日に修正版（8.5.12、8.4.27、8.3.36、8.2.35）を公開済みと報じられており、サポート外の8.1以前は更新手段がないため入れ替えが必要だ。</p>
-    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation">Recorded Future</a></p>
+    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html">The Hacker News</a>／<a href="https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation">Recorded Future</a></p>
 
     <div class="cols">
       <div>
@@ -78,7 +78,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         <div class="item cve"><p><b>CVE-2026-111497</b>　Google Brotli「戻り値の未検査」（10/27追加）</p></div>
       </div>
     </div>
-    <p class="note">NVD取得失敗（影響バージョン・CVSSは未確認）。The Hacker NewsのRSSも取得できず、KEV登録分のみを掲載。</p>
+    <p class="note">KEV登録分に加え、NVDで10/26〜27に公開されたCVSS 10.0を2件掲載（いずれも悪用の確認は未報告）。</p>
+    <div class="cols">
+      <div>
+        <div class="item cve"><p><b>CVE-2026-105781</b>　Adobe Campaign Classic「SQLインジェクション」CVSS 10.0。現在のユーザー権限で任意コード実行につながる（10/27公開）</p></div>
+      </div>
+      <div>
+        <div class="item cve"><p><b>CVE-2026-116508</b>　TOTOLINK A950RG のinfostat.cgi（機器情報CGI）の欠陥、CVSS 10.0（10/26公開）</p></div>
+      </div>
+    </div>
+    <p class="src">出典: <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-105781">NVD</a>／<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-116508">NVD</a></p>
   </section>
 
   <div class="col-wrap">
@@ -87,14 +96,28 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
       <div class="item">
         <h3>ダウンロード済みの指示書ファイルでコーディングエージェントが乗っ取られる</h3>
         <p>フォルダに置かれた悪意ある AGENTS.md を読み込んだエージェントが、不正なnpmパッケージの導入を試みた。研究者はCodexで再現し、Claude Codeでも認証トークン漏えいにつながる手口を示したと報じられた。信頼できない場所の指示ファイルを作業ディレクトリに置かないのが基本。</p>
-        <p class="src">出典: <a href="https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/">BleepingComputer</a></p>
+        <p class="src">出典: <a href="https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/">BleepingComputer</a>／<a href="https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html">The Hacker News</a></p>
       </div>
       <div class="item">
         <h3>PHPには修正のない関連問題も、緩和策はセッション進捗の無効化</h3>
         <p>前述の2件とは別に、修正版がまだ無い問題（CVE-2026-115560）が出ている。PHP公式の10月23日付の案内は、セッションのアップロード進捗機能を切る回避策を勧めている。</p>
         <p class="src">出典: <a href="https://vulmon.com/vulnerabilitydetails?qid=CVE-2026-115560">Vulmon</a></p>
       </div>
-      <p class="note">本日は取得できたソースが限られ、技術面は2本にとどめた。</p>
+      <div class="item">
+        <h3>豪当局、マルウェアAmadeyの管理基盤に侵入し18万台を切り離す</h3>
+        <p>オーストラリア信号局（ASD）が、Amadeyを使う犯罪者のバックエンドに入り、世界の感染端末約18万台へのアクセスを断ったと発表した。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/australia-gets-into-amadey-malware.html">The Hacker News</a></p>
+      </div>
+      <div class="item">
+        <h3>Microsoft Authenticator（Android）の欠陥、権限なしのアプリが仕事用トークンを窃取</h3>
+        <p>権限を持たない悪意あるアプリがTeamsなど正規のMicrosoftアプリになりすまし、職場アカウントのサインイントークンを集められた。Microsoftは修正済み。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html">The Hacker News</a></p>
+      </div>
+      <div class="item">
+        <h3>Appleが悪用済みのCoreGraphics脆弱性の修正を旧機種へ</h3>
+        <p>CVE-2026-86950（CVSS 8.8、境界外書き込み）の修正を、月曜に古いiPhone・iPad向けへ移植した。実際の攻撃で悪用されたもの。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/apple-backports-fix-for-exploited.html">The Hacker News</a></p>
+      </div>
     </section>
 
     <section>
