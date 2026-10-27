@@ -29,14 +29,19 @@ python scripts/build_archive.py
 
 Python 3 の標準ライブラリだけで動く。
 
-## Cloudflare Pages の設定
+## Cloudflare の設定
 
-Git連携で自動デプロイする。ビルドはしない。
+### Workers(静的アセット)
+
+Git連携(Workers Builds)で自動デプロイする。ビルドはしない。設定はリポジトリ内のファイルで持つ。
 
 | 項目 | 値 |
 | --- | --- |
-| Framework preset | None |
 | Build command | (空) |
-| Build output directory | `/`(リポジトリのルート) |
+| Deploy command | `npx wrangler deploy`(既定) |
+| `wrangler.jsonc` | `assets.directory` を `./`(リポジトリのルート)にしてある |
+| `.assetsignore` | `README.md`、`scripts/`、設定ファイルを公開対象から外す |
 
-`README.md` や `scripts/` もルートに含まれるため公開される。非公開にしたい情報は置かない。
+### Pages
+
+Pagesを使う場合は、Build command を空、Build output directory を `/` にする。この場合は `.assetsignore` が効かず、`README.md` や `scripts/` も公開される。非公開にしたい情報は置かない。
