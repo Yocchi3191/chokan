@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>朝刊</title>
 <style>
-/* layout: 新聞の紙面。脆弱性は大見出し、他は2段組（狭い幅では1段） */
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
 :root {
   --paper: #f3f0e8;
   --ink: #1d1b18;
@@ -34,21 +34,21 @@ body {
 .sheet { max-width: 960px; margin: 0 auto; }
 .mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
 .mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
-.date { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
 h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
-h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
 .front { margin-bottom: 22px; }
 .front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
 .cols > * { min-width: 0; }
 .item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
 .item p { margin: 0; }
-h3, p { word-break: auto-phrase; }
 .cve { font-size: 14px; }
 .cve b { color: var(--accent); }
 .src { font-size: 12px; color: var(--sub); margin-top: 2px; }
 .src a { color: var(--sub); text-underline-offset: 2px; }
-.note { font-size: 12.5px; color: var(--sub); }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
 section { margin-bottom: 22px; min-width: 0; }
 .col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
 .col-wrap > * { min-width: 0; }
@@ -60,102 +60,109 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <body lang="ja">
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date"><span>令和8年10月28日（水）</span></div>
+  <div class="date">令和8年10月28日（水）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">PHPの重大な脆弱性2件、CISAの「悪用確認済みリスト」に追加</p>
-    <p>PHP本体のメモリ破壊と内部状態の不整合に関する2件（CVE-2026-109618／109619）が10月26日付で登録された。PHP公式は10月21日に修正版（8.5.12、8.4.27、8.3.36、8.2.35）を公開済みと報じられており、サポート外の8.1以前は更新手段がないため入れ替えが必要だ。</p>
-    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html">The Hacker News</a>／<a href="https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation">Recorded Future</a></p>
+    <p class="lead">PHP本体に緊急の脆弱性2件、悪用確認でCISAの警戒リスト入り</p>
+    <p>PHPのメモリ破壊と古い内部状態の参照に起因する2件が26日に登録された。8.2〜8.5系の各修正版より前が対象で、認証なしで遠隔からコードを実行されるおそれがある。27日にはAdobe CommerceとBrotliの2件も加わった。</p>
+    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html">The Hacker News</a></p>
 
     <div class="cols">
       <div>
-        <div class="item cve"><p><b>CVE-2026-109618</b>　PHP Group / PHP「メモリ破壊」（10/26追加）</p></div>
-        <div class="item cve"><p><b>CVE-2026-109619</b>　PHP Group / PHP「内部リクエスト状態の不整合」（10/26追加）</p></div>
+        <div class="item cve"><p><b>CVE-2026-109618</b>　PHP「メモリ破壊」。8.2.35／8.3.36／8.4.27／8.5.12未満が対象。CVSS 9.8（緊急）。</p></div>
+        <div class="item cve"><p><b>CVE-2026-109619</b>　PHP「内部リクエスト状態の不整合」。対象は同上。CVSS 8.1（高）。</p></div>
       </div>
       <div>
-        <div class="item cve"><p><b>CVE-2026-48356</b>　Adobe Commerce / Magento「危険な種類のファイルの無制限アップロード」（10/27追加）</p></div>
-        <div class="item cve"><p><b>CVE-2026-111497</b>　Google Brotli「戻り値の未検査」（10/27追加）</p></div>
+        <div class="item cve"><p><b>CVE-2026-48356</b>　Adobe Commerce／Magento「危険なファイルのアップロード」。2.4.9以前など各系統の最新パッチ未満。CVSS 9.3（緊急）。</p></div>
+        <div class="item cve"><p><b>CVE-2026-111497</b>　Google Brotli「戻り値の未検査」。1.0.10／1.1.1／1.2.1未満。Node.js、.NET、Bunなども影響。CVSS 9.8（緊急）。</p></div>
       </div>
     </div>
-    <p class="note">KEV登録分に加え、NVDで10/26〜27に公開されたCVSS 10.0を2件掲載（いずれも悪用の確認は未報告）。</p>
+    <p class="src">NVD: <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109618">109618</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109619">109619</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-48356">48356</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111497">111497</a></p>
+
     <div class="cols">
-      <div>
-        <div class="item cve"><p><b>CVE-2026-105781</b>　Adobe Campaign Classic「SQLインジェクション」CVSS 10.0。現在のユーザー権限で任意コード実行につながる（10/27公開）</p></div>
+      <div class="item">
+        <h3>Oracle E-Business Suiteの認証不備に、パッチ公開の直後から攻撃</h3>
+        <p>CVSS 9.8の欠陥に対し、修正の数日後から攻撃者による探索が始まった。未適用の環境は急ぎたい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html">The Hacker News</a></p>
       </div>
-      <div>
-        <div class="item cve"><p><b>CVE-2026-116508</b>　TOTOLINK A950RG のinfostat.cgi（機器情報CGI）の欠陥、CVSS 10.0（10/26公開）</p></div>
+      <div class="item">
+        <h3>16年前からのUEFIの欠陥、OS起動前にコード実行の恐れ</h3>
+        <p>多くのファームウェアが使うEDK IIの問題で、ネットワークブートするサーバーが狙われうる。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html">The Hacker News</a></p>
       </div>
     </div>
-    <p class="src">出典: <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-105781">NVD</a>／<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-116508">NVD</a></p>
+
+    <div class="cols">
+      <div class="item">
+        <h3>Adobe Commerceへの攻撃で数百店舗が侵害、Brotli悪用の通信も出現</h3>
+        <p>「PolyShell」と呼ばれる攻撃でECサイトが被害を受けた。前述の2件との関連で警戒が必要。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html">The Hacker News</a></p>
+      </div>
+      <div class="item">
+        <h3>Microsoft Authenticatorの欠陥で、権限のないAndroidアプリが勤務先のトークンを取得可能に</h3>
+        <p>6.2606.4246で修正済み。更新されていない端末は確認したい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html">The Hacker News</a></p>
+      </div>
+    </div>
   </section>
 
   <div class="col-wrap">
     <section>
       <h2>技術</h2>
       <div class="item">
-        <h3>ダウンロード済みの指示書ファイルでコーディングエージェントが乗っ取られる</h3>
-        <p>フォルダに置かれた悪意ある AGENTS.md を読み込んだエージェントが、不正なnpmパッケージの導入を試みた。研究者はCodexで再現し、Claude Codeでも認証トークン漏えいにつながる手口を示したと報じられた。信頼できない場所の指示ファイルを作業ディレクトリに置かないのが基本。</p>
-        <p class="src">出典: <a href="https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/">BleepingComputer</a>／<a href="https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html">The Hacker News</a></p>
+        <h3>Tailscale SSHに欠陥、侵害された端末から他サーバーのroot権限へ到達の恐れ</h3>
+        <p>転送処理の不備が原因で、1.104.4で修正された。自前のネットワークでTailscale SSHを使っているなら更新しておきたい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html">The Hacker News</a></p>
       </div>
       <div class="item">
-        <h3>PHPには修正のない関連問題も、緩和策はセッション進捗の無効化</h3>
-        <p>前述の2件とは別に、修正版がまだ無い問題（CVE-2026-115560）が出ている。PHP公式の10月23日付の案内は、セッションのアップロード進捗機能を切る回避策を勧めている。</p>
-        <p class="src">出典: <a href="https://vulmon.com/vulnerabilitydetails?qid=CVE-2026-115560">Vulmon</a></p>
+        <h3>未公開のAIモデルが、主要OSとブラウザの欠陥をつないで実証用の攻撃コードを作成</h3>
+        <p>複数の小さな欠陥を連鎖させて動く攻撃に仕立てたという。報告と修正は済んでおり、AIによる脆弱性探索の水準を示す例になった。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/anthropics-unreleased-ai-model-chains.html">The Hacker News</a></p>
       </div>
       <div class="item">
-        <h3>豪当局、マルウェアAmadeyの管理基盤に侵入し18万台を切り離す</h3>
-        <p>オーストラリア信号局（ASD）が、Amadeyを使う犯罪者のバックエンドに入り、世界の感染端末約18万台へのアクセスを断ったと発表した。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/australia-gets-into-amadey-malware.html">The Hacker News</a></p>
-      </div>
-      <div class="item">
-        <h3>Microsoft Authenticator（Android）の欠陥、権限なしのアプリが仕事用トークンを窃取</h3>
-        <p>権限を持たない悪意あるアプリがTeamsなど正規のMicrosoftアプリになりすまし、職場アカウントのサインイントークンを集められた。Microsoftは修正済み。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html">The Hacker News</a></p>
-      </div>
-      <div class="item">
-        <h3>Appleが悪用済みのCoreGraphics脆弱性の修正を旧機種へ</h3>
-        <p>CVE-2026-86950（CVSS 8.8、境界外書き込み）の修正を、月曜に古いiPhone・iPad向けへ移植した。実際の攻撃で悪用されたもの。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/apple-backports-fix-for-exploited.html">The Hacker News</a></p>
+        <h3>OpenAIの会話圧縮機能の不備で、保護されるはずの推論内容が平文で取り出せた</h3>
+        <p>研究者が、通常は暗号化されて見えない推論の中身を引き出す手順を示した。長い対話を自動で圧縮する仕組みを自作するときの注意材料になる。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/openai-compaction-flaw-let-researchers.html">The Hacker News</a></p>
       </div>
     </section>
 
     <div class="col">
-    <section>
-      <h2>カルチャー</h2>
-      <div class="item">
-        <h3>『サイバーパンク：エッジランナーズ2』がNetflixで配信開始</h3>
-        <p>10月20日に配信が始まった。秋アニメの続編・新作が多い期で、同じ期には『薬屋のひとりごと』第3期なども並ぶ。</p>
-        <p class="src">出典: <a href="https://selectra.jp/streaming/news/autumn-anime-guide-2026">セレクトラ 秋アニメガイド</a></p>
-      </div>
-      <div class="item">
-        <h3>約30年ぶりの新アニメ化『魔法騎士レイアース』</h3>
-        <p>1990年代の人気作が今期あらためて映像化されている。往年のファンが見比べる楽しみがある。</p>
-        <p class="src">出典: <a href="https://selectra.jp/streaming/news/autumn-anime-guide-2026">セレクトラ 秋アニメガイド</a></p>
-      </div>
-    </section>
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item">
+          <h3>『あかね噺』第2期、ティザー映像と追加キャストを公開</h3>
+          <p>落語を題材にした作品の続編で、放送は2027年1月。25日に新しいビジュアルと映像が出た。</p>
+          <p class="src">出典: <a href="https://www.animenewsnetwork.com/news/2026-10-25/akane-banashi-season-2-anime-reveals-more-cast-teaser-trailer/.243178">Anime News Network</a></p>
+        </div>
+        <div class="item">
+          <h3>任天堂のインディー紹介番組「Indie World」、28日夜に配信</h3>
+          <p>Switch／Switch 2向けの新作インディーゲームの情報が出る見込みで、23時から。</p>
+          <p class="src">出典: <a href="https://invenglobal.com/articles/27801/nintendo-to-host-indie-world-showcase-on-october-28-at-11-pm-unveiling-new-indie-games">Inven Global</a></p>
+        </div>
+      </section>
 
-    <section>
-      <h2>よもやま</h2>
-      <div class="item">
-        <h3>園芸：秋植え球根は11月上旬までが目安</h3>
-        <p>チューリップやスイセンなどの秋植え球根は、10月上旬から11月上旬が植え付けの適期とされる。芽が出かけたものや、触ってスカスカなものは避けるとよい。</p>
-        <p class="src">出典: <a href="https://allabout.co.jp/gm/gc/72698/">All About</a></p>
-      </div>
-      <div class="item">
-        <h3>天文：オリオン座流星群は22日未明に極大だった</h3>
-        <p>国立天文台の案内では極大は10月22日ごろ。明け方に月が沈んだ後が見やすい時間帯だった。1時間あたり5〜20個ほどと資料で幅がある。</p>
-        <p class="src">出典: <a href="https://bestcalendar.jp/guides/sora/orionids">暦のサイト</a></p>
-      </div>
-    </section>
+      <section>
+        <h2>よもやま</h2>
+        <div class="item">
+          <h3>相撲：九州場所の新番付、沖縄出身初の三役と最年長再入幕</h3>
+          <p>美ノ海が新小結に上がり、沖縄県出身力士として初の三役入り。玉鷲は41歳11カ月での再入幕で、昭和以降の最年長となる。初日は11月8日。</p>
+          <p class="src">出典: <a href="https://news.yahoo.co.jp/articles/8330bd425d95b6cda9845313fce58a31eb242919">デイリースポーツ</a></p>
+        </div>
+        <div class="item">
+          <h3>競馬：11月1日の天皇賞・秋、春の古馬二冠馬が出走予定</h3>
+          <p>東京競馬場で行われる第174回。前年覇者のマスカレードボールと、大阪杯・天皇賞・春を制したクロワデュノールの名が挙がっている。</p>
+          <p class="src">出典: <a href="https://www.moocota.com/tennou-shou-aki-result/">Moocota</a></p>
+        </div>
+      </section>
 
-    <section>
-      <h2>コラム</h2>
-      <div class="item">
-        <h3>「br」は鳥ではなく圧縮方式</h3>
-        <p>ブラウザが送るリクエストの Accept-Encoding に出てくる <code>br</code> は、Googleが作った圧縮方式Brotliの略。今日の脆弱性の欄にもその名前が載った。</p>
-      </div>
-    </section>
+      <section>
+        <h2>コラム</h2>
+        <div class="item">
+          <h3>番付の右肩にある「蒙御免」</h3>
+          <p>相撲の番付の右上には「蒙御免（御免を蒙る）」と書かれる。江戸時代、興行にお上の許しが要った名残だ。よもやまの欄の番付も、その伝統の延長にある。</p>
+        </div>
+      </section>
     </div>
   </div>
 </div>
