@@ -1,6 +1,6 @@
 # chokan
 
-毎朝の「ペライチ朝刊」を静的HTMLで公開するリポジトリ。
+毎朝の「朝刊」を静的HTMLで公開するリポジトリ。
 
 ## 構成
 
@@ -11,6 +11,7 @@
 | `archive.html` | バックナンバー一覧。日付降順(生成物) |
 | `robots.txt` | 全クローラーを拒否 |
 | `scripts/build_archive.py` | `index.html` と `archive.html` の生成と、HTMLの検査 |
+| `compose.yaml` | ローカルでのビルドと表示確認用のコンテナ定義 |
 
 ## 運用
 
@@ -29,6 +30,30 @@ python scripts/build_archive.py
 
 Python 3 の標準ライブラリだけで動く。
 
+## 紙面の仕様(号の生成側が守ること)
+
+号のHTMLは毎朝のタスクが生成する。テンプレートはこのリポジトリに無いため、次の仕様をタスク側にそろえる。
+
+- `<body>` に `lang="ja"` を付ける(`word-break: auto-phrase` が日本語の文節で折り返すのに必要。無いと語の途中で改行される)
+- 題号は「朝刊」。日付行は和暦だけ(`令和8年10月28日（水）`)
+- 欄名は、上から順に「脆弱性」(全幅の大見出し)、「技術」、「カルチャー」、「よもやま」、「コラム」
+- 「技術」は左列、「カルチャー」「よもやま」「コラム」は右列に積む(`<div class="col-wrap">` の直下に、左列の `section` と右列の `<div class="col">` を置く。`col` にスタイルは無く、右列をグリッドの1アイテムにまとめるための構造用。省くと右列の3欄が別々のアイテムになり、段組みが崩れる)
+
+## ローカル環境(コンテナ)
+
+Docker があれば、Python を入れなくてもビルドと表示確認ができる。
+
+```bash
+docker compose run --rm build   # index.html / archive.html を生成
+docker compose up serve         # http://localhost:8000/ で確認
+```
+
+Linux でホストの UID が 1000 以外のときは、生成物の所有者がずれないよう、UID と GID を渡して実行する(`UID` は bash では export されていないため)。
+
+```bash
+UID=$(id -u) GID=$(id -g) docker compose run --rm build
+```
+
 ## Cloudflare の設定
 
 ### Workers(静的アセット)
@@ -39,7 +64,7 @@ Git連携(Workers Builds)で自動デプロイする。ビルドはしない。�
 | --- | --- |
 | Build command | (空) |
 | Deploy command | `npx wrangler deploy`(既定) |
-| `wrangler.jsonc` | `assets.directory` を `./`(リポジトリのルート)にしてある |
+| `wrangler.jsonc` | `assets.directory` を `./`(リポジトリのルート)にしてある。ブランチのプレビュー(`npx wrangler preview`)に必要な `previews` を空で置いてある |
 | `.assetsignore` | `README.md`、`scripts/`、設定ファイルを公開対象から外す |
 
 ### Pages
