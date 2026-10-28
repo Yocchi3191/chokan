@@ -3,5 +3,6 @@
 .assetsignore
 node_modules
 README.md
+compose.yaml
 scripts
 wrangler.jsonc

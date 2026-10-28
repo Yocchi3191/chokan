@@ -1,0 +1,17 @@
+services:
+  build:
+    image: python:3.13-slim
+    user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /work
+    volumes:
+      - .:/work
+    command: python scripts/build_archive.py
+
+  serve:
+    image: python:3.13-slim
+    working_dir: /work
+    volumes:
+      - .:/work:ro
+    ports:
+      - "127.0.0.1:8000:8000"
+    command: python -m http.server 8000
