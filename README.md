@@ -63,7 +63,7 @@ Git連携(Workers Builds)で自動デプロイする。ビルドはしない。�
 | --- | --- |
 | Build command | (空) |
 | Deploy command | `npx wrangler deploy`(既定) |
-| `wrangler.jsonc` | `assets.directory` を `./`(リポジトリのルート)にしてある |
+| `wrangler.jsonc` | `assets.directory` を `./`(リポジトリのルート)にしてある。ブランチのプレビュー(`npx wrangler preview`)に必要な `previews` を空で置いてある |
 | `.assetsignore` | `README.md`、`scripts/`、設定ファイルを公開対象から外す |
 
 ### Pages
