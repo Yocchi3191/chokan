@@ -61,25 +61,19 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年10月28日（水）</div>
+  <div class="date">令和8年10月29日（木）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">PHP本体に緊急の脆弱性2件、悪用確認でCISAの警戒リスト入り</p>
-    <p>PHPのメモリ破壊と古い内部状態の参照に起因する2件が26日に登録された。8.2〜8.5系の各修正版より前が対象で、認証なしで遠隔からコードを実行されるおそれがある。27日にはAdobe CommerceとBrotliの2件も加わった。</p>
-    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html">The Hacker News</a></p>
+    <p class="lead">Adobe CommerceとBrotliの重大な欠陥2件、悪用確認でCISAの警戒リスト入り</p>
+    <p>27日に登録された。ECサイト基盤のAdobe Commerce／Magentoは危険なファイルのアップロードを許し、すでに数百店舗が侵害されたと報じられている。Brotliは圧縮データの展開部の欠陥で、Node.jsや.NETなど広く使われる実行環境も更新対象になる。</p>
+    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html">The Hacker News</a></p>
 
     <div class="cols">
-      <div>
-        <div class="item cve"><p><b>CVE-2026-109618</b>　PHP「メモリ破壊」。8.2.35／8.3.36／8.4.27／8.5.12未満が対象。CVSS 9.8（緊急）。</p></div>
-        <div class="item cve"><p><b>CVE-2026-109619</b>　PHP「内部リクエスト状態の不整合」。対象は同上。CVSS 8.1（高）。</p></div>
-      </div>
-      <div>
-        <div class="item cve"><p><b>CVE-2026-48356</b>　Adobe Commerce／Magento「危険なファイルのアップロード」。2.4.9以前など各系統の最新パッチ未満。CVSS 9.3（緊急）。</p></div>
-        <div class="item cve"><p><b>CVE-2026-111497</b>　Google Brotli「戻り値の未検査」。1.0.10／1.1.1／1.2.1未満。Node.js、.NET、Bunなども影響。CVSS 9.8（緊急）。</p></div>
-      </div>
+      <div class="item cve"><p><b>CVE-2026-48356</b>　Adobe Commerce／Magento「危険なファイルのアップロード」。2.4.9以前など各系統の最新パッチ未満。CVSS 9.3（緊急）。</p></div>
+      <div class="item cve"><p><b>CVE-2026-111497</b>　Google Brotli「戻り値の未検査」。1.0.10／1.1.1／1.2.1未満。Node.js、.NET、Bunなども影響。CVSS 9.8（緊急）。</p></div>
     </div>
-    <p class="src">NVD: <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109618">109618</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109619">109619</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-48356">48356</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111497">111497</a></p>
+    <p class="src">NVD: <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-48356">48356</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111497">111497</a></p>
 
     <div class="cols">
       <div class="item">
@@ -96,14 +90,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     <div class="cols">
       <div class="item">
-        <h3>Adobe Commerceへの攻撃で数百店舗が侵害、Brotli悪用の通信も出現</h3>
-        <p>「PolyShell」と呼ばれる攻撃でECサイトが被害を受けた。前述の2件との関連で警戒が必要。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html">The Hacker News</a></p>
+        <h3>PHP2Shellの攻撃で25台のサーバーが乗っ取られ、米政府関連ネットワークも侵害</h3>
+        <p>PHPの脆弱性とカーネルの権限昇格を組み合わせた手口。PHP本体の更新が済んでいるか確認したい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html">The Hacker News</a></p>
       </div>
       <div class="item">
-        <h3>Microsoft Authenticatorの欠陥で、権限のないAndroidアプリが勤務先のトークンを取得可能に</h3>
-        <p>6.2606.4246で修正済み。更新されていない端末は確認したい。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html">The Hacker News</a></p>
+        <h3>Oracle PeopleSoftのゼロデイは、3つのSSRF欠陥の連鎖だった</h3>
+        <p>5月から悪用されてきた問題の正体が判明した。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html">The Hacker News</a></p>
       </div>
     </div>
   </section>
@@ -135,11 +129,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
           <h3>『あかね噺』第2期、ティザー映像と追加キャストを公開</h3>
           <p>落語を題材にした作品の続編で、放送は2027年1月。25日に新しいビジュアルと映像が出た。</p>
           <p class="src">出典: <a href="https://www.animenewsnetwork.com/news/2026-10-25/akane-banashi-season-2-anime-reveals-more-cast-teaser-trailer/.243178">Anime News Network</a></p>
-        </div>
-        <div class="item">
-          <h3>任天堂のインディー紹介番組「Indie World」、28日夜に配信</h3>
-          <p>Switch／Switch 2向けの新作インディーゲームの情報が出る見込みで、23時から。</p>
-          <p class="src">出典: <a href="https://invenglobal.com/articles/27801/nintendo-to-host-indie-world-showcase-on-october-28-at-11-pm-unveiling-new-indie-games">Inven Global</a></p>
         </div>
       </section>
 
