@@ -47,6 +47,12 @@ docker compose run --rm build   # index.html / archive.html を生成
 docker compose up serve         # http://localhost:8000/ で確認
 ```
 
+Linux でホストの UID が 1000 以外のときは、生成物の所有者がずれないよう、UID と GID を渡して実行する(`UID` は bash では export されていないため)。
+
+```bash
+UID=$(id -u) GID=$(id -g) docker compose run --rm build
+```
+
 ## Cloudflare の設定
 
 ### Workers(静的アセット)
