@@ -1,0 +1,162 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
+:root {
+  --paper: #f3f0e8;
+  --ink: #1d1b18;
+  --sub: #5a554d;
+  --rule: #1d1b18;
+  --hair: #b9b2a4;
+  --accent: #8a1c1c;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--serif);
+  font-size: 15px; line-height: 1.75; margin: 0;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 960px; margin: 0 auto; }
+.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
+.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
+.front { margin-bottom: 22px; }
+.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.cols > * { min-width: 0; }
+.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
+.item p { margin: 0; }
+.cve { font-size: 14px; }
+.cve b { color: var(--accent); }
+.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.src a { color: var(--sub); text-underline-offset: 2px; }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
+section { margin-bottom: 22px; min-width: 0; }
+.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.col-wrap > * { min-width: 0; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .cols, .col-wrap { grid-template-columns: 1fr; }
+}
+</style>
+<body lang="ja">
+<div class="sheet">
+  <header class="mast"><h1>朝刊</h1></header>
+  <div class="date">令和8年10月30日（金）</div>
+
+  <section class="front">
+    <h2>脆弱性</h2>
+    <p class="lead">VMware ESXのゼロデイとLinuxカーネルの欠陥、悪用確認でCISAの警戒リスト入り</p>
+    <p>どちらも28日に登録された。ESXは監査ログに残さず操作できる欠陥で、中国関連の攻撃グループが米国の法律関連分野への攻撃で使ったと報じられている。Linuxカーネルは通信データの扱いの不備で、ローカルから権限を奪える。</p>
+    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html">The Hacker News</a></p>
+
+    <div class="cols">
+      <div class="item cve"><p><b>CVE-2026-41709</b>　Broadcom VMware ESX「ログ記録の不備」。ESX 9.1／9.0／8.0の各最新パッチ未満（VCFなども対象）。CVSS 2.7（低）だが悪用が確認済み。</p></div>
+      <div class="item cve"><p><b>CVE-2026-46300</b>　Linuxカーネル「変数の初期化漏れ」。5.15は5.15.208未満、6.1は6.1.174未満など各系統の修正版未満。RHELやSiemens製品にも影響。CVSS 7.8（高）。</p></div>
+    </div>
+    <p class="src">NVD: <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-41709">41709</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-46300">46300</a></p>
+
+    <div class="cols">
+      <div class="item">
+        <h3>Cisco ASA／FTDのVPN欠陥、悪用が確認されパッチ公開</h3>
+        <p>認証なしでファイアウォールを停止させられる（CVSS 8.6）。VPNを公開している環境は更新を急ぎたい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html">The Hacker News</a></p>
+      </div>
+      <div class="item">
+        <h3>Palo Alto Networksの管理画面に対し、PHP2Shell系の欠陥を突く攻撃</h3>
+        <p>ネットに公開された管理インターフェースが標的で、ベンダーが勧告を更新した。管理画面は外から見えない構成にしたい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html">The Hacker News</a></p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="item">
+        <h3>LinuxカーネルのTCP実装に深刻な欠陥、主要ディストリビューションが影響</h3>
+        <p>認証なしの遠隔攻撃でroot権限のコマンド実行に至りうるとされる（CVSS 9.8）。UbuntuやRed Hatの更新を確認したい。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html">The Hacker News</a></p>
+      </div>
+      <div class="item">
+        <h3>GitLabのCVSS 10.0の欠陥、修正の1週間後にAlpine Linuxへ攻撃の試み</h3>
+        <p>CI設定内の細工した正規表現からコード実行に至る。Alpine側は侵害の証拠を見つけていない。</p>
+        <p class="src">出典: <a href="https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html">The Hacker News</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="col-wrap">
+    <section>
+      <h2>技術</h2>
+      <div class="item">
+        <h3>PHP 8.6のRC4が公開、重大なリモートコード実行の修正を同梱</h3>
+        <p>新機能の追加は終わり、以降は不具合修正のみ。正式版は11月19日の予定で、Drupalなどの対応確認はまだ続いている。</p>
+        <p class="src">出典: <a href="https://www.linuxcompatible.org/story/php-860-rc4-ships-hours-after-team-emergencypatches-critical-rce-flaw/">Linux Compatible</a></p>
+      </div>
+      <div class="item">
+        <h3>Anthropic、法務向けにClaudeの契約審査や引用確認など約18の専用ツールを追加</h3>
+        <p>案件受付や規制の追跡、法域ごとの調査といった作業をClaude上で動かせる。業務別の部品を並べるAI活用の流れが続いている。</p>
+        <p class="src">出典: <a href="https://www.abajournal.com/news/article/anthropic-raises-the-bar-with-claude-for-legal-artifacts-law-specific-interactive-tools">ABA Journal</a></p>
+      </div>
+      <div class="item">
+        <h3>Tailscaleが27日から31日まで、製品発表の連続イベントを開催</h3>
+        <p>テーマはネットワーク管理の簡素化。個別の発表内容は公式ブログで順次確認したい。</p>
+        <p class="src">出典: <a href="https://tailscale.com/webinars/tailscale-winter-update-2026">Tailscale</a></p>
+      </div>
+    </section>
+
+    <div class="col">
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item">
+          <h3>『新 美味しんぼ』が2027年に放送、追加キャストと主題歌歌手が発表</h3>
+          <p>東西新聞社の面々に飛田展男さんや中博史さんらが加わる。オープニングは牧野由依さん、エンディングはSkoop On Somebodyが担当する。</p>
+          <p class="src">出典: <a href="https://animeanime.jp/article/2026/10/29/104313.html">アニメ！アニメ！</a></p>
+        </div>
+        <div class="item">
+          <h3>『ドカポンキングダム コネクト2』、2027年夏に世界同時発売</h3>
+          <p>新要素として「大共闘戦」とキャラクターメイキングが入る。</p>
+          <p class="src">出典: <a href="https://www.4gamer.net/games/053/G105326/20261027023/">4Gamer.net</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>よもやま</h2>
+        <div class="item">
+          <h3>競馬の天皇賞（秋）は11月1日、前年覇者と春の二冠馬の対決に</h3>
+          <p>東京競馬場の芝2000メートルで行われる。前年の勝ち馬と、大阪杯と天皇賞（春）を制した馬が並び、2強の構図と見られている。</p>
+          <p class="src">出典: <a href="https://www.keibanomiryoku.com/%e5%a4%a9%e7%9a%87%e8%b3%9e%e7%a7%8b">競馬の魅力</a></p>
+        </div>
+        <div class="item">
+          <h3>大相撲の九州場所は、福岡国際センターで11月8日に初日</h3>
+          <p>千秋楽は22日の15日間。入場券は完売とされ、会場で見るには公式の再販売が現実的な入手先になる。</p>
+          <p class="src">出典: <a href="https://times.abema.tv/sumo/basho">ABEMA TIMES</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>コラム</h2>
+        <div class="item">
+          <p>オリオン座流星群の流れ星の正体は、ハレー彗星がまいた塵だ。地球は毎年10月下旬、その通り道を横切っている。次に彗星本体が戻るのは2061年ごろなので、塵のほうが先に何度も訪れる計算になる。</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+</body>
