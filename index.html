@@ -61,101 +61,47 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年10月30日（金）</div>
+  <div class="date">令和8年10月31日（土）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">VMware ESXのゼロデイとLinuxカーネルの欠陥、悪用確認でCISAの警戒リスト入り</p>
-    <p>どちらも28日に登録された。ESXは監査ログに残さず操作できる欠陥で、中国関連の攻撃グループが米国の法律関連分野への攻撃で使ったと報じられている。Linuxカーネルは通信データの扱いの不備で、ローカルから権限を奪える。</p>
-    <p class="src">出典: <a href="https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json">CISA KEV（GitHubミラー）</a>／<a href="https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html">The Hacker News</a></p>
-
+    <p class="lead">GitLabにCVSS10.0の遠隔コード実行の欠陥、悪用確認でCISAが警戒リストに追加</p>
+    <p>認証なしで、CI/CD設定に細工した正規表現を仕込まれるとサーバー上で任意のコードを動かされる恐れがある。対象は19.2〜19.4系の未修正版で、29日に登録された。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html">出典: The Hacker News</a></p>
     <div class="cols">
-      <div class="item cve"><p><b>CVE-2026-41709</b>　Broadcom VMware ESX「ログ記録の不備」。ESX 9.1／9.0／8.0の各最新パッチ未満（VCFなども対象）。CVSS 2.7（低）だが悪用が確認済み。</p></div>
-      <div class="item cve"><p><b>CVE-2026-46300</b>　Linuxカーネル「変数の初期化漏れ」。5.15は5.15.208未満、6.1は6.1.174未満など各系統の修正版未満。RHELやSiemens製品にも影響。CVSS 7.8（高）。</p></div>
-    </div>
-    <p class="src">NVD: <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-41709">41709</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-46300">46300</a></p>
-
-    <div class="cols">
-      <div class="item">
-        <h3>Cisco ASA／FTDのVPN欠陥、悪用が確認されパッチ公開</h3>
-        <p>認証なしでファイアウォールを停止させられる（CVSS 8.6）。VPNを公開している環境は更新を急ぎたい。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html">The Hacker News</a></p>
+      <div>
+        <div class="item cve"><p><b>CVE-2026-97229 GitLab CE/EE</b>　19.2.0〜19.2.7、19.3.0〜19.3.4、19.4.0〜19.4.1が対象。CVSS 10.0（Critical）。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-97229">出典: NVD</a></p></div>
+        <div class="item cve"><p><b>CVE-2026-76418 Cisco ASA／FTD</b>　SSL VPNの二要素設定時の論理エラーで、認証なしに再起動させられる。ASA 9.16.4.104未満など多数の版が対象。CVSS 8.6（High）。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76418">出典: NVD</a></p></div>
       </div>
-      <div class="item">
-        <h3>Palo Alto Networksの管理画面に対し、PHP2Shell系の欠陥を突く攻撃</h3>
-        <p>ネットに公開された管理インターフェースが標的で、ベンダーが勧告を更新した。管理画面は外から見えない構成にしたい。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html">The Hacker News</a></p>
+      <div>
+        <div class="item cve"><p><b>CVE-2026-111357 Ivanti Connect Secure</b>　ルート権限への昇格。22.8R2系と25.1.1.3未満が対象。CVSS 7.0（High）。30日に登録。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357">出典: NVD</a></p></div>
+        <div class="item cve"><p><b>CVE-2026-118527 Ivanti Connect Secure</b>　予測可能な識別子の生成に関する欠陥。30日に登録。NVD取得失敗（該当データなし）。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527">出典: NVD</a></p></div>
       </div>
     </div>
-
-    <div class="cols">
-      <div class="item">
-        <h3>LinuxカーネルのTCP実装に深刻な欠陥、主要ディストリビューションが影響</h3>
-        <p>認証なしの遠隔攻撃でroot権限のコマンド実行に至りうるとされる（CVSS 9.8）。UbuntuやRed Hatの更新を確認したい。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html">The Hacker News</a></p>
-      </div>
-      <div class="item">
-        <h3>GitLabのCVSS 10.0の欠陥、修正の1週間後にAlpine Linuxへ攻撃の試み</h3>
-        <p>CI設定内の細工した正規表現からコード実行に至る。Alpine側は侵害の証拠を見つけていない。</p>
-        <p class="src">出典: <a href="https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html">The Hacker News</a></p>
-      </div>
-    </div>
+    <div class="item"><h3>WordPress本体のRCE、24時間で約6万3千件の攻撃試行</h3><p>4.7〜7.1.3が対象でCVSS 8.1。修正公開の直後から攻撃が観測されている。更新が済んでいない環境は急ぎたい。</p><p class="src"><a href="https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html">出典: The Hacker News</a></p></div>
   </section>
 
   <div class="col-wrap">
-    <section>
-      <h2>技術</h2>
-      <div class="item">
-        <h3>PHP 8.6のRC4が公開、重大なリモートコード実行の修正を同梱</h3>
-        <p>新機能の追加は終わり、以降は不具合修正のみ。正式版は11月19日の予定で、Drupalなどの対応確認はまだ続いている。</p>
-        <p class="src">出典: <a href="https://www.linuxcompatible.org/story/php-860-rc4-ships-hours-after-team-emergencypatches-critical-rce-flaw/">Linux Compatible</a></p>
-      </div>
-      <div class="item">
-        <h3>Anthropic、法務向けにClaudeの契約審査や引用確認など約18の専用ツールを追加</h3>
-        <p>案件受付や規制の追跡、法域ごとの調査といった作業をClaude上で動かせる。業務別の部品を並べるAI活用の流れが続いている。</p>
-        <p class="src">出典: <a href="https://www.abajournal.com/news/article/anthropic-raises-the-bar-with-claude-for-legal-artifacts-law-specific-interactive-tools">ABA Journal</a></p>
-      </div>
-      <div class="item">
-        <h3>Tailscaleが27日から31日まで、製品発表の連続イベントを開催</h3>
-        <p>テーマはネットワーク管理の簡素化。個別の発表内容は公式ブログで順次確認したい。</p>
-        <p class="src">出典: <a href="https://tailscale.com/webinars/tailscale-winter-update-2026">Tailscale</a></p>
-      </div>
-    </section>
-
+    <div class="col">
+      <section>
+        <h2>技術</h2>
+        <div class="item"><h3>Ollamaが音声合成に対応、第一弾はPhonon</h3><p>24日からApple Siliconのmacで読み上げモデルが動かせる。英仏独西葡の5言語で、OpenAI互換の音声APIも使える。WindowsとLinuxは後日対応の予定。</p><p class="src"><a href="https://docs.ollama.com/capabilities/speech">出典: Ollama Docs</a></p></div>
+        <div class="item"><h3>Unity 7は12月にベータ、正式版は2027年第1四半期</h3><p>Unity 6の延長で破壊的変更なしとされる。コマンドラインと公開APIに加え、コーディングエージェントをつなぐ無料のMCP接続も予告されている。</p><p class="src"><a href="https://automaton-media.com/articles/newsjp/20260721-455892/">出典: AUTOMATON</a></p></div>
+      </section>
+    </div>
     <div class="col">
       <section>
         <h2>カルチャー</h2>
-        <div class="item">
-          <h3>『新 美味しんぼ』が2027年に放送、追加キャストと主題歌歌手が発表</h3>
-          <p>東西新聞社の面々に飛田展男さんや中博史さんらが加わる。オープニングは牧野由依さん、エンディングはSkoop On Somebodyが担当する。</p>
-          <p class="src">出典: <a href="https://animeanime.jp/article/2026/10/29/104313.html">アニメ！アニメ！</a></p>
-        </div>
-        <div class="item">
-          <h3>『ドカポンキングダム コネクト2』、2027年夏に世界同時発売</h3>
-          <p>新要素として「大共闘戦」とキャラクターメイキングが入る。</p>
-          <p class="src">出典: <a href="https://www.4gamer.net/games/053/G105326/20261027023/">4Gamer.net</a></p>
-        </div>
+        <div class="item"><h3>『薬屋のひとりごと』第3期、金曜夜に放送中</h3><p>全24話の分割2クールで、舞台は後宮から市井や隣国へ広がる。劇場版の新作も12月に公開予定。</p><p class="src"><a href="https://anime.eiga.com/news/127250/">出典: アニメ！アニメ！</a></p></div>
       </section>
-
       <section>
         <h2>よもやま</h2>
-        <div class="item">
-          <h3>競馬の天皇賞（秋）は11月1日、前年覇者と春の二冠馬の対決に</h3>
-          <p>東京競馬場の芝2000メートルで行われる。前年の勝ち馬と、大阪杯と天皇賞（春）を制した馬が並び、2強の構図と見られている。</p>
-          <p class="src">出典: <a href="https://www.keibanomiryoku.com/%e5%a4%a9%e7%9a%87%e8%b3%9e%e7%a7%8b">競馬の魅力</a></p>
-        </div>
-        <div class="item">
-          <h3>大相撲の九州場所は、福岡国際センターで11月8日に初日</h3>
-          <p>千秋楽は22日の15日間。入場券は完売とされ、会場で見るには公式の再販売が現実的な入手先になる。</p>
-          <p class="src">出典: <a href="https://times.abema.tv/sumo/basho">ABEMA TIMES</a></p>
-        </div>
+        <div class="item"><h3>九州場所の新番付、41歳の玉鷲が最高齢で再入幕</h3><p>昭和以降で最高齢の再入幕。美ノ海は沖縄出身初の三役で、3人が新入幕。11月8日初日。</p><p class="src"><a href="https://kumanichi.com/articles/2050557">出典: 熊本日日新聞</a></p></div>
+        <div class="item"><h3>ローカル線の設備点検にスマホゲームを活用</h3><p>JR東日本が男鹿線で実証実験を開始。点検の判断を遊び感覚の作業に置き換える試みだ。</p><p class="src"><a href="https://www.jreast.co.jp/press/">出典: JR東日本 プレスリリース</a></p></div>
       </section>
-
       <section>
         <h2>コラム</h2>
-        <div class="item">
-          <p>オリオン座流星群の流れ星の正体は、ハレー彗星がまいた塵だ。地球は毎年10月下旬、その通り道を横切っている。次に彗星本体が戻るのは2061年ごろなので、塵のほうが先に何度も訪れる計算になる。</p>
-        </div>
+        <p>プログラマーは、ハロウィン（Oct 31）とクリスマス（Dec 25）の区別がつかない。8進数の31は、10進数の25だから。今日の脆弱性の欄より、こちらの方が平和なジョークである。</p>
       </section>
     </div>
   </div>
