@@ -61,46 +61,46 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年11月1日（日）</div>
+  <div class="date">令和8年11月2日（月）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">Ivanti Connect Secureの欠陥2件が悪用確認でCISAの警戒リストに、連鎖すると認証なしでroot権限を奪われる</p>
-    <p>セキュリティ企業の調査では、認証回避・コード実行・権限昇格を組み合わせた攻撃が確認された。連邦機関の修正期限は1件目が11月2日、2件目が11月13日。VPN装置を使う組織は版の確認を急ぎたい。</p>
-    <p class="src"><a href="https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html">出典: The Hacker News</a></p>
+    <p class="lead">LXDとMicroCloudに満点CVSS 10.0の欠陥、秘密鍵なしで信頼済みクライアントになりすませる</p>
+    <p>証明書の検証が不十分で、公開証明書さえ手に入れば、HTTPS API経由で正規クライアントとしてログインされる。悪用の兆候はまだない。LXDは6.10.1などの修正版へ更新し、更新後に版を確認したい。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html">出典: The Hacker News</a></p>
     <div class="cols">
       <div>
-        <div class="item cve"><p><b>CVE-2026-111357 Ivanti Connect Secure</b>　ローカルからのroot権限昇格。22.8R2〜22.8R2.5、および25.1.1.3未満の25.1系が対象。CVSS 7.0（High）。30日に登録。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357">出典: NVD</a></p></div>
+        <div class="item cve"><p><b>CVE-2026-112816 LXD / MicroCloud</b>　LXD 6.9未満・5.21.8未満・5.0.10未満・4.0.14未満が対象。CVSS 10.0（Critical）。回避策はなく、APIへの到達を絞るのが暫定策。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html">出典: The Hacker News</a></p></div>
       </div>
       <div>
-        <div class="item cve"><p><b>CVE-2026-118527 Ivanti Connect Secure</b>　予測可能な識別子を悪用するファイルアップロードの欠陥。22.8R2.6で修正。報道ではCVSS 4.3。NVD取得失敗（該当データなし）。</p><p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527">出典: NVD</a></p></div>
+        <div class="item cve"><p><b>Incusも同じ欠陥</b>　7.6.0で修正済み。設定による回避策はなく、待ち受けへのネットワークアクセス制限のみ。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html">出典: The Hacker News</a></p></div>
       </div>
     </div>
-    <div class="item"><h3>ChatGPTの共有リンクで利用者のセッション上にコードを実行される恐れ</h3><p>細工した共有リンクを開くと、ログイン中の非公開の会話を読まれる可能性があった。報告から8日後にOpenAIが修正済みで、最も深刻な区分として扱われた。</p><p class="src"><a href="https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html">出典: The Hacker News</a></p></div>
+    <p class="note">CISA KEV: 直近2日の追加なし（最新は10月30日分）。NVDの取得対象も該当なし。</p>
   </section>
 
   <div class="col-wrap">
     <div class="col">
       <section>
         <h2>技術</h2>
-        <div class="item"><h3>Claude Codeに「既存ゲームの再現を作らない」指示が入った</h3><p>2.1.314の指示文に、名前を変えただけの再現も含めて作らないよう書かれているという。公式の変更履歴には載っておらず、Anthropicはコメントしていない。</p><p class="src"><a href="https://madrobot.blog/2026/10/30/claude-code-rule-no-existing-game-recreations">出典: MadRobot</a></p></div>
-        <div class="item"><h3>複数のエージェントが見るコードレビュー機能が登場</h3><p>Claude Codeのウェブ版で、TeamsとEnterpriseの利用者から使える。レビューを複数のエージェントに分担させる仕組みだ。</p><p class="src"><a href="https://thenewstack.io/anthropic-launches-a-multi-agent-code-review-tool-for-claude-code/">出典: The New Stack</a></p></div>
-        <div class="item"><h3>基盤エンジニアリングの責任者「人が書く時代は終わった」</h3><p>約200人のチームで、コードはほぼ全てClaudeが書いているとの発言。数字の厳密さは未確認で、現場の実感を語ったものとして読みたい。</p><p class="src"><a href="https://pbxscience.com/anthropic-platform-engineering-team-says-claude-now-writes-all-of-its-code/">出典: PBX Science</a></p></div>
+        <div class="item"><h3>DeepSeekが開発会話を読んで動くコーディングエージェントを公開</h3><p>チャットを監視して問題を見つけ、指示を待たずに修正へ進む試作品。DeepSeekは公式製品ではなく研究用と説明している。Claude Codeを意識した動きだ。</p><p class="src"><a href="https://www.tradingview.com/news/stocktwits:5324e9f96094b:0-weeks-ahead-of-expected-anthropic-ipo-deepseek-launches-autonomous-coding-agent-to-take-on-claude-code/">出典: TradingView</a></p></div>
+        <div class="item"><h3>Claude Sonnet 5.5が登場、前世代より3割超高速</h3><p>10月18日の発表で、Sonnet 5からの改良版。あわせて、先回りして動くOpus 5.5系エージェント「Claude Duet」が米国のProとMax利用者に開放された。</p><p class="src"><a href="https://aiweekly.co/ai-news-today/anthropic-news">出典: AI Weekly</a></p></div>
+        <div class="item"><h3>OpenAIがGitpod改めOnaを買収、Codexを常駐型へ</h3><p>ドイツ発のスタートアップを取り込み、クラウド上で動き続けるエージェントをCodexに足す狙い。開発環境をまるごと握る流れが続く。</p><p class="src"><a href="https://dentro.de/ai/news/">出典: dentro.de</a></p></div>
       </div>
     </div>
     <div class="col">
       <section>
         <h2>カルチャー</h2>
-        <div class="item"><h3>『呪術廻戦』渋谷事変の日にABEMAで第2期を無料放送</h3><p>10月31日にちなみ、第2期「懐玉・玉折／渋谷事変」の全話を無料で流している。第4期「死滅回游 後編」の制作も決まっている。</p><p class="src"><a href="https://news.yahoo.co.jp/articles/2de8a816fd6d424456e9facac49b1af3356155c4">出典: アニメ！アニメ！（Yahoo!ニュース）</a></p></div>
+        <div class="item"><h3>タヌキの配達員が自転車で駆ける『TANUKI: Pon's Summer』、11月10日発売</h3><p>田舎町を自転車で走り、トリックを決めながら荷物を届ける箱庭ゲーム。祭りに向けた神社の再建資金も稼ぐ。PCと主要機で出て、Game Passにも初日から入る。</p><p class="src"><a href="https://automaton-media.com/articles/newsjp/20261028-476197/">出典: AUTOMATON</a></p></div>
       </section>
       <section>
         <h2>よもやま</h2>
-        <div class="item"><h3>今日は天皇賞（秋）、東京芝2000mに前年覇者らが集う</h3><p>15時40分発走。前年覇者のマスカレードボールに、大阪杯と天皇賞・春を制したクロワデュノールなどが出る。前走GIからのぶっつけ組が主流という。</p><p class="src"><a href="https://www.jra.go.jp/datafile/ranking/g1/2026/akiten.html">出典: JRA</a></p></div>
-        <div class="item"><h3>11月のしし座流星群は18日朝が極大、月は夜半に沈む</h3><p>極大は18日午前8時台の予想で、1時間に約15個。上弦の月が夜半に沈むため、17日深夜から明け方が見やすい。</p><p class="src"><a href="https://starwalk.space/ja/news/leonid-meteor-shower">出典: Star Walk</a></p></div>
+        <div class="item"><h3>大相撲九州場所は8日に初日、福岡で15日間</h3><p>会場の福岡国際センターには開催を告げる御免札が立った。前売りの初日分は2年続けて完売。千秋楽は22日だ。</p><p class="src"><a href="https://kumanichi.com/articles/2044389">出典: 熊本日日新聞</a></p></div>
+        <div class="item"><h3>おうし座流星群は5日ごろから、9日の新月が追い風</h3><p>南群は5日前後、北群は9〜12日ごろが見ごろ。月明かりがなく、1時間に数個ながら明るい火球が混じることがある。</p><p class="src"><a href="https://earthsky.org/astronomy-essentials/taurid-meteors-all-you-need-to-know/">出典: EarthSky</a></p></div>
       </section>
       <section>
         <h2>コラム</h2>
-        <p>日曜の朝刊に載るのは、競馬が「馬が走る前に人が全力で走り回る」競技だという話ではない。脆弱性の欄の期限が11月2日、つまり明日だという話である。月曜の朝に慌てるより、日曜に版を確認する方が、たいてい気が利いている。</p>
+        <p>CVSSは10.0が満点だが、満点がこれほど喜ばれない試験も珍しい。脆弱性の欄の更新作業は、月曜の朝一番にやっておくと一週間が軽い。</p>
       </section>
     </div>
   </div>
