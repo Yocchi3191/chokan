@@ -1,0 +1,110 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
+:root {
+  --paper: #f3f0e8;
+  --ink: #1d1b18;
+  --sub: #5a554d;
+  --rule: #1d1b18;
+  --hair: #b9b2a4;
+  --accent: #8a1c1c;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--serif);
+  font-size: 15px; line-height: 1.75; margin: 0;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 960px; margin: 0 auto; }
+.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
+.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
+.front { margin-bottom: 22px; }
+.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.cols > * { min-width: 0; }
+.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
+.item p { margin: 0; }
+.cve { font-size: 14px; }
+.cve b { color: var(--accent); }
+.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.src a { color: var(--sub); text-underline-offset: 2px; }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
+section { margin-bottom: 22px; min-width: 0; }
+.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.col-wrap > * { min-width: 0; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .cols, .col-wrap { grid-template-columns: 1fr; }
+}
+</style>
+<body lang="ja">
+<div class="sheet">
+  <header class="mast"><h1>朝刊</h1></header>
+  <div class="date">令和8年11月5日（木）</div>
+
+  <section class="front">
+    <h2>脆弱性</h2>
+    <p class="lead">WordPress本体の競合状態の欠陥が、更新作業中を狙って悪用されていると米当局が確認</p>
+    <p>CVE-2026-119977は、ソフトウェアの更新中に任意のコードを実行されるおそれがある欠陥で、CISAが悪用確認済みの一覧に加えた。NVDでは4.7.0〜7.1.3が対象、CVSS 8.1（高）。サイトを運営している場合は最新版への更新を急ぎたい。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html">出典: The Hacker News</a></p>
+    <div class="cols">
+      <div>
+        <div class="item cve"><p><b>Debian・Ubuntu（APT）</b>　通信を改ざんできる攻撃者が、検証済みのパッケージを差し替え、root権限でコードを動かせる。各ディストリビューションが4日に勧告を公開した。</p><p class="src"><a href="https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Ruby on Rails</b>　Active StorageでImageMagickを使うアプリは、細工した画像のアップロードだけでサーバ上のファイルを書き換えられる。8.1.4.1と8.0.5.2で修正済み。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Android</b>　ユーザー操作なしで遠隔からコードを実行される恐れのある重大な欠陥（CVE-2026-58868）。Android 14〜17が対象で、パッチレベル2026-11-01以降で解消する。</p><p class="src"><a href="https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html">出典: The Hacker News</a></p></div>
+      </div>
+      <div>
+        <div class="item cve"><p><b>Xenハイパーバイザ</b>　悪意ある仮想マシンが、同じホスト上の他のVMのメモリを読み書きできる。4.6以降が対象で、パッチは公開済み。回避策は確認されていない。</p><p class="src"><a href="https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>SonicWall GMS 9.5.2以前</b>　認証なしで内部ファイルを読まれる欠陥（CVE-2026-109593、CVSS 9.1）。サポート終了のため修正されず、移行が必要。</p><p class="src"><a href="https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html">出典: The Hacker News</a></p></div>
+      </div>
+    </div>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのため見出しは記事の報道による。NVD: CVE-2026-119977のみ取得し、他は記事記載の深刻度。</p>
+  </section>
+
+  <div class="col-wrap">
+    <div class="col">
+      <section>
+        <h2>技術</h2>
+        <div class="item"><h3>Ollama、手元のMacで動く音声読み上げに対応</h3><p>10月下旬から、Gradium製の小型モデルでテキストを声に出せる。回答の生成中から読み上げが始まり、OpenAI互換のAPIで呼び出せる。今はApple Siliconのみで、WindowsとLinuxは準備中。</p><p class="src"><a href="https://notebookcheck.net/Ollama-for-Mac-Local-text-to-speech-now-available-in-German-too.1435014.0.html">出典: Notebookcheck</a></p></div>
+        <div class="item"><h3>RailsのImageMagick経由の欠陥は、画像を扱う全アプリの点検材料に</h3><p>脆弱性の欄にある件は、画像変換ライブラリを入れたまま放置していると同じ穴が開く。依存の版数を棚卸しする良い機会。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html">出典: The Hacker News</a></p></div>
+      </section>
+    </div>
+    <div class="col">
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item"><h3>ローグライクアクション『CRYMELIGHT』、きょう5日発売</h3><p>FURYUの新作で、Steam、Nintendo Switch 2、PlayStation 5向けに同時に出る。</p><p class="src"><a href="https://www.gamespress.com/INDIE-Live-Expo-Showcased-200-Titles-Returning-for-Winter-Showcase-Q4-">出典: Games Press</a></p></div>
+        <div class="item"><h3>新作映画『楽園追放 心のレゾナンス』、13日に公開</h3><p>2014年の劇場アニメの続編にあたる新作映画。公開まで1週間余りに迫った。</p><p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典: MANTANWEB</a></p></div>
+      </section>
+      <section>
+        <h2>よもやま</h2>
+        <div class="item"><h3>深海1,800メートルで青いタコ、ガラパゴス沖で新種に</h3><p>5月の発表。研究チームがMicroeledone galapagensisと名付けた。深い海にはまだ名前のない生きものが多い。</p><p class="src"><a href="https://www.dawn.com/news/2003109">出典: Dawn</a></p></div>
+        <div class="item"><h3>海の新種、1年で1,121種。前年より54%増</h3><p>海洋生物の調査計画「Ocean Census」が5月に発表した。調べる船と技術が増えるほど、新種の数も伸びていく。</p><p class="src"><a href="https://www.goodmorningamerica.com/news/story/marine-scientists-discover-1100-new-species-new-record-133078227">出典: Good Morning America</a></p></div>
+      </section>
+      <section>
+        <h2>コラム</h2>
+        <p>きょう11月5日は「津波防災の日」。1854年の大地震の日付を、旧暦のまま新暦の同じ月日に当てはめて決めた。実際の西暦の日付とは少しずれているが、防災の記念日としては、覚えやすい日がそのまま残った。</p>
+      </section>
+    </div>
+  </div>
+</div>
+</body>
