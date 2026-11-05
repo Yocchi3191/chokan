@@ -1,0 +1,107 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
+:root {
+  --paper: #f3f0e8;
+  --ink: #1d1b18;
+  --sub: #5a554d;
+  --rule: #1d1b18;
+  --hair: #b9b2a4;
+  --accent: #8a1c1c;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--serif);
+  font-size: 15px; line-height: 1.75; margin: 0;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 960px; margin: 0 auto; }
+.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
+.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
+.front { margin-bottom: 22px; }
+.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.cols > * { min-width: 0; }
+.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
+.item p { margin: 0; }
+.cve { font-size: 14px; }
+.cve b { color: var(--accent); }
+.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.src a { color: var(--sub); text-underline-offset: 2px; }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
+section { margin-bottom: 22px; min-width: 0; }
+.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.col-wrap > * { min-width: 0; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .cols, .col-wrap { grid-template-columns: 1fr; }
+}
+</style>
+<body lang="ja">
+<div class="sheet">
+  <header class="mast"><h1>朝刊</h1></header>
+  <div class="date">令和8年11月6日（金）</div>
+
+  <section class="front">
+    <h2>脆弱性</h2>
+    <p class="lead">2024年に修正済みのAppleの欠陥が実際の攻撃に使われ、米当局が悪用確認済みの一覧に追加</p>
+    <p>CVE-2024-27834は、読み書きできる攻撃者がポインタ認証を回避できる欠陥。NVDではiOS・iPadOS 17.5未満、macOS 14.5未満、Safari 17.5未満などが対象で、CVSS 5.5（中）。汚染されたサイト経由でCookieを盗むマルウェアが配られており、更新が済んでいない端末は早めに最新化したい。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html">出典: The Hacker News</a></p>
+    <div class="cols">
+      <div>
+        <div class="item cve"><p><b>Zyxel GS1900スイッチ</b>　6月の修正を当てた機器でも同じ手口が通ると判明。認証なしでroot権限のコマンドを実行できる恐れがあり、10機種向けに新ファームウェアが出ている。</p><p class="src"><a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html">出典: The Hacker News</a></p></div>
+      </div>
+      <div>
+        <div class="item cve"><p><b>AIペンテストツールのDockerイメージ</b>　バックドア入りの配布物により、62台の管理画面がroot権限を奪われる状態に。インドのCERTが金融分野への攻撃として注意を促した。</p><p class="src"><a href="https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html">出典: The Hacker News</a></p></div>
+      </div>
+    </div>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのためKEV追加日は記事の記載による。NVD: CVE-2024-27834のみ取得し、他は記事記載の内容。</p>
+  </section>
+
+  <div class="col-wrap">
+    <div class="col">
+      <section>
+        <h2>技術</h2>
+        <div class="item"><h3>Claude Code、2.1.318が公開</h3><p>認証状態の詳細表示やクラウドセッションの選択肢が増え、CLIとVS Code、デスクトップ版の不具合も直った。直前の版ではセキュリティ検査も強化されている。</p><p class="src"><a href="https://releasebot.io/updates/anthropic/claude-code">出典: Releasebot</a></p></div>
+        <div class="item"><h3>Claudeのプロジェクト機能に「調整役」、複数のセッションへ仕事を分担</h3><p>開発の目標を細かな作業に分け、並列で動くClaude Codeに割り振る仕組み。一部の有料利用者向けにベータ提供中で、利用枠の消費が速い点には注意が要る。</p><p class="src"><a href="https://thenewstack.io/claude-code-parallel-projects/">出典: The New Stack</a></p></div>
+        <div class="item"><h3>Unite Tokyo 2026、17日開催。ロボティクスの講演も</h3><p>渋谷で開かれるUnityの国内イベント。シミュレーションでのロボット開発の紹介や、URPへの移行、Unity 6のコンテンツ管理などが予定されている。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/10/19/28371.html">出典: GameBusiness.jp</a></p></div>
+      </section>
+    </div>
+    <div class="col">
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item"><h3>『装甲騎兵ボトムズ 灰色の魔女』、第1部が20日に上映開始</h3><p>往年のロボットアニメの新作で、第1部から劇場で公開される。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/09/03/187218.html">出典: インサイド</a></p></div>
+      </section>
+      <section>
+        <h2>よもやま</h2>
+        <div class="item"><h3>大相撲九州場所、あす8日に初日</h3><p>福岡国際センターで22日まで。秋場所で6度目の優勝を飾った横綱・大の里に、横綱・豊昇龍と大関・安青錦が挑む。入場券は完売だが、無料のネット中継がある。</p><p class="src"><a href="https://www.pref.fukuoka.lg.jp/press-release/yokozuna081027.html">出典: 福岡県</a></p></div>
+        <div class="item"><h3>しし座流星群は17日深夜から18日未明が見ごろ</h3><p>1時間に十数個ほどの見込み。月明かりの影響は解説によって見立てが分かれる。その前、12日ごろにはおうし座北流星群の極大も控える。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
+      </section>
+      <section>
+        <h2>コラム</h2>
+        <p>11月の和風月名「霜月」は、霜の降りる月が縮まった言葉だという説が有力だ。パッチも霜が降りる前に当てておくと、冬に慌てずに済む。</p>
+      </section>
+    </div>
+  </div>
+</div>
+</body>

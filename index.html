@@ -61,49 +61,46 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年11月5日（木）</div>
+  <div class="date">令和8年11月6日（金）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">WordPress本体の競合状態の欠陥が、更新作業中を狙って悪用されていると米当局が確認</p>
-    <p>CVE-2026-119977は、ソフトウェアの更新中に任意のコードを実行されるおそれがある欠陥で、CISAが悪用確認済みの一覧に加えた。NVDでは4.7.0〜7.1.3が対象、CVSS 8.1（高）。サイトを運営している場合は最新版への更新を急ぎたい。</p>
-    <p class="src"><a href="https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html">出典: The Hacker News</a></p>
+    <p class="lead">2024年に修正済みのAppleの欠陥が実際の攻撃に使われ、米当局が悪用確認済みの一覧に追加</p>
+    <p>CVE-2024-27834は、読み書きできる攻撃者がポインタ認証を回避できる欠陥。NVDではiOS・iPadOS 17.5未満、macOS 14.5未満、Safari 17.5未満などが対象で、CVSS 5.5（中）。汚染されたサイト経由でCookieを盗むマルウェアが配られており、更新が済んでいない端末は早めに最新化したい。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html">出典: The Hacker News</a></p>
     <div class="cols">
       <div>
-        <div class="item cve"><p><b>Debian・Ubuntu（APT）</b>　通信を改ざんできる攻撃者が、検証済みのパッケージを差し替え、root権限でコードを動かせる。各ディストリビューションが4日に勧告を公開した。</p><p class="src"><a href="https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html">出典: The Hacker News</a></p></div>
-        <div class="item cve"><p><b>Ruby on Rails</b>　Active StorageでImageMagickを使うアプリは、細工した画像のアップロードだけでサーバ上のファイルを書き換えられる。8.1.4.1と8.0.5.2で修正済み。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html">出典: The Hacker News</a></p></div>
-        <div class="item cve"><p><b>Android</b>　ユーザー操作なしで遠隔からコードを実行される恐れのある重大な欠陥（CVE-2026-58868）。Android 14〜17が対象で、パッチレベル2026-11-01以降で解消する。</p><p class="src"><a href="https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Zyxel GS1900スイッチ</b>　6月の修正を当てた機器でも同じ手口が通ると判明。認証なしでroot権限のコマンドを実行できる恐れがあり、10機種向けに新ファームウェアが出ている。</p><p class="src"><a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html">出典: The Hacker News</a></p></div>
       </div>
       <div>
-        <div class="item cve"><p><b>Xenハイパーバイザ</b>　悪意ある仮想マシンが、同じホスト上の他のVMのメモリを読み書きできる。4.6以降が対象で、パッチは公開済み。回避策は確認されていない。</p><p class="src"><a href="https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html">出典: The Hacker News</a></p></div>
-        <div class="item cve"><p><b>SonicWall GMS 9.5.2以前</b>　認証なしで内部ファイルを読まれる欠陥（CVE-2026-109593、CVSS 9.1）。サポート終了のため修正されず、移行が必要。</p><p class="src"><a href="https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>AIペンテストツールのDockerイメージ</b>　バックドア入りの配布物により、62台の管理画面がroot権限を奪われる状態に。インドのCERTが金融分野への攻撃として注意を促した。</p><p class="src"><a href="https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html">出典: The Hacker News</a></p></div>
       </div>
     </div>
-    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのため見出しは記事の報道による。NVD: CVE-2026-119977のみ取得し、他は記事記載の深刻度。</p>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのためKEV追加日は記事の記載による。NVD: CVE-2024-27834のみ取得し、他は記事記載の内容。</p>
   </section>
 
   <div class="col-wrap">
     <div class="col">
       <section>
         <h2>技術</h2>
-        <div class="item"><h3>Ollama、手元のMacで動く音声読み上げに対応</h3><p>10月下旬から、Gradium製の小型モデルでテキストを声に出せる。回答の生成中から読み上げが始まり、OpenAI互換のAPIで呼び出せる。今はApple Siliconのみで、WindowsとLinuxは準備中。</p><p class="src"><a href="https://notebookcheck.net/Ollama-for-Mac-Local-text-to-speech-now-available-in-German-too.1435014.0.html">出典: Notebookcheck</a></p></div>
-        <div class="item"><h3>RailsのImageMagick経由の欠陥は、画像を扱う全アプリの点検材料に</h3><p>脆弱性の欄にある件は、画像変換ライブラリを入れたまま放置していると同じ穴が開く。依存の版数を棚卸しする良い機会。</p><p class="src"><a href="https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html">出典: The Hacker News</a></p></div>
+        <div class="item"><h3>Claude Code、2.1.318が公開</h3><p>認証状態の詳細表示やクラウドセッションの選択肢が増え、CLIとVS Code、デスクトップ版の不具合も直った。直前の版ではセキュリティ検査も強化されている。</p><p class="src"><a href="https://releasebot.io/updates/anthropic/claude-code">出典: Releasebot</a></p></div>
+        <div class="item"><h3>Claudeのプロジェクト機能に「調整役」、複数のセッションへ仕事を分担</h3><p>開発の目標を細かな作業に分け、並列で動くClaude Codeに割り振る仕組み。一部の有料利用者向けにベータ提供中で、利用枠の消費が速い点には注意が要る。</p><p class="src"><a href="https://thenewstack.io/claude-code-parallel-projects/">出典: The New Stack</a></p></div>
+        <div class="item"><h3>Unite Tokyo 2026、17日開催。ロボティクスの講演も</h3><p>渋谷で開かれるUnityの国内イベント。シミュレーションでのロボット開発の紹介や、URPへの移行、Unity 6のコンテンツ管理などが予定されている。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/10/19/28371.html">出典: GameBusiness.jp</a></p></div>
       </section>
     </div>
     <div class="col">
       <section>
         <h2>カルチャー</h2>
-        <div class="item"><h3>ローグライクアクション『CRYMELIGHT』、きょう5日発売</h3><p>FURYUの新作で、Steam、Nintendo Switch 2、PlayStation 5向けに同時に出る。</p><p class="src"><a href="https://www.gamespress.com/INDIE-Live-Expo-Showcased-200-Titles-Returning-for-Winter-Showcase-Q4-">出典: Games Press</a></p></div>
-        <div class="item"><h3>新作映画『楽園追放 心のレゾナンス』、13日に公開</h3><p>2014年の劇場アニメの続編にあたる新作映画。公開まで1週間余りに迫った。</p><p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典: MANTANWEB</a></p></div>
+        <div class="item"><h3>『装甲騎兵ボトムズ 灰色の魔女』、第1部が20日に上映開始</h3><p>往年のロボットアニメの新作で、第1部から劇場で公開される。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/09/03/187218.html">出典: インサイド</a></p></div>
       </section>
       <section>
         <h2>よもやま</h2>
-        <div class="item"><h3>深海1,800メートルで青いタコ、ガラパゴス沖で新種に</h3><p>5月の発表。研究チームがMicroeledone galapagensisと名付けた。深い海にはまだ名前のない生きものが多い。</p><p class="src"><a href="https://www.dawn.com/news/2003109">出典: Dawn</a></p></div>
-        <div class="item"><h3>海の新種、1年で1,121種。前年より54%増</h3><p>海洋生物の調査計画「Ocean Census」が5月に発表した。調べる船と技術が増えるほど、新種の数も伸びていく。</p><p class="src"><a href="https://www.goodmorningamerica.com/news/story/marine-scientists-discover-1100-new-species-new-record-133078227">出典: Good Morning America</a></p></div>
+        <div class="item"><h3>大相撲九州場所、あす8日に初日</h3><p>福岡国際センターで22日まで。秋場所で6度目の優勝を飾った横綱・大の里に、横綱・豊昇龍と大関・安青錦が挑む。入場券は完売だが、無料のネット中継がある。</p><p class="src"><a href="https://www.pref.fukuoka.lg.jp/press-release/yokozuna081027.html">出典: 福岡県</a></p></div>
+        <div class="item"><h3>しし座流星群は17日深夜から18日未明が見ごろ</h3><p>1時間に十数個ほどの見込み。月明かりの影響は解説によって見立てが分かれる。その前、12日ごろにはおうし座北流星群の極大も控える。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
       </section>
       <section>
         <h2>コラム</h2>
-        <p>きょう11月5日は「津波防災の日」。1854年の大地震の日付を、旧暦のまま新暦の同じ月日に当てはめて決めた。実際の西暦の日付とは少しずれているが、防災の記念日としては、覚えやすい日がそのまま残った。</p>
+        <p>11月の和風月名「霜月」は、霜の降りる月が縮まった言葉だという説が有力だ。パッチも霜が降りる前に当てておくと、冬に慌てずに済む。</p>
       </section>
     </div>
   </div>
