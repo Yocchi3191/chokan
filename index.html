@@ -61,48 +61,50 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年11月6日（金）</div>
+  <div class="date">令和8年11月7日（土）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">2024年に修正済みのAppleの欠陥が実際の攻撃に使われ、米当局が悪用確認済みの一覧に追加</p>
-    <p>CVE-2024-27834は、読み書きできる攻撃者がポインタ認証を回避できる欠陥。NVDではiOS・iPadOS 17.5未満、macOS 14.5未満、Safari 17.5未満などが対象で、CVSS 5.5（中）。汚染されたサイト経由でCookieを盗むマルウェアが配られており、更新が済んでいない端末は早めに最新化したい。</p>
-    <p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html">出典: The Hacker News</a></p>
+    <p class="lead">OpenSSHの認証回避、公開から数時間で攻撃が始まりハニーポットでroot権限が奪われる</p>
+    <p>CVE-2026-123158は、musl libcを使いPAMを無効にしたLinux（Alpineなど）のsshdで、一部のアカウントに256〜1024文字の任意のパスワードでログインできてしまう欠陥。NVDでは10.6p2未満が対象で、CVSS 8.1（高）。該当する構成なら10.6p2へ更新を。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html">出典: The Hacker News</a></p>
     <div class="cols">
       <div>
-        <div class="item cve"><p><b>Zyxel GS1900スイッチ</b>　6月の修正を当てた機器でも同じ手口が通ると判明。認証なしでroot権限のコマンドを実行できる恐れがあり、10機種向けに新ファームウェアが出ている。</p><p class="src"><a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>WordPress</b>　CVE-2026-119977（4.7〜7.1.3が対象）が実際に悪用中で、米当局の悪用確認済み一覧にも載った。7.1.4へ更新するが、更新作業の最中にも一瞬だけ狙われる恐れがあり、更新前にwp-content/upgradeへのWebアクセスを止めるよう研究者が勧めている。</p><p class="src"><a href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Barracudaのメール保護装置</b>　認証回避（CVSS 9.3）とコマンド注入を組み合わせると、ログインなしでroot権限を取れる。修正は3日に公開済みで、攻撃手順も詳しく出回っている。</p><p class="src"><a href="https://thehackernews.com/2026/11/barracuda-flaws-could-be-chained-to.html">出典: The Hacker News</a></p></div>
       </div>
       <div>
-        <div class="item cve"><p><b>AIペンテストツールのDockerイメージ</b>　バックドア入りの配布物により、62台の管理画面がroot権限を奪われる状態に。インドのCERTが金融分野への攻撃として注意を促した。</p><p class="src"><a href="https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Windowsのペイント</b>　リモートコード実行の欠陥CVE-2026-83844の修正が出たが、Windows Updateでは届かない。Microsoft Storeでアプリの更新を確認する必要がある。</p><p class="src"><a href="https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html">出典: The Hacker News</a></p></div>
       </div>
     </div>
-    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのためKEV追加日は記事の記載による。NVD: CVE-2024-27834のみ取得し、他は記事記載の内容。</p>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのためKEV掲載は記事の記載による。NVD: CVE-2026-123158のみ取得（評価は「受付済み」の段階）、他は記事記載の内容。</p>
   </section>
 
   <div class="col-wrap">
     <div class="col">
       <section>
         <h2>技術</h2>
-        <div class="item"><h3>Claude Code、2.1.318が公開</h3><p>認証状態の詳細表示やクラウドセッションの選択肢が増え、CLIとVS Code、デスクトップ版の不具合も直った。直前の版ではセキュリティ検査も強化されている。</p><p class="src"><a href="https://releasebot.io/updates/anthropic/claude-code">出典: Releasebot</a></p></div>
-        <div class="item"><h3>Claudeのプロジェクト機能に「調整役」、複数のセッションへ仕事を分担</h3><p>開発の目標を細かな作業に分け、並列で動くClaude Codeに割り振る仕組み。一部の有料利用者向けにベータ提供中で、利用枠の消費が速い点には注意が要る。</p><p class="src"><a href="https://thenewstack.io/claude-code-parallel-projects/">出典: The New Stack</a></p></div>
-        <div class="item"><h3>Unite Tokyo 2026、17日開催。ロボティクスの講演も</h3><p>渋谷で開かれるUnityの国内イベント。シミュレーションでのロボット開発の紹介や、URPへの移行、Unity 6のコンテンツ管理などが予定されている。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/10/19/28371.html">出典: GameBusiness.jp</a></p></div>
+        <div class="item"><h3>ブラウザ拡張がClaudeのDispatch機能を悪用し、利用者のPCでコードを実行できる</h3><p>claude.ai上でスクリプトを動かせる拡張機能から、Claude Desktopに任意の作業をさせられるという報告。スマホからタスクを送るDispatch機能が前提で、研究者によれば未修正。入れている拡張機能の見直しが先決。</p><p class="src"><a href="https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html">出典: The Hacker News</a></p></div>
+        <div class="item"><h3>Ollama、音声合成モデルに対応</h3><p>先月24日、Gradium製の「Phonon」を皮切りに読み上げモデルの実行に対応したと報じられた。ローカルで文章を音声にする用途が手元で試せる。</p><p class="src"><a href="https://aipicks.jp/news/20261025-ollama-phonon-100-5">出典: AIPicks</a></p></div>
+        <div class="item"><h3>Unite Tokyo 2026、17日に開催</h3><p>渋谷で開かれるUnityの国内イベント。ロボット開発のシミュレーション、URPへの移行、Unity 6のコンテンツ管理などが予定されている。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/10/19/28371.html">出典: GameBusiness.jp</a></p></div>
       </section>
     </div>
     <div class="col">
       <section>
         <h2>カルチャー</h2>
-        <div class="item"><h3>『装甲騎兵ボトムズ 灰色の魔女』、第1部が20日に上映開始</h3><p>往年のロボットアニメの新作で、第1部から劇場で公開される。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/09/03/187218.html">出典: インサイド</a></p></div>
+        <div class="item"><h3>『楽園追放』の完全新作劇場アニメ『心のレゾナンス』、13日公開</h3><p>2014年のSFアニメ映画の続編。公開が来週に迫っている。</p><p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典: MANTANWEB</a></p></div>
+        <div class="item"><h3>『装甲騎兵ボトムズ 灰色の魔女』、第1部は20日上映開始</h3><p>サンライズ50周年記念の2部作。往年のロボットアニメの新作が劇場に戻ってくる。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/09/03/187218.html">出典: インサイド</a></p></div>
       </section>
       <section>
         <h2>よもやま</h2>
-        <div class="item"><h3>大相撲九州場所、あす8日に初日</h3><p>福岡国際センターで22日まで。秋場所で6度目の優勝を飾った横綱・大の里に、横綱・豊昇龍と大関・安青錦が挑む。入場券は完売だが、無料のネット中継がある。</p><p class="src"><a href="https://www.pref.fukuoka.lg.jp/press-release/yokozuna081027.html">出典: 福岡県</a></p></div>
-        <div class="item"><h3>しし座流星群は17日深夜から18日未明が見ごろ</h3><p>1時間に十数個ほどの見込み。月明かりの影響は解説によって見立てが分かれる。その前、12日ごろにはおうし座北流星群の極大も控える。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
+        <div class="item"><h3>新幹線の最上級クラスに個室タイプ、東海道・山陽で導入済み</h3><p>「Supreme Class」の個室タイプが10月から走り、半個室タイプは2027年度の予定。近鉄は1日にレストラン列車「Les Saveurs 志摩」の運転を始めた。</p><p class="src"><a href="https://www.tetsudo.com/news/calendar/">出典: 鉄道コム</a></p></div>
+        <div class="item"><h3>この秋、日本は観測史上いちばん暖かい秋との報道</h3><p>紅葉の色づきや冬支度のずれにつながる話。庭木や草花の手入れも、例年より遅めでよさそうだ。</p><p class="src"><a href="https://english.aawsat.com/varieties/5087785-japan-witnesses-warmest-autumn-record">出典: Asharq Al-Awsat</a></p></div>
       </section>
       <section>
         <h2>コラム</h2>
-        <p>11月の和風月名「霜月」は、霜の降りる月が縮まった言葉だという説が有力だ。パッチも霜が降りる前に当てておくと、冬に慌てずに済む。</p>
+        <p>sshdに「256文字以上ならどれでも通る」扉があったという話は、鍵穴に長い針金を何本差しても開く金庫のようで、笑えない。脆弱性の欄の更新は、朝のうちに済ませたい。</p>
       </section>
     </div>
   </div>
 </div>
-</body>
+</body></html>

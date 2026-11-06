@@ -1,0 +1,109 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
+:root {
+  --paper: #f3f0e8;
+  --ink: #1d1b18;
+  --sub: #5a554d;
+  --rule: #1d1b18;
+  --hair: #b9b2a4;
+  --accent: #8a1c1c;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--serif);
+  font-size: 15px; line-height: 1.75; margin: 0;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 960px; margin: 0 auto; }
+.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
+.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
+.front { margin-bottom: 22px; }
+.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.cols > * { min-width: 0; }
+.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
+.item p { margin: 0; }
+.cve { font-size: 14px; }
+.cve b { color: var(--accent); }
+.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.src a { color: var(--sub); text-underline-offset: 2px; }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
+section { margin-bottom: 22px; min-width: 0; }
+.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.col-wrap > * { min-width: 0; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .cols, .col-wrap { grid-template-columns: 1fr; }
+}
+</style>
+<body lang="ja">
+<div class="sheet">
+  <header class="mast"><h1>朝刊</h1></header>
+  <div class="date">令和8年11月7日（土）</div>
+
+  <section class="front">
+    <h2>脆弱性</h2>
+    <p class="lead">OpenSSHの認証回避、公開から数時間で攻撃が始まりハニーポットでroot権限が奪われる</p>
+    <p>CVE-2026-123158は、musl libcを使いPAMを無効にしたLinux（Alpineなど）のsshdで、一部のアカウントに256〜1024文字の任意のパスワードでログインできてしまう欠陥。NVDでは10.6p2未満が対象で、CVSS 8.1（高）。該当する構成なら10.6p2へ更新を。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html">出典: The Hacker News</a></p>
+    <div class="cols">
+      <div>
+        <div class="item cve"><p><b>WordPress</b>　CVE-2026-119977（4.7〜7.1.3が対象）が実際に悪用中で、米当局の悪用確認済み一覧にも載った。7.1.4へ更新するが、更新作業の最中にも一瞬だけ狙われる恐れがあり、更新前にwp-content/upgradeへのWebアクセスを止めるよう研究者が勧めている。</p><p class="src"><a href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典: The Hacker News</a></p></div>
+        <div class="item cve"><p><b>Barracudaのメール保護装置</b>　認証回避（CVSS 9.3）とコマンド注入を組み合わせると、ログインなしでroot権限を取れる。修正は3日に公開済みで、攻撃手順も詳しく出回っている。</p><p class="src"><a href="https://thehackernews.com/2026/11/barracuda-flaws-could-be-chained-to.html">出典: The Hacker News</a></p></div>
+      </div>
+      <div>
+        <div class="item cve"><p><b>Windowsのペイント</b>　リモートコード実行の欠陥CVE-2026-83844の修正が出たが、Windows Updateでは届かない。Microsoft Storeでアプリの更新を確認する必要がある。</p><p class="src"><a href="https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html">出典: The Hacker News</a></p></div>
+      </div>
+    </div>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。そのためKEV掲載は記事の記載による。NVD: CVE-2026-123158のみ取得（評価は「受付済み」の段階）、他は記事記載の内容。</p>
+  </section>
+
+  <div class="col-wrap">
+    <div class="col">
+      <section>
+        <h2>技術</h2>
+        <div class="item"><h3>ブラウザ拡張がClaudeのDispatch機能を悪用し、利用者のPCでコードを実行できる</h3><p>claude.ai上でスクリプトを動かせる拡張機能から、Claude Desktopに任意の作業をさせられるという報告。スマホからタスクを送るDispatch機能が前提で、研究者によれば未修正。入れている拡張機能の見直しが先決。</p><p class="src"><a href="https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html">出典: The Hacker News</a></p></div>
+        <div class="item"><h3>Ollama、音声合成モデルに対応</h3><p>先月24日、Gradium製の「Phonon」を皮切りに読み上げモデルの実行に対応したと報じられた。ローカルで文章を音声にする用途が手元で試せる。</p><p class="src"><a href="https://aipicks.jp/news/20261025-ollama-phonon-100-5">出典: AIPicks</a></p></div>
+        <div class="item"><h3>Unite Tokyo 2026、17日に開催</h3><p>渋谷で開かれるUnityの国内イベント。ロボット開発のシミュレーション、URPへの移行、Unity 6のコンテンツ管理などが予定されている。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/10/19/28371.html">出典: GameBusiness.jp</a></p></div>
+      </section>
+    </div>
+    <div class="col">
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item"><h3>『楽園追放』の完全新作劇場アニメ『心のレゾナンス』、13日公開</h3><p>2014年のSFアニメ映画の続編。公開が来週に迫っている。</p><p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典: MANTANWEB</a></p></div>
+        <div class="item"><h3>『装甲騎兵ボトムズ 灰色の魔女』、第1部は20日上映開始</h3><p>サンライズ50周年記念の2部作。往年のロボットアニメの新作が劇場に戻ってくる。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/09/03/187218.html">出典: インサイド</a></p></div>
+      </section>
+      <section>
+        <h2>よもやま</h2>
+        <div class="item"><h3>新幹線の最上級クラスに個室タイプ、東海道・山陽で導入済み</h3><p>「Supreme Class」の個室タイプが10月から走り、半個室タイプは2027年度の予定。近鉄は1日にレストラン列車「Les Saveurs 志摩」の運転を始めた。</p><p class="src"><a href="https://www.tetsudo.com/news/calendar/">出典: 鉄道コム</a></p></div>
+        <div class="item"><h3>この秋、日本は観測史上いちばん暖かい秋との報道</h3><p>紅葉の色づきや冬支度のずれにつながる話。庭木や草花の手入れも、例年より遅めでよさそうだ。</p><p class="src"><a href="https://english.aawsat.com/varieties/5087785-japan-witnesses-warmest-autumn-record">出典: Asharq Al-Awsat</a></p></div>
+      </section>
+      <section>
+        <h2>コラム</h2>
+        <p>sshdに「256文字以上ならどれでも通る」扉があったという話は、鍵穴に長い針金を何本差しても開く金庫のようで、笑えない。脆弱性の欄の更新は、朝のうちに済ませたい。</p>
+      </section>
+    </div>
+  </div>
+</div>
+</body></html>
