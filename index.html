@@ -1,101 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>朝刊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
-:root {
-  --paper: #f3f0e8;
-  --ink: #1d1b18;
-  --sub: #5a554d;
-  --rule: #1d1b18;
-  --hair: #b9b2a4;
-  --accent: #8a1c1c;
-  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
-  color-scheme: dark;
-}
-body {
-  background: var(--paper); color: var(--ink); font-family: var(--serif);
-  font-size: 15px; line-height: 1.75; margin: 0;
-  padding-block: 20px 40px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-.sheet { max-width: 960px; margin: 0 auto; }
-.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
-.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
-.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
-h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
-h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
-p { word-break: auto-phrase; }
-.front { margin-bottom: 22px; }
-.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
-.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
-.cols > * { min-width: 0; }
-.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
-.item p { margin: 0; }
-.cve { font-size: 14px; }
-.cve b { color: var(--accent); }
-.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
-.src a { color: var(--sub); text-underline-offset: 2px; }
-.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
-section { margin-bottom: 22px; min-width: 0; }
-.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
-.col-wrap > * { min-width: 0; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-@media (max-width: 680px) {
-  .cols, .col-wrap { grid-template-columns: 1fr; }
-}
+:root{--bg:#f3f1ec;--fg:#1c1b19;--sub:#55524c;--rule:#1c1b19;--hair:#b9b4a9;--accent:#8a1c1c;--tag:#ebe7de;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","BIZ UDPMincho",serif;line-height:1.7}
+.wrap{max-width:60rem;margin:0 auto;padding-block:1.2rem 2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{text-align:center;border-bottom:4px double var(--rule);padding-bottom:.5rem}
+h1{margin:0;font-size:3rem;letter-spacing:.6em;padding-left:.6em;font-weight:800;line-height:1.3}
+.date{margin:0;font-size:.95rem;color:var(--sub);border-top:1px solid var(--rule);padding-top:.25rem}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;margin:0 0 .6rem;padding:.1rem .5rem;display:inline-block;background:var(--fg);color:var(--bg)}
+.top{padding:1.2rem 0;border-bottom:2px solid var(--rule)}
+.top h2{font-size:clamp(1.5rem,4.2vw,2.3rem);line-height:1.4;margin:0 0 .5rem;color:var(--accent);word-break:auto-phrase}
+.top .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem 1.5rem;margin-top:.8rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem;padding-top:1rem}
+.col{min-width:0;display:flex;flex-direction:column;gap:1.2rem}
+.col + .col{border-left:1px solid var(--hair);padding-left:1.6rem}
+h3{font-size:1.08rem;line-height:1.45;margin:0;text-wrap:pretty;word-break:auto-phrase}
+p{margin:.15rem 0 0;font-size:.93rem;color:var(--sub);word-break:auto-phrase}
+a{color:inherit}
+.src{font-size:.8rem;display:inline-block;margin-top:.15rem;color:var(--accent)}
+article{border-bottom:1px dotted var(--hair);padding-bottom:.9rem}
+article:last-child{border-bottom:0}
+.note{font-size:.82rem;color:var(--sub);margin-top:.8rem}
+.column{background:var(--tag);padding:.8rem 1rem;border-top:2px solid var(--rule)}
+footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;text-align:center;font-size:.8rem;color:var(--sub)}
+@media (max-width:640px){.cols{grid-template-columns:1fr}.col + .col{border-left:0;padding-left:0;margin-top:1.2rem}h1{font-size:2.3rem}}
 </style>
-<body lang="ja">
+</head>
+<body>
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
+<div class="wrap">
+<header>
+<h1>朝刊</h1>
+<p class="date">令和8年11月9日（月）</p>
+</header>
 
-<div class="sheet">
-  <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年11月9日（月）</div>
-
-  <section class="front">
-    <h2>脆弱性</h2>
-    <p class="lead">本日、特筆すべき事件なし</p>
-    <p>直近24時間で、悪用が確認された深刻な脆弱性の新着報道は見当たらなかった。参考として、6日にはMicrosoft Paintのリモートコード実行（CVE-2026-83844）の修正が出ており、配布はMicrosoft Storeの更新のみでWindows Updateには載らない。同じ6日には、悪用中のWordPressの欠陥を直す更新処理そのものが、旧コードでファイルを展開する間を突かれうるとの報告もあった。</p>
-    <p class="src"><a href="https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html">出典: The Hacker News（Paint）</a> ／ <a href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典: The Hacker News（WordPress）</a></p>
-    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。NVD: 対象CVEがないため取得せず。</p>
-  </section>
-
-  <div class="col-wrap">
-    <div class="col">
-      <section>
-        <h2>技術</h2>
-        <div class="item"><h3>Unity 7、12月にベータ、正式版は2027年第1四半期の予定</h3><p>Unite Seoulで示された計画。スクリプト実行基盤がMonoからCoreCLRへ移り、.NET 10とC# 14が使えるようになる。プレビュー段階の機能も多い。</p><p class="src"><a href="https://gamedev.net/news/5297-unite-seoul-2026-keynote-recap-announcing-unity-7/">出典: gamedev.net</a></p></div>
-        <div class="item"><h3>Unity 6.7 LTSでCoreCLR版プレイヤーを試せる</h3><p>デスクトップ向けの実験版が公開済み。言語はC# 9相当にとどまるが、手元のプロジェクトが動くかを先に確かめられる。</p><p class="src"><a href="https://labs.invenglobal.com/articles/23986/unity-announces-unity-7-roadmap-at-unite-seoul-2026">出典: Inven Global</a></p></div>
-      </section>
-    </div>
-    <div class="col">
-      <section>
-        <h2>カルチャー</h2>
-        <div class="item"><h3>Netflix『フールナイト』、11月26日から配信</h3><p>サンライズとシャフトの共同制作。追加の声優陣も発表されている。</p><p class="src"><a href="https://www.sakigake.jp/news/article/20260624OR0018/">出典: 秋田魁新報</a></p></div>
-        <div class="item"><h3>個人・小規模向けのインディーゲーム開発者会議、11月28日に東京で開催</h3><p>第1弾の講演が公開され、『文字遊戯』の日本語化の裏側などが予定されている。チケットは予約受付中。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/11/04/28541.html">出典: GameBusiness.jp</a></p></div>
-      </section>
-      <section>
-        <h2>よもやま</h2>
-        <div class="item"><h3>しし座流星群、17日深夜〜18日未明が見頃</h3><p>月は真夜中前に沈み、後半は条件が良い。数は1時間に数個程度と控えめなので、暗い場所で気長に待つのが向く。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
-        <div class="item"><h3>東武アーバンパークラインに新種別「区間急行」、21日ダイヤ改正</h3><p>朝のラッシュ時に船橋方面の普通列車を増やす。柏〜船橋間は5両編成の新型車両に統一される。京成でも同日に早朝のスカイライナーが新設される。</p><p class="src"><a href="https://japan-transportation.com/archives/38377">出典: 日本交通ニュース</a></p></div>
-      </section>
-      <section>
-        <h2>コラム</h2>
-        <p>11月9日は「119番の日」。数字の並びがそのまま電話番号なので、語呂合わせの中でも失敗しにくい部類だと思う。脆弱性の欄が静かな日は、火元の確認にちょうどいい。</p>
-      </section>
-    </div>
-  </div>
+<section class="top">
+<p class="sec">脆弱性</p>
+<h2>OpenSSHの認証回避「SSHole」、公開から9時間で悪用　Alpine Linux標準設定が対象</h2>
+<p>CVE-2026-123158（CVSS 8.1）。musl libc使用でPAM無効のOpenSSHが対象で、パスワードが無効化された未使用アカウントに長いパスワードでログインできてしまう。ハニーポットではroot奪取も確認。OpenSSH 10.6p2以降へ更新し、sshdを再起動する。 <a class="src" href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html">出典: The Hacker News</a></p>
+<div class="list">
+<article>
+<h3>WordPress本体に悪用中のコード実行欠陥</h3>
+<p>更新用の一時フォルダの扱いに問題があり、認証なしで任意コードを実行され得る（CVE-2026-119977、4.7〜7.1.3）。7.1.4以降へ。更新前にアップグレード用フォルダへのWebアクセスを遮断するのが安全。 <a class="src" href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典</a></p>
+</article>
+<article>
+<h3>Zyxel GS1900、パッチ後もroot実行のゼロデイが残る</h3>
+<p>修正を当てても攻撃を防げないと報じられた。該当機器の管理画面は外部に出さないのが無難。 <a class="src" href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html">出典</a></p>
+</article>
+<article>
+<h3>Barracudaのメールゲートウェイ、ログイン不要でroot到達の連鎖</h3>
+<p>研究者が複数の欠陥をつなぎ、認証なしでroot権限に至る手順を実演した。 <a class="src" href="https://thehackernews.com/2026/11/experts-demonstrate-barracuda-email.html">出典</a></p>
+</article>
 </div>
-</body></html>
+<p class="note">CISA KEVに直近2日（11/7以降）の追加なし（最新は11/6のSonicWall SonicOS SSLVPN、CVE-2026-19868）。このためNVD照会は対象なし。</p>
+</section>
+
+<div class="cols">
+<div class="col">
+<p class="sec">技術</p>
+<article>
+<h3>Claude Codeの「今後は確認しない」設定に秘密情報が平文で残る</h3>
+<p>承認したコマンドがそのまま設定ファイルに保存され、公開GitHub上の1,122件にパスワードや鍵が含まれていた。該当の認証情報は即ローテーションし、履歴ごと削除を。 <a class="src" href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html">出典: The Hacker News</a></p>
+</article>
+<article>
+<h3>悪意あるブラウザ拡張が、エージェント機能経由でPC上のコードを動かし得る</h3>
+<p>Claudeの機能「Dispatch」を悪用する手法が報告された。拡張機能の権限は最小限に。 <a class="src" href="https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html">出典</a></p>
+</article>
+<article>
+<h3>AIの自動パイプラインがLinuxの権限昇格エクスプロイト948件を30時間で生成</h3>
+<p>脆弱性の探索と攻撃コード作成をAIが大量に回せる時代になった、という報告。パッチ適用の速さがより重要に。脆弱性の欄の話題とも地続き。 <a class="src" href="https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html">出典</a></p>
+</article>
+<article>
+<h3>Unity、CLI 1.0.0のベータ版を順次配信</h3>
+<p>Unity公式フォーラムに告知。Hub 4.0ベータやNetcode for Entities 7.0の話題も並ぶ。CI向けの自動化に効きそう。 <a class="src" href="https://discussions.unity.com/tag/official/160110">出典: Unity Discussions</a></p>
+</article>
+</div>
+
+<div class="col">
+<p class="sec">カルチャー</p>
+<article>
+<h3>SHAFT×サンライズ「Fool Night」、11/26にNetflixで世界同時配信</h3>
+<p>新予告と英語吹替キャストが公開された。 <a class="src" href="https://animecorner.me/fool-night-anime-by-shaft-and-sunrise-reveals-november-26-premiere-new-trailer-english-voice-cast/">出典: Anime Corner</a></p>
+</article>
+<article>
+<h3>『Blasterbug』が突然Steamで無料配信</h3>
+<p>Dotemuがボンバーマン風のバトルをシャドウドロップ。Windows向けに無料。 <a class="src" href="https://engadget.com/2246749/pretty-metroidvanias-free-bomberman-style-chaos-and-other-new-indie-games/">出典: Engadget</a></p>
+</article>
+
+<p class="sec">よもやま</p>
+<article>
+<h3>大相撲九州場所が開幕、横綱は初日に難敵の小結と</h3>
+<p>11/8〜22に福岡で開催。前場所優勝の大の里は義ノ富士と対戦。前売り初日は3年連続で完売。 <a class="src" href="https://news.web.nhk/newsweb/na/nd-20261106de71503">出典: NHK</a></p>
+</article>
+<article>
+<h3>しし座流星群は18日朝が極大の見込み</h3>
+<p>活動は6〜30日ごろで、1時間に15個ほどの予想。月明かりの影響は情報源により見立てが割れており、観測前に最新の予報を確認したい。 <a class="src" href="https://starwalk.space/ja/news/leonid-meteor-shower">出典: Star Walk</a></p>
+</article>
+
+<div class="column">
+<p class="sec">コラム</p>
+<h3>しし座流星群の「親」は約33年周期</h3>
+<p>母天体のテンペル・タットル彗星は約33年かけて太陽を回る。毎年の流星群は、その通り道に残った塵に地球が突っ込む行事で。よもやまの欄の流星群は、33年に一度の主役が残した置き土産、というわけだ。</p>
+</div>
+</div>
+</div>
+
+<footer>朝刊　令和8年11月9日</footer>
+</div>
+</body>
+</html>
