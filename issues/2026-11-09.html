@@ -1,0 +1,100 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+/* layout: 新聞の紙面。脆弱性は全幅の大見出し、その下は2段組（狭い幅では1段） */
+:root {
+  --paper: #f3f0e8;
+  --ink: #1d1b18;
+  --sub: #5a554d;
+  --rule: #1d1b18;
+  --hair: #b9b2a4;
+  --accent: #8a1c1c;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDMincho", "MS PMincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16171a; --ink: #e9e6df; --sub: #a29d92; --rule: #e9e6df; --hair: #4a4a50; --accent: #e08a7a;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--serif);
+  font-size: 15px; line-height: 1.75; margin: 0;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 960px; margin: 0 auto; }
+.mast { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 8px; }
+.mast h1 { font-size: clamp(34px, 9vw, 58px); letter-spacing: .25em; margin: 0; line-height: 1.2; font-weight: 800; padding-left: .25em; }
+.date { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--sub); padding: 4px 0; margin-bottom: 18px; }
+h2 { font-size: 13px; letter-spacing: .4em; margin: 0 0 8px; border-top: 2px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3px 0 3px .4em; font-weight: 700; }
+h3 { font-size: 16.5px; line-height: 1.45; margin: 0 0 2px; text-wrap: pretty; word-break: auto-phrase; }
+p { word-break: auto-phrase; }
+.front { margin-bottom: 22px; }
+.front .lead { font-size: clamp(24px, 6vw, 38px); line-height: 1.35; font-weight: 800; margin: 6px 0 10px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.cols > * { min-width: 0; }
+.item { border-bottom: 1px solid var(--hair); padding: 8px 0 10px; }
+.item p { margin: 0; }
+.cve { font-size: 14px; }
+.cve b { color: var(--accent); }
+.src { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.src a { color: var(--sub); text-underline-offset: 2px; }
+.note { font-size: 12.5px; color: var(--sub); margin: 6px 0 0; }
+section { margin-bottom: 22px; min-width: 0; }
+.col-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.col-wrap > * { min-width: 0; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .cols, .col-wrap { grid-template-columns: 1fr; }
+}
+</style>
+<body lang="ja">
+
+<div class="sheet">
+  <header class="mast"><h1>朝刊</h1></header>
+  <div class="date">令和8年11月9日（月）</div>
+
+  <section class="front">
+    <h2>脆弱性</h2>
+    <p class="lead">本日、特筆すべき事件なし</p>
+    <p>直近24時間で、悪用が確認された深刻な脆弱性の新着報道は見当たらなかった。参考として、6日にはMicrosoft Paintのリモートコード実行（CVE-2026-83844）の修正が出ており、配布はMicrosoft Storeの更新のみでWindows Updateには載らない。同じ6日には、悪用中のWordPressの欠陥を直す更新処理そのものが、旧コードでファイルを展開する間を突かれうるとの報告もあった。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html">出典: The Hacker News（Paint）</a> ／ <a href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典: The Hacker News（WordPress）</a></p>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。NVD: 対象CVEがないため取得せず。</p>
+  </section>
+
+  <div class="col-wrap">
+    <div class="col">
+      <section>
+        <h2>技術</h2>
+        <div class="item"><h3>Unity 7、12月にベータ、正式版は2027年第1四半期の予定</h3><p>Unite Seoulで示された計画。スクリプト実行基盤がMonoからCoreCLRへ移り、.NET 10とC# 14が使えるようになる。プレビュー段階の機能も多い。</p><p class="src"><a href="https://gamedev.net/news/5297-unite-seoul-2026-keynote-recap-announcing-unity-7/">出典: gamedev.net</a></p></div>
+        <div class="item"><h3>Unity 6.7 LTSでCoreCLR版プレイヤーを試せる</h3><p>デスクトップ向けの実験版が公開済み。言語はC# 9相当にとどまるが、手元のプロジェクトが動くかを先に確かめられる。</p><p class="src"><a href="https://labs.invenglobal.com/articles/23986/unity-announces-unity-7-roadmap-at-unite-seoul-2026">出典: Inven Global</a></p></div>
+      </section>
+    </div>
+    <div class="col">
+      <section>
+        <h2>カルチャー</h2>
+        <div class="item"><h3>Netflix『フールナイト』、11月26日から配信</h3><p>サンライズとシャフトの共同制作。追加の声優陣も発表されている。</p><p class="src"><a href="https://www.sakigake.jp/news/article/20260624OR0018/">出典: 秋田魁新報</a></p></div>
+        <div class="item"><h3>個人・小規模向けのインディーゲーム開発者会議、11月28日に東京で開催</h3><p>第1弾の講演が公開され、『文字遊戯』の日本語化の裏側などが予定されている。チケットは予約受付中。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/11/04/28541.html">出典: GameBusiness.jp</a></p></div>
+      </section>
+      <section>
+        <h2>よもやま</h2>
+        <div class="item"><h3>しし座流星群、17日深夜〜18日未明が見頃</h3><p>月は真夜中前に沈み、後半は条件が良い。数は1時間に数個程度と控えめなので、暗い場所で気長に待つのが向く。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
+        <div class="item"><h3>東武アーバンパークラインに新種別「区間急行」、21日ダイヤ改正</h3><p>朝のラッシュ時に船橋方面の普通列車を増やす。柏〜船橋間は5両編成の新型車両に統一される。京成でも同日に早朝のスカイライナーが新設される。</p><p class="src"><a href="https://japan-transportation.com/archives/38377">出典: 日本交通ニュース</a></p></div>
+      </section>
+      <section>
+        <h2>コラム</h2>
+        <p>11月9日は「119番の日」。数字の並びがそのまま電話番号なので、語呂合わせの中でも失敗しにくい部類だと思う。脆弱性の欄が静かな日は、火元の確認にちょうどいい。</p>
+      </section>
+    </div>
+  </div>
+</div>
+</body></html>

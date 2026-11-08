@@ -62,38 +62,38 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 <div class="sheet">
   <header class="mast"><h1>朝刊</h1></header>
-  <div class="date">令和8年11月8日（日）</div>
+  <div class="date">令和8年11月9日（月）</div>
 
   <section class="front">
     <h2>脆弱性</h2>
-    <p class="lead">Claude Codeの「次回から確認しない」設定に平文の秘密情報、公開リポジトリ1,122件に残存</p>
-    <p>承認済みコマンドが設定ファイルへそのまま保存され、パスワードやAPIキー、各種トークンが含まれたまま公開されていた。Apiiroの調査による。ファイルを消してもgit履歴やフォークに残るため、含まれた認証情報の再発行が先決。追跡対象から外し、秘密は環境変数で渡す。</p>
-    <p class="src"><a href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html">出典: The Hacker News</a></p>
-    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。NVD: 対象CVEがないため取得せず。The Hacker Newsは直近24時間で採用基準を満たす記事がこの1件。</p>
+    <p class="lead">本日、特筆すべき事件なし</p>
+    <p>直近24時間で、悪用が確認された深刻な脆弱性の新着報道は見当たらなかった。参考として、6日にはMicrosoft Paintのリモートコード実行（CVE-2026-83844）の修正が出ており、配布はMicrosoft Storeの更新のみでWindows Updateには載らない。同じ6日には、悪用中のWordPressの欠陥を直す更新処理そのものが、旧コードでファイルを展開する間を突かれうるとの報告もあった。</p>
+    <p class="src"><a href="https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html">出典: The Hacker News（Paint）</a> ／ <a href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典: The Hacker News（WordPress）</a></p>
+    <p class="note">CISA KEV: 取得失敗（接続が許可されていない）。NVD: 対象CVEがないため取得せず。</p>
   </section>
 
   <div class="col-wrap">
     <div class="col">
       <section>
         <h2>技術</h2>
-        <div class="item"><h3>GitHub Copilot、JetBrains Airで利用可能に</h3><p>4日付の更新情報に、JetBrainsの新しい開発環境Airから使えるようになったとの記載。同日にはCopilot CLIの細かな改善も出ている。</p><p class="src"><a href="https://releasebot.io/updates/github">出典: Releasebot</a></p></div>
-        <div class="item"><h3>Ollama、0.40系の候補版で音声カタログと視覚モデルの不具合修正</h3><p>先月下旬の0.40.12候補版で、読み上げ用の音声一覧が加わり、小型Gemma 4の画像処理の不具合が直った。ローカルLLMで音声も扱う流れが続く。</p><p class="src"><a href="https://releases.sh/ollama/overview.md">出典: releases.sh</a></p></div>
-        <div class="item"><h3>エージェント型コーディング、並列実行が主流に</h3><p>複数のエージェントを同時に走らせて成果を比べる使い方が広がっているという論調の解説。人間の仕事はレビューと選別へ寄っていく。</p><p class="src"><a href="https://ai-report.kdnuggets.com/p/2026-coding-parallel-agents-win">出典: KDnuggets</a></p></div>
+        <div class="item"><h3>Unity 7、12月にベータ、正式版は2027年第1四半期の予定</h3><p>Unite Seoulで示された計画。スクリプト実行基盤がMonoからCoreCLRへ移り、.NET 10とC# 14が使えるようになる。プレビュー段階の機能も多い。</p><p class="src"><a href="https://gamedev.net/news/5297-unite-seoul-2026-keynote-recap-announcing-unity-7/">出典: gamedev.net</a></p></div>
+        <div class="item"><h3>Unity 6.7 LTSでCoreCLR版プレイヤーを試せる</h3><p>デスクトップ向けの実験版が公開済み。言語はC# 9相当にとどまるが、手元のプロジェクトが動くかを先に確かめられる。</p><p class="src"><a href="https://labs.invenglobal.com/articles/23986/unity-announces-unity-7-roadmap-at-unite-seoul-2026">出典: Inven Global</a></p></div>
       </section>
     </div>
     <div class="col">
       <section>
         <h2>カルチャー</h2>
-        <div class="item"><h3>『グランド・セフト・オートVI』、10日からプリロード順次開始と報道</h3><p>発売前にデータを先に取り込める。あわせて9日には、錬金術RPG『カリアのアトリエ』の特別番組が配信される予定。</p><p class="src"><a href="https://www.inside-games.jp/article/2026/11/">出典: インサイド</a></p></div>
+        <div class="item"><h3>Netflix『フールナイト』、11月26日から配信</h3><p>サンライズとシャフトの共同制作。追加の声優陣も発表されている。</p><p class="src"><a href="https://www.sakigake.jp/news/article/20260624OR0018/">出典: 秋田魁新報</a></p></div>
+        <div class="item"><h3>個人・小規模向けのインディーゲーム開発者会議、11月28日に東京で開催</h3><p>第1弾の講演が公開され、『文字遊戯』の日本語化の裏側などが予定されている。チケットは予約受付中。</p><p class="src"><a href="https://www.gamebusiness.jp/article/2026/11/04/28541.html">出典: GameBusiness.jp</a></p></div>
       </section>
       <section>
         <h2>よもやま</h2>
-        <div class="item"><h3>大相撲、年内最後の本場所が今日初日</h3><p>千秋楽は22日まで15日間。先場所を制した横綱が連覇を狙う。前売りは初日から完売。</p><p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261027de66322">出典: NHK</a></p></div>
-        <div class="item"><h3>沖縄出身で初の三役、新小結が誕生</h3><p>今場所の番付で、美ノ海が新小結に。新入幕は3人。</p><p class="src"><a href="https://ryukyushimpo.jp/sports/entry-5576307.html">出典: 琉球新報</a></p></div>
+        <div class="item"><h3>しし座流星群、17日深夜〜18日未明が見頃</h3><p>月は真夜中前に沈み、後半は条件が良い。数は1時間に数個程度と控えめなので、暗い場所で気長に待つのが向く。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
+        <div class="item"><h3>東武アーバンパークラインに新種別「区間急行」、21日ダイヤ改正</h3><p>朝のラッシュ時に船橋方面の普通列車を増やす。柏〜船橋間は5両編成の新型車両に統一される。京成でも同日に早朝のスカイライナーが新設される。</p><p class="src"><a href="https://japan-transportation.com/archives/38377">出典: 日本交通ニュース</a></p></div>
       </section>
       <section>
         <h2>コラム</h2>
-        <p>11月8日は語呂合わせで「いい歯の日」。パスワードも歯みがきも、毎日の地味な手入れがいちばん効く。脆弱性の欄の件は、今日の歯みがきのついでに設定ファイルも見ておきたい。</p>
+        <p>11月9日は「119番の日」。数字の並びがそのまま電話番号なので、語呂合わせの中でも失敗しにくい部類だと思う。脆弱性の欄が静かな日は、火元の確認にちょうどいい。</p>
       </section>
     </div>
   </div>
