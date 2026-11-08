@@ -1,0 +1,72 @@
+name: 朝刊の公開通知
+
+# Cloudflare Workers Builds の check run が main で成功したら、
+# その号を Discord に通知する。
+# check_run で起動するワークフローは、既定ブランチ(main)のものが使われる。
+on:
+  check_run:
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    if: >-
+      github.event.check_run.app.slug == 'cloudflare-workers-and-pages' &&
+      github.event.check_run.name == 'Workers Builds: chokan' &&
+      github.event.check_run.conclusion == 'success' &&
+      github.event.check_run.check_suite.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 公開された号を特定する
+        id: issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.check_run.head_sha }}
+          CHECK_NAME: ${{ github.event.check_run.name }}
+          CHECK_BRANCH: ${{ github.event.check_run.check_suite.head_branch }}
+          CHECK_CONCLUSION: ${{ github.event.check_run.conclusion }}
+        run: |
+          set -euo pipefail
+          # 検証用: 実イベントの中身を残す(秘匿情報は含まない)
+          echo "name=${CHECK_NAME} branch=${CHECK_BRANCH} conclusion=${CHECK_CONCLUSION} sha=${SHA}"
+
+          # このコミットで新規追加された issues/YYYY-MM-DD.html を拾う
+          files=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${SHA}" \
+            --jq '.files[] | select(.status == "added") | .filename | select(test("^issues/[0-9]{4}-[0-9]{2}-[0-9]{2}\\.html$"))')
+          count=$(printf '%s\n' "$files" | grep -c . || true)
+          if [ "$count" -ne 1 ]; then
+            echo "号の新規追加が ${count} 件のため、通知しない"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          file="$files"
+          ymd="${file#issues/}"
+          ymd="${ymd%.html}"
+          y="${ymd:0:4}"; m="${ymd:5:2}"; d="${ymd:8:2}"
+          weekdays=(日 月 火 水 木 金 土)
+          wd="${weekdays[$(date -d "$ymd" +%w)]}"
+          reiwa=$((10#$y - 2018))
+          {
+            echo "skip=false"
+            echo "path=${file}"
+            echo "label=令和${reiwa}年$((10#$m))月$((10#$d))日(${wd})"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Discord に通知する
+        if: steps.issue.outputs.skip != 'true'
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          LABEL: ${{ steps.issue.outputs.label }}
+          ISSUE_PATH: ${{ steps.issue.outputs.path }}
+        run: |
+          set -euo pipefail
+          text=$(printf '📰 朝刊 %sを公開しました\n%s/%s' "$LABEL" "${SITE_URL%/}" "$ISSUE_PATH")
+          jq -n --arg content "$text" '{content: $content}' > payload.json
+          curl --fail-with-body --silent --show-error --max-time 20 \
+            -X POST -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @payload.json "$WEBHOOK_URL"

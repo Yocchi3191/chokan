@@ -39,6 +39,21 @@ Python 3 の標準ライブラリだけで動く。
 - 欄名は、上から順に「脆弱性」(全幅の大見出し)、「技術」、「カルチャー」、「よもやま」、「コラム」
 - 「技術」は左列、「カルチャー」「よもやま」「コラム」は右列に積む(`<div class="col-wrap">` の直下に、左列の `section` と右列の `<div class="col">` を置く。`col` にスタイルは無く、右列をグリッドの1アイテムにまとめるための構造用。省くと右列の3欄が別々のアイテムになり、段組みが崩れる)
 
+## 公開通知(Discord)
+
+`main` で Cloudflare Workers Builds の check run(`Workers Builds: chokan`)が成功すると、`.github/workflows/notify-published.yml` が Discord に「📰 朝刊 令和8年11月8日(日)を公開しました」と号のURLを投稿する。
+
+- 通知する号は、成功したコミットで新規追加された `issues/YYYY-MM-DD.html`。ちょうど1件でなければ通知しない(朝刊以外の変更や、号を複数同時に追加したときは出ない)
+- Discord の Webhook に、JSON(`content`)を POST する
+- `check_run` で起動するワークフローは `main` にあるものが使われるため、変更は `main` に入れてから動作する
+
+リポジトリの Secrets に次の2つが要る(値はリポジトリに書かない)。
+
+| Secret | 内容 |
+| --- | --- |
+| `DISCORD_WEBHOOK_URL` | 通知先チャンネルの Webhook のURL |
+| `SITE_URL` | 公開サイトのURL(通知の文面に載せる) |
+
 ## ローカル環境(コンテナ)
 
 Docker があれば、Python を入れなくてもビルドと表示確認ができる。
