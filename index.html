@@ -39,81 +39,81 @@ footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;tex
 <div class="wrap">
 <header>
 <h1>朝刊</h1>
-<p class="date">令和8年11月9日（月）</p>
+<p class="date">令和8年11月10日（火）</p>
 </header>
 
 <section class="top">
 <p class="sec">脆弱性</p>
-<h2>OpenSSHの認証回避「SSHole」、公開から9時間で悪用　Alpine Linux標準設定が対象</h2>
-<p>CVE-2026-123158（CVSS 8.1）。musl libc使用でPAM無効のOpenSSHが対象で、パスワードが無効化された未使用アカウントに長いパスワードでログインできてしまう。ハニーポットではroot奪取も確認。OpenSSH 10.6p2以降へ更新し、sshdを再起動する。 <a class="src" href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html">出典: The Hacker News</a></p>
+<h2>AI推論サーバーGPUStackで認証回避、悪用を確認　CISAが警告（CVSS 9.8）</h2>
+<p>CVE-2026-102895。2.2.0未満が対象で、ループバックからの要求を管理者扱いにする仕組みが、ヘッダー偽装で外部から突破される。管理者権限の取得やコード実行に至り、2.1.1の環境での攻撃が確認された。2.2.0以降（別の欠陥の修正を含む2.2.2以降が無難）へ更新し、管理画面は外に出さない。CISAの対応期限は11/12。 <a class="src" href="https://securityonline.info/gpustack-authentication-bypass-cve-2026-102895-exploited/">出典: SecurityOnline</a></p>
 <div class="list">
 <article>
-<h3>WordPress本体に悪用中のコード実行欠陥</h3>
-<p>更新用の一時フォルダの扱いに問題があり、認証なしで任意コードを実行され得る（CVE-2026-119977、4.7〜7.1.3）。7.1.4以降へ。更新前にアップグレード用フォルダへのWebアクセスを遮断するのが安全。 <a class="src" href="https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html">出典</a></p>
+<h3>通話基盤FreeSWITCHに、SIPメッセージ経由のコマンド実行（CVSS 9.8）</h3>
+<p>CVE-2026-116779。1.11.3未満が対象で、受信メッセージの宛先の書き方次第でOSコマンドが走る。悪用が確認され、CISAの期限は11/12。1.11.3へ更新を。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-116779">出典: NVD</a></p>
 </article>
 <article>
-<h3>Zyxel GS1900、パッチ後もroot実行のゼロデイが残る</h3>
-<p>修正を当てても攻撃を防げないと報じられた。該当機器の管理画面は外部に出さないのが無難。 <a class="src" href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html">出典</a></p>
+<h3>初期パスワード「admin:admin」のまま、自動車2社のアプリ基盤に侵入</h3>
+<p>認証基盤のサーバーが初期設定のままで、研究者は全顧客アカウントに入れることを実証。接続型の車では解錠やエンジン始動もできたという。 <a class="src" href="https://thehackernews.com/2026/11/default-adminadmin-server-password.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Barracudaのメールゲートウェイ、ログイン不要でroot到達の連鎖</h3>
-<p>研究者が複数の欠陥をつなぎ、認証なしでroot権限に至る手順を実演した。 <a class="src" href="https://thehackernews.com/2026/11/experts-demonstrate-barracuda-email.html">出典</a></p>
+<h3>LNbitsが運営者にサーバー停止を呼びかけ</h3>
+<p>ビットコインのLightningウォレット基盤で攻撃が相次ぎ、修正版は準備中。運営者は修正が出るまで止めておくのが安全。 <a class="src" href="https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html">出典</a></p>
 </article>
 </div>
-<p class="note">CISA KEVに直近2日（11/7以降）の追加なし（最新は11/6のSonicWall SonicOS SSLVPN、CVE-2026-19868）。このためNVD照会は対象なし。</p>
+<p class="note">CISA KEVの直近2日の追加は3件（GPUStack、FreeSWITCH、前日号で扱ったOpenSSH）。NVDで影響範囲とCVSSを確認済み（OpenSSHは前日号を参照）。</p>
 </section>
 
 <div class="cols">
 <div class="col">
 <p class="sec">技術</p>
 <article>
-<h3>Claude Codeの「今後は確認しない」設定に秘密情報が平文で残る</h3>
-<p>承認したコマンドがそのまま設定ファイルに保存され、公開GitHub上の1,122件にパスワードや鍵が含まれていた。該当の認証情報は即ローテーションし、履歴ごと削除を。 <a class="src" href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html">出典: The Hacker News</a></p>
+<h3>Unity 7のプレビューは12月、正式版は2027年第1四半期の見込み</h3>
+<p>Unity 6の延長線上の位置づけで、既存プロジェクトを壊さない更新経路を掲げる。CoreCLRの搭載も予定されている。 <a class="src" href="https://unity.com/news/unity-7-roadmap-revealed-at-unite-seoul">出典: Unity</a></p>
 </article>
 <article>
-<h3>悪意あるブラウザ拡張が、エージェント機能経由でPC上のコードを動かし得る</h3>
-<p>Claudeの機能「Dispatch」を悪用する手法が報告された。拡張機能の権限は最小限に。 <a class="src" href="https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html">出典</a></p>
+<h3>Unity Hub 4.0のベータが公開</h3>
+<p>11/7にフォーラムで告知。Netcode for Entities 7.0がUnity 6.7で独立パッケージに戻る話題も同時期に出ている。 <a class="src" href="https://discussions.unity.com/tag/official/160110">出典: Unity Discussions</a></p>
 </article>
 <article>
-<h3>AIの自動パイプラインがLinuxの権限昇格エクスプロイト948件を30時間で生成</h3>
-<p>脆弱性の探索と攻撃コード作成をAIが大量に回せる時代になった、という報告。パッチ適用の速さがより重要に。脆弱性の欄の話題とも地続き。 <a class="src" href="https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html">出典</a></p>
+<h3>Claude Code、Opus 4.8のfast modeが11/30で廃止予定</h3>
+<p>期限後は、fast modeを指定した要求がエラーになる。設定に残している場合は通常モードへ切り替えておきたい。週次ダイジェストの記載のため、公式の変更履歴も確認を。 <a class="src" href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">出典: releases.sh</a></p>
 </article>
 <article>
-<h3>Unity、CLI 1.0.0のベータ版を順次配信</h3>
-<p>Unity公式フォーラムに告知。Hub 4.0ベータやNetcode for Entities 7.0の話題も並ぶ。CI向けの自動化に効きそう。 <a class="src" href="https://discussions.unity.com/tag/official/160110">出典: Unity Discussions</a></p>
+<h3>Ollama 0.40.12の候補版、Gemma 4の画像認識などを調整</h3>
+<p>10月末の更新で、音声まわりの修正も続いている。リリース候補のため、本番利用は正式版を待ちたい。 <a class="src" href="https://www.softpedia.com/progChangelog/Ollama-Changelog-271275.html">出典: Softpedia</a></p>
 </article>
 </div>
 
 <div class="col">
 <p class="sec">カルチャー</p>
 <article>
-<h3>SHAFT×サンライズ「Fool Night」、11/26にNetflixで世界同時配信</h3>
-<p>新予告と英語吹替キャストが公開された。 <a class="src" href="https://animecorner.me/fool-night-anime-by-shaft-and-sunrise-reveals-november-26-premiere-new-trailer-english-voice-cast/">出典: Anime Corner</a></p>
+<h3>『SEKIRO: NO DEFEAT』、全8話のTVシリーズとして2027年1月に開始</h3>
+<p>劇場版に追加エピソードを足した形で、Crunchyrollが配信する。新ビジュアルも公開された。 <a class="src" href="https://animecorner.me/sekiro-no-defeat-full-tv-anime-to-run-for-8-episodes-starting-in-january-2027-new-visual-revealed/">出典: Anime Corner</a></p>
 </article>
 <article>
-<h3>『Blasterbug』が突然Steamで無料配信</h3>
-<p>Dotemuがボンバーマン風のバトルをシャドウドロップ。Windows向けに無料。 <a class="src" href="https://engadget.com/2246749/pretty-metroidvanias-free-bomberman-style-chaos-and-other-new-indie-games/">出典: Engadget</a></p>
+<h3>西部が舞台の2Dソウルライク『Tombwater』、11/12にSteamで発売</h3>
+<p>横スクロールのアクションRPG。インディー作品で、PC向け。 <a class="src" href="https://www.rpgsite.net/news/18338-tombwater-release-date-2d-western-souls-like-action-rpg">出典: RPG Site</a></p>
 </article>
 
 <p class="sec">よもやま</p>
 <article>
-<h3>大相撲九州場所が開幕、横綱は初日に難敵の小結と</h3>
-<p>11/8〜22に福岡で開催。前場所優勝の大の里は義ノ富士と対戦。前売り初日は3年連続で完売。 <a class="src" href="https://news.web.nhk/newsweb/na/nd-20261106de71503">出典: NHK</a></p>
+<h3>海辺の岩場を歩く新種のガガンボ「ナギサガガンボ」</h3>
+<p>波がかかるぎりぎりの岩場で見つかった体長6〜7mmほどの虫。確認できたのはわずか3個体で、生態はこれから調べられる。 <a class="src" href="https://www.hokkaido-np.co.jp/article/1380279/">出典: 北海道新聞</a></p>
 </article>
 <article>
-<h3>しし座流星群は18日朝が極大の見込み</h3>
-<p>活動は6〜30日ごろで、1時間に15個ほどの予想。月明かりの影響は情報源により見立てが割れており、観測前に最新の予報を確認したい。 <a class="src" href="https://starwalk.space/ja/news/leonid-meteor-shower">出典: Star Walk</a></p>
+<h3>エリザベス女王杯は15日、京都の芝2200m</h3>
+<p>第51回の牝馬G1。昨年はレガレイラが制した。有力どころにはカムニャックやジュウリョクピエロの名前が挙がるが、出走馬は9月時点の予定なので直前の確定を待ちたい。 <a class="src" href="https://www.keibanomiryoku.com/?p=85206">出典: 競馬の魅力</a></p>
 </article>
 
 <div class="column">
 <p class="sec">コラム</p>
-<h3>しし座流星群の「親」は約33年周期</h3>
-<p>母天体のテンペル・タットル彗星は約33年かけて太陽を回る。毎年の流星群は、その通り道に残った塵に地球が突っ込む行事で。よもやまの欄の流星群は、33年に一度の主役が残した置き土産、というわけだ。</p>
+<h3>初期パスワードは「変えるまで」初期パスワード</h3>
+<p>変え忘れた瞬間に、それは永住パスワードへ昇格する。脆弱性の欄の「admin:admin」は、その見事な出世例だ。</p>
 </div>
 </div>
 </div>
 
-<footer>朝刊　令和8年11月9日</footer>
+<footer>朝刊　令和8年11月10日</footer>
 </div>
 </body>
 </html>
