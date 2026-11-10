@@ -39,81 +39,81 @@ footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;tex
 <div class="wrap">
 <header>
 <h1>朝刊</h1>
-<p class="date">令和8年11月10日（火）</p>
+<p class="date">令和8年11月11日（水）</p>
 </header>
 
 <section class="top">
 <p class="sec">脆弱性</p>
-<h2>AI推論サーバーGPUStackで認証回避、悪用を確認　CISAが警告（CVSS 9.8）</h2>
-<p>CVE-2026-102895。2.2.0未満が対象で、ループバックからの要求を管理者扱いにする仕組みが、ヘッダー偽装で外部から突破される。管理者権限の取得やコード実行に至り、2.1.1の環境での攻撃が確認された。2.2.0以降（別の欠陥の修正を含む2.2.2以降が無難）へ更新し、管理画面は外に出さない。CISAの対応期限は11/12。 <a class="src" href="https://securityonline.info/gpustack-authentication-bypass-cve-2026-102895-exploited/">出典: SecurityOnline</a></p>
+<h2>Chromeにまた悪用中のゼロデイ、今年8件目　157.0.8103.50へ更新を（CVSS 8.8）</h2>
+<p>CVE-2026-125350。XML処理の解放後使用で、細工したページを開かせるだけでサンドボックス内のコードが動く。CISAがKEVに追加し、対応期限は11/24。ブラウザを更新して再起動すれば止まる。Chromiumベースの他ブラウザも更新を待ちたい。 <a class="src" href="https://thehackernews.com/2026/11/google-issues-chrome-security-update.html">出典: The Hacker News</a></p>
 <div class="list">
 <article>
-<h3>通話基盤FreeSWITCHに、SIPメッセージ経由のコマンド実行（CVSS 9.8）</h3>
-<p>CVE-2026-116779。1.11.3未満が対象で、受信メッセージの宛先の書き方次第でOSコマンドが走る。悪用が確認され、CISAの期限は11/12。1.11.3へ更新を。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-116779">出典: NVD</a></p>
+<h3>Barracuda メールセキュリティ GWに認証回避、悪用を確認（CVSS 9.3）</h3>
+<p>CVE-2026-116606。9.4.0.030より前が対象で、未認証の相手が細工したバックアップを復元させ、機器の全体設定を書き換えられる。同社製品ではコマンド注入（CVE-2026-111560）もKEVに入った。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-116606">出典: NVD</a></p>
 </article>
 <article>
-<h3>初期パスワード「admin:admin」のまま、自動車2社のアプリ基盤に侵入</h3>
-<p>認証基盤のサーバーが初期設定のままで、研究者は全顧客アカウントに入れることを実証。接続型の車では解錠やエンジン始動もできたという。 <a class="src" href="https://thehackernews.com/2026/11/default-adminadmin-server-password.html">出典: The Hacker News</a></p>
+<h3>Outlookの警告不備によるなりすまし、悪用中（CVSS 6.5）</h3>
+<p>CVE-2026-124194。Office LTSC 2021は16.0.14334.21048未満、2024は16.0.17932.21140未満が対象。危険な操作でも警告が出ない。Microsoft 365版は公式のリリース情報で確認を。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-124194">出典: NVD</a></p>
 </article>
 <article>
-<h3>LNbitsが運営者にサーバー停止を呼びかけ</h3>
-<p>ビットコインのLightningウォレット基盤で攻撃が相次ぎ、修正版は準備中。運営者は修正が出るまで止めておくのが安全。 <a class="src" href="https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html">出典</a></p>
+<h3>Cisco BroadWorksから設定情報が読み取られる恐れ（CVSS 7.5）</h3>
+<p>CVE-2026-20320。細工したXMLを送るだけで、サーバー上の機密ファイルを読める。NVDには影響バージョンの記載がなく、Ciscoの公式情報を確認したい。期限は11/24。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20320">出典: NVD</a></p>
+</article>
+<article>
+<h3>Gitに修正版、再帰クローンでコードが走る欠陥</h3>
+<p>CVE-2026-111760。長いパスが検査をすり抜け、サブモジュールの.gitが書き換わる。2.56.1などの修正版へ。直るまでは、信用できないリポジトリを再帰クローンしない。 <a class="src" href="https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html">出典: The Hacker News</a></p>
 </article>
 </div>
-<p class="note">CISA KEVの直近2日の追加は3件（GPUStack、FreeSWITCH、前日号で扱ったOpenSSH）。NVDで影響範囲とCVSSを確認済み（OpenSSHは前日号を参照）。</p>
+<p class="note">CISA KEVの直近2日の追加は10件（上記のほか、前日号分のGPUStack等）。NVDで影響範囲とCVSSを確認済み。Barracudaの9.3はCVSS v4.0の値。</p>
 </section>
 
 <div class="cols">
 <div class="col">
 <p class="sec">技術</p>
 <article>
-<h3>Unity 7のプレビューは12月、正式版は2027年第1四半期の見込み</h3>
-<p>Unity 6の延長線上の位置づけで、既存プロジェクトを壊さない更新経路を掲げる。CoreCLRの搭載も予定されている。 <a class="src" href="https://unity.com/news/unity-7-roadmap-revealed-at-unite-seoul">出典: Unity</a></p>
+<h3>Anthropicが新モデル「Claude Fable 5.2」を公開</h3>
+<p>コーディング・推論・画像認識が向上。サイバー攻撃の多段階ベンチでは76.3%と、前版の61.7%から伸びたという。主要クラウドから使える。数字は報道ベースなので、公式の発表も見ておきたい。 <a class="src" href="https://thehackernews.com/2026/11/anthropics-claude-fable-52-beats-gpt-6.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Unity Hub 4.0のベータが公開</h3>
-<p>11/7にフォーラムで告知。Netcode for Entities 7.0がUnity 6.7で独立パッケージに戻る話題も同時期に出ている。 <a class="src" href="https://discussions.unity.com/tag/official/160110">出典: Unity Discussions</a></p>
+<h3>推論エンジンSGLangの欠陥が突かれ、NEAR AIが侵害される</h3>
+<p>オープンソースの推論サーバーでコードを実行され、エージェント18件と約100人分のデータが流出。機密モードの処理中の要求も見られた可能性がある。自前で推論サーバーを立てる人は、外部公開の有無と版を点検したい。 <a class="src" href="https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Claude Code、Opus 4.8のfast modeが11/30で廃止予定</h3>
-<p>期限後は、fast modeを指定した要求がエラーになる。設定に残している場合は通常モードへ切り替えておきたい。週次ダイジェストの記載のため、公式の変更履歴も確認を。 <a class="src" href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">出典: releases.sh</a></p>
-</article>
-<article>
-<h3>Ollama 0.40.12の候補版、Gemma 4の画像認識などを調整</h3>
-<p>10月末の更新で、音声まわりの修正も続いている。リリース候補のため、本番利用は正式版を待ちたい。 <a class="src" href="https://www.softpedia.com/progChangelog/Ollama-Changelog-271275.html">出典: Softpedia</a></p>
+<h3>Fireworks AIの侵害が拡大、請求情報やシークレットにも影響</h3>
+<p>一部の顧客で、請求情報、シークレット、データセット、未完成のモデルが影響を受けた。Notion AIのチャットにも波及したと報じられている。APIキーを使っているなら、再発行を検討したい。 <a class="src" href="https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html">出典: The Hacker News</a></p>
 </article>
 </div>
 
 <div class="col">
 <p class="sec">カルチャー</p>
 <article>
-<h3>『SEKIRO: NO DEFEAT』、全8話のTVシリーズとして2027年1月に開始</h3>
-<p>劇場版に追加エピソードを足した形で、Crunchyrollが配信する。新ビジュアルも公開された。 <a class="src" href="https://animecorner.me/sekiro-no-defeat-full-tv-anime-to-run-for-8-episodes-starting-in-january-2027-new-visual-revealed/">出典: Anime Corner</a></p>
+<h3>2D西部ソウルライク『Tombwater』、あす11/12にSteamで発売</h3>
+<p>横スクロールのアクションRPG。発売日が目前に迫ったインディー作品。 <a class="src" href="https://www.rpgsite.net/news/18338-tombwater-release-date-2d-western-souls-like-action-rpg">出典: RPG Site</a></p>
 </article>
 <article>
-<h3>西部が舞台の2Dソウルライク『Tombwater』、11/12にSteamで発売</h3>
-<p>横スクロールのアクションRPG。インディー作品で、PC向け。 <a class="src" href="https://www.rpgsite.net/news/18338-tombwater-release-date-2d-western-souls-like-action-rpg">出典: RPG Site</a></p>
+<h3>『キミ戦』第3期の制作が決定、ティザービジュアル公開</h3>
+<p>先月末の発表で、戦いと恋が絡むシリーズの続き。放送時期は続報待ち。 <a class="src" href="https://anime.eiga.com/news/126276/">出典: アニメ映画ドットコム</a></p>
 </article>
 
 <p class="sec">よもやま</p>
 <article>
-<h3>海辺の岩場を歩く新種のガガンボ「ナギサガガンボ」</h3>
-<p>波がかかるぎりぎりの岩場で見つかった体長6〜7mmほどの虫。確認できたのはわずか3個体で、生態はこれから調べられる。 <a class="src" href="https://www.hokkaido-np.co.jp/article/1380279/">出典: 北海道新聞</a></p>
+<h3>九州場所、41歳の玉鷲が昭和以降で最年長の再入幕</h3>
+<p>41歳11か月での再入幕は、昭和以降の最高齢。新入幕は3人、沖縄出身初の三役となる美ノ海も話題に。場所は11/22まで。 <a class="src" href="https://kumanichi.com/articles/2050557">出典: 熊本日日新聞</a></p>
 </article>
 <article>
-<h3>エリザベス女王杯は15日、京都の芝2200m</h3>
-<p>第51回の牝馬G1。昨年はレガレイラが制した。有力どころにはカムニャックやジュウリョクピエロの名前が挙がるが、出走馬は9月時点の予定なので直前の確定を待ちたい。 <a class="src" href="https://www.keibanomiryoku.com/?p=85206">出典: 競馬の魅力</a></p>
+<h3>横綱・大の里は初日に黒星、小結・義ノ富士に敗れる</h3>
+<p>先場所の優勝力士が、過去に負け越していた相手に初日で足元をすくわれた。ことし最後の本場所はまだ序盤。 <a class="src" href="https://news.web.nhk/newsweb/na/nd-20261108de72509">出典: NHK</a></p>
 </article>
 
 <div class="column">
 <p class="sec">コラム</p>
-<h3>初期パスワードは「変えるまで」初期パスワード</h3>
-<p>変え忘れた瞬間に、それは永住パスワードへ昇格する。脆弱性の欄の「admin:admin」は、その見事な出世例だ。</p>
+<h3>「再起動して更新」は、先延ばしの敵</h3>
+<p>ブラウザの更新は、再起動までが仕事。脆弱性の欄のChromeも、タブを百個開いたまま待っていては直らない。タブは閉じなくても、たいてい復元される。</p>
 </div>
 </div>
 </div>
 
-<footer>朝刊　令和8年11月10日</footer>
+<footer>朝刊　令和8年11月11日</footer>
 </div>
 </body>
 </html>
