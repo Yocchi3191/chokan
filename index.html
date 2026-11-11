@@ -39,81 +39,81 @@ footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;tex
 <div class="wrap">
 <header>
 <h1>朝刊</h1>
-<p class="date">令和8年11月11日（水）</p>
+<p class="date">令和8年11月12日（木）</p>
 </header>
 
 <section class="top">
 <p class="sec">脆弱性</p>
-<h2>Chromeにまた悪用中のゼロデイ、今年8件目　157.0.8103.50へ更新を（CVSS 8.8）</h2>
-<p>CVE-2026-125350。XML処理の解放後使用で、細工したページを開かせるだけでサンドボックス内のコードが動く。CISAがKEVに追加し、対応期限は11/24。ブラウザを更新して再起動すれば止まる。Chromiumベースの他ブラウザも更新を待ちたい。 <a class="src" href="https://thehackernews.com/2026/11/google-issues-chrome-security-update.html">出典: The Hacker News</a></p>
+<h2>Zoom Workplace（Windows版）に認証不要の重大欠陥、7.1.8へ更新を（CVSS 9.6）</h2>
+<p>CVE-2026-108186。入力検証の不備で、ネットワーク越しに権限昇格される恐れがある。7.1.0以上7.1.8未満が対象。悪用の報告はまだないが、更新で直る。同時に直った別の欠陥（CVE-2026-108187、CVSS 8.1）は7.1.5未満が対象。 <a class="src" href="https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html">出典: The Hacker News</a></p>
 <div class="list">
 <article>
-<h3>Barracuda メールセキュリティ GWに認証回避、悪用を確認（CVSS 9.3）</h3>
-<p>CVE-2026-116606。9.4.0.030より前が対象で、未認証の相手が細工したバックアップを復元させ、機器の全体設定を書き換えられる。同社製品ではコマンド注入（CVE-2026-111560）もKEVに入った。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-116606">出典: NVD</a></p>
+<h3>Microsoft月例、修正は1,259件で2か月連続の千件超え</h3>
+<p>悪用が確認されたOutlookの不備（CVE-2026-124194）では、細工したメールを開くだけでNTLMv2ハッシュが漏れる恐れがある。まず外部公開の資産とOutlookから更新したい。 <a class="src" href="https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Outlookの警告不備によるなりすまし、悪用中（CVSS 6.5）</h3>
-<p>CVE-2026-124194。Office LTSC 2021は16.0.14334.21048未満、2024は16.0.17932.21140未満が対象。危険な操作でも警告が出ない。Microsoft 365版は公式のリリース情報で確認を。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-124194">出典: NVD</a></p>
+<h3>Grok製アプリ約3万5千件が認証なしで公開状態</h3>
+<p>調査で見つかった約3万7千件のうち大半が、誰でも開ける状態だった。社内の業務データやパスワードが見えていた例もある。AIで作ったアプリも、公開前に認証を確かめたい。 <a class="src" href="https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Cisco BroadWorksから設定情報が読み取られる恐れ（CVSS 7.5）</h3>
-<p>CVE-2026-20320。細工したXMLを送るだけで、サーバー上の機密ファイルを読める。NVDには影響バージョンの記載がなく、Ciscoの公式情報を確認したい。期限は11/24。 <a class="src" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20320">出典: NVD</a></p>
+<h3>Qlik Senseサーバーにリバースシェルを仕掛ける試み</h3>
+<p>10月、EU域内の顧客のサーバーへPowerShellの遠隔操作を送り込む攻撃が確認された。攻撃は失敗したとされるが、公開しているBI基盤は点検の価値がある。 <a class="src" href="https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html">出典: The Hacker News</a></p>
 </article>
 <article>
-<h3>Gitに修正版、再帰クローンでコードが走る欠陥</h3>
-<p>CVE-2026-111760。長いパスが検査をすり抜け、サブモジュールの.gitが書き換わる。2.56.1などの修正版へ。直るまでは、信用できないリポジトリを再帰クローンしない。 <a class="src" href="https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html">出典: The Hacker News</a></p>
+<h3>Railway、盗まれた顧客のAIキーで約74万ドルが不正利用</h3>
+<p>10月の侵害でAIプロバイダ用のAPIキーが盗まれた。返金が得られなければ同社が負担すると表明。キーをお持ちなら再発行を。 <a class="src" href="https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html">出典: The Hacker News</a></p>
 </article>
 </div>
-<p class="note">CISA KEVの直近2日の追加は10件（上記のほか、前日号分のGPUStack等）。NVDで影響範囲とCVSSを確認済み。Barracudaの9.3はCVSS v4.0の値。</p>
+<p class="note">CISA KEVの直近2日の追加は11/10分の6件のみ（Outlook、Chromium、Barracuda、Cisco BroadWorks等）で、前号までに掲載済み。本号では新規の掲載を見送ったためNVD照会は省略。</p>
 </section>
 
 <div class="cols">
 <div class="col">
 <p class="sec">技術</p>
 <article>
-<h3>Anthropicが新モデル「Claude Fable 5.2」を公開</h3>
-<p>コーディング・推論・画像認識が向上。サイバー攻撃の多段階ベンチでは76.3%と、前版の61.7%から伸びたという。主要クラウドから使える。数字は報道ベースなので、公式の発表も見ておきたい。 <a class="src" href="https://thehackernews.com/2026/11/anthropics-claude-fable-52-beats-gpt-6.html">出典: The Hacker News</a></p>
+<h3>Claude Code 2.1.321、既定モデルがClaude Fable 5.2に</h3>
+<p>あわせて設定ファイルからRemote Controlを扱えるようになった。続く2.1.322ではVertex経由の高速モードが加わり、拒否されたら通常速度に戻る。 <a class="src" href="https://releasebot.io/updates/anthropic/claude-code">出典: Releasebot</a></p>
 </article>
 <article>
-<h3>推論エンジンSGLangの欠陥が突かれ、NEAR AIが侵害される</h3>
-<p>オープンソースの推論サーバーでコードを実行され、エージェント18件と約100人分のデータが流出。機密モードの処理中の要求も見られた可能性がある。自前で推論サーバーを立てる人は、外部公開の有無と版を点検したい。 <a class="src" href="https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html">出典: The Hacker News</a></p>
+<h3>Ollama 0.40.14、「ollama launch claude」でモデル本来の出力上限を使える</h3>
+<p>これまでクラウドモデルでも128Kで頭打ちだった出力が、モデル自身の上限まで伸びる。Claude Codeをローカル系モデルで動かす人に効く。 <a class="src" href="https://releasebot.io/updates/ollama">出典: Releasebot</a></p>
 </article>
 <article>
-<h3>Fireworks AIの侵害が拡大、請求情報やシークレットにも影響</h3>
-<p>一部の顧客で、請求情報、シークレット、データセット、未完成のモデルが影響を受けた。Notion AIのチャットにも波及したと報じられている。APIキーを使っているなら、再発行を検討したい。 <a class="src" href="https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html">出典: The Hacker News</a></p>
+<h3>Tailscale 1.104.5、不安定な回線でのSSH・Serve・tsnetを改善</h3>
+<p>パケットが落ちやすい環境での接続の粘りが増した。Windowsインストーラーの権限昇格の恐れも解消されているので、自宅サーバー用途なら更新したい。 <a class="src" href="https://releasebot.io/updates/tailscale">出典: Releasebot</a></p>
 </article>
 </div>
 
 <div class="col">
 <p class="sec">カルチャー</p>
 <article>
-<h3>2D西部ソウルライク『Tombwater』、あす11/12にSteamで発売</h3>
-<p>横スクロールのアクションRPG。発売日が目前に迫ったインディー作品。 <a class="src" href="https://www.rpgsite.net/news/18338-tombwater-release-date-2d-western-souls-like-action-rpg">出典: RPG Site</a></p>
+<h3>お絵描き水槽シミュレーター『Drawquarium』、11/13にSteamで発売</h3>
+<p>自分で描いた魚を水槽に泳がせるタイプの小品。週末に気軽に触れそうなインディー作。発売日は掲載サイトにより差があるので、ストアで確認を。 <a class="src" href="https://videogame.cloudfree.jp/indies/upcoming.html">出典: ビデオゲームは雲の上</a></p>
 </article>
 <article>
-<h3>『キミ戦』第3期の制作が決定、ティザービジュアル公開</h3>
-<p>先月末の発表で、戦いと恋が絡むシリーズの続き。放送時期は続報待ち。 <a class="src" href="https://anime.eiga.com/news/126276/">出典: アニメ映画ドットコム</a></p>
+<h3>川原礫原作『デモンズ・クレスト』、Prime Videoで独占配信中</h3>
+<p>11/6に始まったダークファンタジーのアニメ。原作者はソードアート・オンラインの作者。 <a class="src" href="https://www.oricon.co.jp/anime/2026_autumn/">出典: ORICON</a></p>
 </article>
 
 <p class="sec">よもやま</p>
 <article>
-<h3>九州場所、41歳の玉鷲が昭和以降で最年長の再入幕</h3>
-<p>41歳11か月での再入幕は、昭和以降の最高齢。新入幕は3人、沖縄出身初の三役となる美ノ海も話題に。場所は11/22まで。 <a class="src" href="https://kumanichi.com/articles/2050557">出典: 熊本日日新聞</a></p>
+<h3>しし座流星群、11/17深夜〜18日未明が見頃</h3>
+<p>月明かりの心配が少なく、条件は良い年。暗い空で1時間に最大15個ほどの見込みで、大出現は約33年周期。極大の時刻は資料で表記が分かれるため、天文アプリで確認を。 <a class="src" href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p>
 </article>
 <article>
-<h3>横綱・大の里は初日に黒星、小結・義ノ富士に敗れる</h3>
-<p>先場所の優勝力士が、過去に負け越していた相手に初日で足元をすくわれた。ことし最後の本場所はまだ序盤。 <a class="src" href="https://news.web.nhk/newsweb/na/nd-20261108de72509">出典: NHK</a></p>
+<h3>西武4000系、4011Fが廃車され横瀬へ</h3>
+<p>横瀬車両基地に着いてアンテナなどが外された。同じ週には阪急神戸線で2000系2006Fが営業運転に入るなど、鉄道は世代交代の時期。 <a class="src" href="https://www.tetsudo.com/calendar/20261108/">出典: 鉄道ニュース</a></p>
 </article>
 
 <div class="column">
 <p class="sec">コラム</p>
-<h3>「再起動して更新」は、先延ばしの敵</h3>
-<p>ブラウザの更新は、再起動までが仕事。脆弱性の欄のChromeも、タブを百個開いたまま待っていては直らない。タブは閉じなくても、たいてい復元される。</p>
+<h3>「流星群」の1時間15個は、意外と忙しい</h3>
+<p>4分に1個のペース。夜空を見上げて数える人の首は、たいてい流星より先に限界が来る。寝転べる敷物があれば、よもやまの欄のしし座流星群も楽に迎えられる。</p>
 </div>
 </div>
 </div>
 
-<footer>朝刊　令和8年11月11日</footer>
+<footer>朝刊　令和8年11月12日</footer>
 </div>
 </body>
 </html>

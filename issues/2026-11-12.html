@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{--bg:#f3f1ec;--fg:#1c1b19;--sub:#55524c;--rule:#1c1b19;--hair:#b9b4a9;--accent:#8a1c1c;--tag:#ebe7de;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","BIZ UDPMincho",serif;line-height:1.7}
+.wrap{max-width:60rem;margin:0 auto;padding-block:1.2rem 2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{text-align:center;border-bottom:4px double var(--rule);padding-bottom:.5rem}
+h1{margin:0;font-size:3rem;letter-spacing:.6em;padding-left:.6em;font-weight:800;line-height:1.3}
+.date{margin:0;font-size:.95rem;color:var(--sub);border-top:1px solid var(--rule);padding-top:.25rem}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;margin:0 0 .6rem;padding:.1rem .5rem;display:inline-block;background:var(--fg);color:var(--bg)}
+.top{padding:1.2rem 0;border-bottom:2px solid var(--rule)}
+.top h2{font-size:clamp(1.5rem,4.2vw,2.3rem);line-height:1.4;margin:0 0 .5rem;color:var(--accent);word-break:auto-phrase}
+.top .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem 1.5rem;margin-top:.8rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem;padding-top:1rem}
+.col{min-width:0;display:flex;flex-direction:column;gap:1.2rem}
+.col + .col{border-left:1px solid var(--hair);padding-left:1.6rem}
+h3{font-size:1.08rem;line-height:1.45;margin:0;text-wrap:pretty;word-break:auto-phrase}
+p{margin:.15rem 0 0;font-size:.93rem;color:var(--sub);word-break:auto-phrase}
+a{color:inherit}
+.src{font-size:.8rem;display:inline-block;margin-top:.15rem;color:var(--accent)}
+article{border-bottom:1px dotted var(--hair);padding-bottom:.9rem}
+article:last-child{border-bottom:0}
+.note{font-size:.82rem;color:var(--sub);margin-top:.8rem}
+.column{background:var(--tag);padding:.8rem 1rem;border-top:2px solid var(--rule)}
+footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;text-align:center;font-size:.8rem;color:var(--sub)}
+@media (max-width:640px){.cols{grid-template-columns:1fr}.col + .col{border-left:0;padding-left:0;margin-top:1.2rem}h1{font-size:2.3rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>朝刊</h1>
+<p class="date">令和8年11月12日（木）</p>
+</header>
+
+<section class="top">
+<p class="sec">脆弱性</p>
+<h2>Zoom Workplace（Windows版）に認証不要の重大欠陥、7.1.8へ更新を（CVSS 9.6）</h2>
+<p>CVE-2026-108186。入力検証の不備で、ネットワーク越しに権限昇格される恐れがある。7.1.0以上7.1.8未満が対象。悪用の報告はまだないが、更新で直る。同時に直った別の欠陥（CVE-2026-108187、CVSS 8.1）は7.1.5未満が対象。 <a class="src" href="https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html">出典: The Hacker News</a></p>
+<div class="list">
+<article>
+<h3>Microsoft月例、修正は1,259件で2か月連続の千件超え</h3>
+<p>悪用が確認されたOutlookの不備（CVE-2026-124194）では、細工したメールを開くだけでNTLMv2ハッシュが漏れる恐れがある。まず外部公開の資産とOutlookから更新したい。 <a class="src" href="https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html">出典: The Hacker News</a></p>
+</article>
+<article>
+<h3>Grok製アプリ約3万5千件が認証なしで公開状態</h3>
+<p>調査で見つかった約3万7千件のうち大半が、誰でも開ける状態だった。社内の業務データやパスワードが見えていた例もある。AIで作ったアプリも、公開前に認証を確かめたい。 <a class="src" href="https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html">出典: The Hacker News</a></p>
+</article>
+<article>
+<h3>Qlik Senseサーバーにリバースシェルを仕掛ける試み</h3>
+<p>10月、EU域内の顧客のサーバーへPowerShellの遠隔操作を送り込む攻撃が確認された。攻撃は失敗したとされるが、公開しているBI基盤は点検の価値がある。 <a class="src" href="https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html">出典: The Hacker News</a></p>
+</article>
+<article>
+<h3>Railway、盗まれた顧客のAIキーで約74万ドルが不正利用</h3>
+<p>10月の侵害でAIプロバイダ用のAPIキーが盗まれた。返金が得られなければ同社が負担すると表明。キーをお持ちなら再発行を。 <a class="src" href="https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html">出典: The Hacker News</a></p>
+</article>
+</div>
+<p class="note">CISA KEVの直近2日の追加は11/10分の6件のみ（Outlook、Chromium、Barracuda、Cisco BroadWorks等）で、前号までに掲載済み。本号では新規の掲載を見送ったためNVD照会は省略。</p>
+</section>
+
+<div class="cols">
+<div class="col">
+<p class="sec">技術</p>
+<article>
+<h3>Claude Code 2.1.321、既定モデルがClaude Fable 5.2に</h3>
+<p>あわせて設定ファイルからRemote Controlを扱えるようになった。続く2.1.322ではVertex経由の高速モードが加わり、拒否されたら通常速度に戻る。 <a class="src" href="https://releasebot.io/updates/anthropic/claude-code">出典: Releasebot</a></p>
+</article>
+<article>
+<h3>Ollama 0.40.14、「ollama launch claude」でモデル本来の出力上限を使える</h3>
+<p>これまでクラウドモデルでも128Kで頭打ちだった出力が、モデル自身の上限まで伸びる。Claude Codeをローカル系モデルで動かす人に効く。 <a class="src" href="https://releasebot.io/updates/ollama">出典: Releasebot</a></p>
+</article>
+<article>
+<h3>Tailscale 1.104.5、不安定な回線でのSSH・Serve・tsnetを改善</h3>
+<p>パケットが落ちやすい環境での接続の粘りが増した。Windowsインストーラーの権限昇格の恐れも解消されているので、自宅サーバー用途なら更新したい。 <a class="src" href="https://releasebot.io/updates/tailscale">出典: Releasebot</a></p>
+</article>
+</div>
+
+<div class="col">
+<p class="sec">カルチャー</p>
+<article>
+<h3>お絵描き水槽シミュレーター『Drawquarium』、11/13にSteamで発売</h3>
+<p>自分で描いた魚を水槽に泳がせるタイプの小品。週末に気軽に触れそうなインディー作。発売日は掲載サイトにより差があるので、ストアで確認を。 <a class="src" href="https://videogame.cloudfree.jp/indies/upcoming.html">出典: ビデオゲームは雲の上</a></p>
+</article>
+<article>
+<h3>川原礫原作『デモンズ・クレスト』、Prime Videoで独占配信中</h3>
+<p>11/6に始まったダークファンタジーのアニメ。原作者はソードアート・オンラインの作者。 <a class="src" href="https://www.oricon.co.jp/anime/2026_autumn/">出典: ORICON</a></p>
+</article>
+
+<p class="sec">よもやま</p>
+<article>
+<h3>しし座流星群、11/17深夜〜18日未明が見頃</h3>
+<p>月明かりの心配が少なく、条件は良い年。暗い空で1時間に最大15個ほどの見込みで、大出現は約33年周期。極大の時刻は資料で表記が分かれるため、天文アプリで確認を。 <a class="src" href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p>
+</article>
+<article>
+<h3>西武4000系、4011Fが廃車され横瀬へ</h3>
+<p>横瀬車両基地に着いてアンテナなどが外された。同じ週には阪急神戸線で2000系2006Fが営業運転に入るなど、鉄道は世代交代の時期。 <a class="src" href="https://www.tetsudo.com/calendar/20261108/">出典: 鉄道ニュース</a></p>
+</article>
+
+<div class="column">
+<p class="sec">コラム</p>
+<h3>「流星群」の1時間15個は、意外と忙しい</h3>
+<p>4分に1個のペース。夜空を見上げて数える人の首は、たいてい流星より先に限界が来る。寝転べる敷物があれば、よもやまの欄のしし座流星群も楽に迎えられる。</p>
+</div>
+</div>
+</div>
+
+<footer>朝刊　令和8年11月12日</footer>
+</div>
+</body>
+</html>
