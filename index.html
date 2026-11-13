@@ -5,116 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>朝刊</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <style>
-:root{--bg:#f3f1ec;--fg:#1c1b19;--sub:#55524c;--rule:#1c1b19;--hair:#b9b4a9;--accent:#8a1c1c;--tag:#ebe7de;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#17171a;--fg:#e8e5de;--sub:#a9a59c;--rule:#e8e5de;--hair:#47454a;--accent:#e08a7a;--tag:#222226;color-scheme:dark}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","BIZ UDPMincho",serif;line-height:1.7}
-.wrap{max-width:60rem;margin:0 auto;padding-block:1.2rem 2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-header{text-align:center;border-bottom:4px double var(--rule);padding-bottom:.5rem}
-h1{margin:0;font-size:3rem;letter-spacing:.6em;padding-left:.6em;font-weight:800;line-height:1.3}
-.date{margin:0;font-size:.95rem;color:var(--sub);border-top:1px solid var(--rule);padding-top:.25rem}
-.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;margin:0 0 .6rem;padding:.1rem .5rem;display:inline-block;background:var(--fg);color:var(--bg)}
-.top{padding:1.2rem 0;border-bottom:2px solid var(--rule)}
-.top h2{font-size:clamp(1.5rem,4.2vw,2.3rem);line-height:1.4;margin:0 0 .5rem;color:var(--accent);word-break:auto-phrase}
-.top .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem 1.5rem;margin-top:.8rem}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem;padding-top:1rem}
-.col{min-width:0;display:flex;flex-direction:column;gap:1.2rem}
-.col + .col{border-left:1px solid var(--hair);padding-left:1.6rem}
-h3{font-size:1.08rem;line-height:1.45;margin:0;text-wrap:pretty;word-break:auto-phrase}
-p{margin:.15rem 0 0;font-size:.93rem;color:var(--sub);word-break:auto-phrase}
-a{color:inherit}
-.src{font-size:.8rem;display:inline-block;margin-top:.15rem;color:var(--accent)}
-article{border-bottom:1px dotted var(--hair);padding-bottom:.9rem}
-article:last-child{border-bottom:0}
-.note{font-size:.82rem;color:var(--sub);margin-top:.8rem}
-.column{background:var(--tag);padding:.8rem 1rem;border-top:2px solid var(--rule)}
-footer{border-top:4px double var(--rule);margin-top:1.4rem;padding-top:.4rem;text-align:center;font-size:.8rem;color:var(--sub)}
-@media (max-width:640px){.cols{grid-template-columns:1fr}.col + .col{border-left:0;padding-left:0;margin-top:1.2rem}h1{font-size:2.3rem}}
+:root{--bg:#f5f3ee;--fg:#1c1a17;--sub:#5b574f;--rule:#1c1a17;--hair:#bdb8ad;--accent:#8a1c1c;--link:#1d3f72;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16150f;--fg:#ebe7dc;--sub:#a9a498;--rule:#ebe7dc;--hair:#4a473e;--accent:#e08a7a;--link:#9db8e6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16150f;--fg:#ebe7dc;--sub:#a9a498;--rule:#ebe7dc;--hair:#4a473e;--accent:#e08a7a;--link:#9db8e6;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{text-align:center;border-top:4px double var(--rule);border-bottom:1px solid var(--rule);padding:10px 0 8px}
+h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.5em;padding-left:.5em;font-weight:900;line-height:1.2}
+.date{margin:0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+h2{font-size:.95rem;letter-spacing:.3em;margin:0 0 10px;padding:2px 0;border-bottom:2px solid var(--rule);color:var(--accent)}
+h3{margin:0 0 2px;font-size:1.05rem;line-height:1.5;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;font-size:.95rem;word-break:auto-phrase}
+.art{padding:10px 0;border-bottom:1px solid var(--hair)}
+.art:last-child{border-bottom:0}
+.src{font-size:.8rem;margin-top:2px}
+a{color:var(--link)}
+.lead{padding:14px 0;border-bottom:1px solid var(--rule)}
+.lead h3{font-size:clamp(1.4rem,4.5vw,2.1rem);line-height:1.4;font-weight:900;margin-bottom:6px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0;padding-top:4px}
+.col:first-child{border-right:1px solid var(--hair);padding-right:28px;margin-right:-28px}
+.col section{margin-bottom:18px}
+.col2 section:last-child{margin-bottom:0}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col:first-child{border-right:0;padding-right:0;margin-right:0}}
+.sub{color:var(--sub);font-size:.85rem}
 </style>
 </head>
 <body>
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="wrap">
-<header>
-<h1>朝刊</h1>
-<p class="date">令和8年11月13日（金）</p>
-</header>
+<header><h1>朝刊</h1><p class="date">令和8年11月14日（土）</p></header>
 
-<section class="top">
-<p class="sec">脆弱性</p>
-<h2>Apache HTTP Serverのmod_http2に認証不要のコード実行欠陥、2.4.71へ更新を</h2>
-<p>CVE-2026-119618。2.4.55〜2.4.70でHTTP/2を有効にしていると対象になる。Red Hatは評価9.8とし、既定設定で成立する攻撃の公開研究があると説明。一方、Wizは実際の悪用や公開エクスプロイトは確認していないとする。NVDは「分析待ち」でスコア未付与。単体のmod_h2は修正版がまだない。 <a class="src" href="https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html">出典: The Hacker News</a></p>
-<div class="list">
-<article>
-<h3>Windows CLFSにゼロデイ、PoC「SignDrop」で一般ユーザーがSYSTEMに</h3>
-<p>ローカルでの権限昇格で、実証コードがすでに出回っている。修正パッチの有無を確かめ、共有端末から優先して手当てしたい。 <a class="src" href="https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html">出典: The Hacker News</a></p>
-</article>
-<article>
-<h3>Citrix、NetScalerなど12件を修正。認証バイパスも</h3>
-<p>最大はパケット処理のメモリあふれ（CVE-2026-120868、CVSS 9.3）。ADC、Gateway、Consoleを運用しているなら更新を急ぎたい。 <a class="src" href="https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html">出典: The Hacker News</a></p>
-</article>
-<article>
-<h3>Red Hat Quayの重大欠陥、非公開イメージの読み書きが可能に</h3>
-<p>匿名アクセスが有効なら認証なしで、無効でも有効なアカウントがあれば悪用できる。全リポジトリのコンテナイメージが改ざんされ得る。修正版は公開済み。 <a class="src" href="https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html">出典: The Hacker News</a></p>
-</article>
-<article>
-<h3>Node.js、16件を修正。HTTP/2で落とされ、他接続の内容が漏れる恐れも</h3>
-<p>認証なしでサーバーを落とせる欠陥を含む。22.23.5、24.22.3、26.13.1で直る。 <a class="src" href="https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html">出典: The Hacker News</a></p>
-</article>
+<section class="lead">
+<h2>脆弱性</h2>
+<h3>CISA、Check Point製品とUnrealIRCdの悪用確認済み脆弱性を追加　対応期限は16日</h3>
+<p>13日にCISAの悪用済み脆弱性リスト（KEV）へ2件が加わった。どちらも対応期限は11月16日。該当製品を使う場合は早めの更新を。</p>
+<div class="art">
+<p><b>CVE-2026-123039（Check Point）</b>：Quantum Security Gateway/Managementで、Gaia OSの常駐プログラムが認証なしでコマンドを受け付け、ローカルユーザーがroot権限を得られる。R81.20〜R82.20の各Jumbo Hotfix古版が対象。CVSS 7.8（High）。</p>
+<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123039">出典: NVD</a></p>
 </div>
-<p class="note">CISA KEVに直近2日の新規追加はなし（最新の追加は11/10分の6件で、前号までに掲載済み）。そのためNVD照会は、上のApacheの件のみ実施。</p>
+<div class="art">
+<p><b>CVE-2026-114713（UnrealIRCd）</b>：labeled-responseモジュールの区切り文字処理の不備。6.0.0以上6.2.7.1未満が対象（NVD内で記載に揺れあり）。CVSS 8.6（High）。</p>
+<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-114713">出典: NVD</a></p>
+</div>
+<div class="art">
+<h3>Check Pointのゲートウェイ、PHP2Shellの欠陥を突かれバックドア設置</h3>
+<p>未更新のゲートウェイが侵入され、Gaia OSの権限昇格を併用してESXi上のファイルが消された例が報告された。10月30日ごろから確認されているという。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<h3>N-centralの欠陥が悪用され、21台のサーバーが感染</h3>
+<p>リモート管理製品N-centralで新たに判明した2つの欠陥が実際に攻撃へ使われている。ベンダーは一部機能を制限して修正作業中。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<h3>PostgreSQL、52件の修正を公開　22年前からのバグも</h3>
+<p>型の取り違えによる欠陥（CVE-2026-6460、CVSS 8.8）で、オブジェクト作成権限を持つ利用者がサーバー上でコードを動かせた。C言語製拡張は再ビルドが必要。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html">出典: The Hacker News</a></p>
+</div>
 </section>
 
 <div class="cols">
 <div class="col">
-<p class="sec">技術</p>
-<article>
-<h3>Obsidian、AIエージェントの動作を実行前に審査する仕組みを発表</h3>
-<p>ツール呼び出しを業務アプリに届く前にチェックするプロキシを備え、コーディングエージェント向けの方針がClaude Codeに加えてCodexにも広がった。 <a class="src" href="https://www.helpnetsecurity.com/2026/11/11/obsidian-security-runtime-policy-decision-engine/">出典: Help Net Security</a></p>
-</article>
-<article>
-<h3>Orca、AIが書いたコードを書いたエージェントやモデルまで追跡</h3>
-<p>社内で使われている未承認のAIアプリや、自律エージェントのリスクも洗い出す。コードの出どころを後から辿れるようにする流れが強まっている。 <a class="src" href="https://www.helpnetsecurity.com/2026/11/11/orca-security-ai-security/">出典: Help Net Security</a></p>
-</article>
-<article>
-<h3>Claude Codeの高速モード（Opus 4.8向け）は11/30で終了</h3>
-<p>期限後は通常のOpusに切り替わらず、エラーになる。設定で高速モードを指定している場合は、今月中に見直しておきたい。 <a class="src" href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">出典: releases.sh</a></p>
-</article>
+<section>
+<h2>技術</h2>
+<div class="art">
+<h3>Meta、複数のAIコーディングエージェントを並行実行するConductorを買収</h3>
+<p>作業を隔離した複製環境で複数エージェントに任せ、結果を見比べてマージするアプリ。クラウド版は今月終了し、デスクトップ版の更新は2027年初めまで。</p>
+<p class="src"><a href="https://axios.com/2026/11/04/meta-acquires-ai-coding-startup-conductor">出典: Axios</a></p>
+</div>
+<div class="art">
+<h3>Unity 7を発表、2027年初めに正式版</h3>
+<p>次世代エンジンのベータが12月に始まる予定。2027年第1四半期のリリースが示された。</p>
+<p class="src"><a href="https://wnhub.io/news/engines/item-51496">出典: wnhub</a></p>
+</div>
+<div class="art">
+<h3>Claude CodeをローカルLLMで動かす際の落とし穴</h3>
+<p>モデルがツール名を大文字小文字違い（bash／Bash）で呼ぶと失敗してループする、という検証記事。中継プロキシで補正する工夫が紹介されている。</p>
+<p class="src"><a href="https://mer.vin/2026/11/run-claude-code-locally-for-free-with-ollama/">出典: mer.vin</a></p>
+</div>
+<div class="art">
+<h3>AMD SEV-SNP仮想マシンから秘密を盗む新攻撃</h3>
+<p>悪意あるクラウドホストが保護されたVMの内容を読める攻撃が2種類登場。実行にはハイパーバイザー（一部はBIOSも）の制御が前提。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html">出典: The Hacker News</a></p>
+</div>
+</section>
 </div>
 
-<div class="col">
-<p class="sec">カルチャー</p>
-<article>
-<h3>水上悟志『スピリットサークル』、12月にTVアニメ放送・配信開始</h3>
-<p>故・佐藤竜雄監督の遺作として制作された。原作は輪廻をめぐる長編で、アニメ化の発表は11/5。 <a class="src" href="https://www.toy-people.com/jp/?p=116173">出典: TOY PEOPLE</a></p>
-</article>
-
-<p class="sec">よもやま</p>
-<article>
-<h3>大相撲11月場所、横綱大の里は初日に黒星</h3>
-<p>先場所優勝の大の里が小結義ノ富士に敗れた。ひざの手術から戻った豊昇龍は白星発進。新三役の美ノ海にも注目が集まる。 <a class="src" href="https://news.web.nhk/newsweb/na/nd-20261108de72509">出典: NHK</a></p>
-</article>
-<article>
-<h3>明け方の空に4つの惑星が並ぶ、11/13〜22ごろ</h3>
-<p>水星、金星、火星、木星が東の空に集まるとされる。同じ時期はしし座流星群の季節でもある。見える時刻は地域で変わるので、天文アプリで確認を。 <a class="src" href="https://starwalk.space/ja/news/night-sky-tonight-november">出典: Star Walk</a></p>
-</article>
-<article>
-<h3>氷河期の生き残り「ガロアムシ」、米国の公園で学生が発見</h3>
-<p>世界で記載されているのは35種ほどで、多くは1か所でしか見つかっていない。1年がかりで探した大学生の成果。 <a class="src" href="https://nazology.kusuguru.co.jp/archives/206053">出典: ナゾロジー</a></p>
-</article>
-
-<div class="column">
-<p class="sec">コラム</p>
-<h3>「あとで更新する」の賞味期限</h3>
-<p>更新は明日やる、と言い続けて三年。明日はまだ来ていない。脆弱性の欄に並ぶ話は、たいてい、その明日の話である。</p>
+<div class="col col2">
+<section>
+<h2>カルチャー</h2>
+<div class="art">
+<h3>『あたしンちNEXT』、2027年元日から新作を配信</h3>
+<p>新監督に『ヤニねこ』の木村拓氏が就任し、新しいキービジュアルも公開された。</p>
+<p class="src"><a href="https://times.abema.tv/articles/-/10288852">出典: ABEMA TIMES</a></p>
+</div>
+<div class="art">
+<h3>ABEMAで「勤労感謝のお仕事アニメ特集」</h3>
+<p>お仕事アニメ5作品の無料一挙放送が13日から始まった。</p>
+<p class="src"><a href="https://news.denfaminicogamer.jp/news/2611123o">出典: 電ファミニコゲーマー</a></p>
+</div>
+</section>
+<section>
+<h2>よもやま</h2>
+<div class="art">
+<h3>しし座流星群、17日深夜から18日未明が見頃</h3>
+<p>1時間に約15個と数は控えめだが、速度が速く明るい火球が出ることがある。月は夜のうちに沈む見込み。</p>
+<p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p>
+</div>
+<div class="art">
+<h3>大相撲九州場所、22日まで開催中</h3>
+<p>前売りは今年も初日に完売。休場続きだった横綱・豊昇龍は2日目に白星発進、横綱・大の里は初日に黒星だった。</p>
+<p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261108de72604">出典: NHK</a></p>
+</div>
+</section>
+<section>
+<h2>コラム</h2>
+<p>月の光は約1.3秒かけて地球に届く。つまり夜空の月は、いつも1秒ちょっと前の姿である。流星群を見上げるなら、月の遅刻くらいは許してやりたい。</p>
+</section>
 </div>
 </div>
 </div>
-
-<footer>朝刊　令和8年11月13日</footer>
-</div>
-<!-- 2026-11-13 -->
 </body>
 </html>
