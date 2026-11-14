@@ -36,34 +36,19 @@ a{color:var(--link)}
 <body>
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="wrap">
-<header><h1>朝刊</h1><p class="date">令和8年11月14日（土）</p></header>
+<header><h1>朝刊</h1><p class="date" >令和8年11月15日（日）</p></header>
 
 <section class="lead">
 <h2>脆弱性</h2>
-<h3>CISA、Check Point製品とUnrealIRCdの悪用確認済み脆弱性を追加　対応期限は16日</h3>
-<p>13日にCISAの悪用済み脆弱性リスト（KEV）へ2件が加わった。どちらも対応期限は11月16日。該当製品を使う場合は早めの更新を。</p>
+<h3>UnrealIRCdの欠陥、実際の攻撃で悪用　CISAが悪用確認済みリストに追加</h3>
+<p>13日にKEVへ加わった2件が直近2日の追加分。どちらも対応期限は11月16日で、該当製品を使う場合は早めの更新を。</p>
 <div class="art">
-<p><b>CVE-2026-123039（Check Point）</b>：Quantum Security Gateway/Managementで、Gaia OSの常駐プログラムが認証なしでコマンドを受け付け、ローカルユーザーがroot権限を得られる。R81.20〜R82.20の各Jumbo Hotfix古版が対象。CVSS 7.8（High）。</p>
+<p><b>CVE-2026-114713（UnrealIRCd）</b>：区切り文字の無害化不備で、サーバー権限のコマンド実行につながる。CVSSは8.6（High）と報じられた。NVD取得失敗のため影響バージョンは未確認。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<p><b>CVE-2026-123039（Check Point）</b>：Gaia OSのDynamicCLIに起因し、ローカルの認証済み利用者がroot権限でコマンドを実行できる。Quantum Security Gateway/ManagementのR81.20（Jumbo Hotfix Take 173以下）、R82（同130以下）、R82.10（同50以下）、R82.20（同10以下）が対象。CVSS 7.8（High）。</p>
 <p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123039">出典: NVD</a></p>
-</div>
-<div class="art">
-<p><b>CVE-2026-114713（UnrealIRCd）</b>：labeled-responseモジュールの区切り文字処理の不備。6.0.0以上6.2.7.1未満が対象（NVD内で記載に揺れあり）。CVSS 8.6（High）。</p>
-<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-114713">出典: NVD</a></p>
-</div>
-<div class="art">
-<h3>Check Pointのゲートウェイ、PHP2Shellの欠陥を突かれバックドア設置</h3>
-<p>未更新のゲートウェイが侵入され、Gaia OSの権限昇格を併用してESXi上のファイルが消された例が報告された。10月30日ごろから確認されているという。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html">出典: The Hacker News</a></p>
-</div>
-<div class="art">
-<h3>N-centralの欠陥が悪用され、21台のサーバーが感染</h3>
-<p>リモート管理製品N-centralで新たに判明した2つの欠陥が実際に攻撃へ使われている。ベンダーは一部機能を制限して修正作業中。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html">出典: The Hacker News</a></p>
-</div>
-<div class="art">
-<h3>PostgreSQL、52件の修正を公開　22年前からのバグも</h3>
-<p>型の取り違えによる欠陥（CVE-2026-6460、CVSS 8.8）で、オブジェクト作成権限を持つ利用者がサーバー上でコードを動かせた。C言語製拡張は再ビルドが必要。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html">出典: The Hacker News</a></p>
 </div>
 </section>
 
@@ -72,24 +57,19 @@ a{color:var(--link)}
 <section>
 <h2>技術</h2>
 <div class="art">
-<h3>Meta、複数のAIコーディングエージェントを並行実行するConductorを買収</h3>
-<p>作業を隔離した複製環境で複数エージェントに任せ、結果を見比べてマージするアプリ。クラウド版は今月終了し、デスクトップ版の更新は2027年初めまで。</p>
-<p class="src"><a href="https://axios.com/2026/11/04/meta-acquires-ai-coding-startup-conductor">出典: Axios</a></p>
+<h3>PHP 8.6、19日に正式版の予定　最終RCは出そろった</h3>
+<p>RC6が10日に出ており、あとは正式リリースを待つ段階。部分関数適用やclamp()などが入る見込みで、DrupalなどCMS側の対応確認は続いている。</p>
+<p class="src"><a href="https://www.linuxcompatible.org/story/php-860-rc6-released-ahead-of-19-november-stable-deadline/">出典: Linux Compatible</a></p>
 </div>
 <div class="art">
-<h3>Unity 7を発表、2027年初めに正式版</h3>
-<p>次世代エンジンのベータが12月に始まる予定。2027年第1四半期のリリースが示された。</p>
-<p class="src"><a href="https://wnhub.io/news/engines/item-51496">出典: wnhub</a></p>
+<h3>Unity 7、中身はCoreCLR化とエージェント連携</h3>
+<p>Unity 6の延長として2027年第1四半期に登場予定で、ベータは12月開始。実行基盤の刷新に加え、コーディングエージェントをエディターにつなぐMCPサーバーが無料で付くとされる。</p>
+<p class="src"><a href="https://80.lv/articles/unity-7-has-been-announced">出典: 80.lv</a></p>
 </div>
 <div class="art">
-<h3>Claude CodeをローカルLLMで動かす際の落とし穴</h3>
-<p>モデルがツール名を大文字小文字違い（bash／Bash）で呼ぶと失敗してループする、という検証記事。中継プロキシで補正する工夫が紹介されている。</p>
-<p class="src"><a href="https://mer.vin/2026/11/run-claude-code-locally-for-free-with-ollama/">出典: mer.vin</a></p>
-</div>
-<div class="art">
-<h3>AMD SEV-SNP仮想マシンから秘密を盗む新攻撃</h3>
-<p>悪意あるクラウドホストが保護されたVMの内容を読める攻撃が2種類登場。実行にはハイパーバイザー（一部はBIOSも）の制御が前提。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html">出典: The Hacker News</a></p>
+<h3>OllamaはAnthropic形式のAPIを直接話せる</h3>
+<p>0.14以降、ローカルモデルをClaude Codeにつなぐのに中継が要らない。ただし実用面では、ツール呼び出しの不安定さを指摘する声も多い。</p>
+<p class="src"><a href="https://tessl.io/blog/ollama-paves-a-path-for-claude-code-to-run-locally-on-open-weight-models/">出典: Tessl</a></p>
 </div>
 </section>
 </div>
@@ -98,32 +78,27 @@ a{color:var(--link)}
 <section>
 <h2>カルチャー</h2>
 <div class="art">
-<h3>『あたしンちNEXT』、2027年元日から新作を配信</h3>
-<p>新監督に『ヤニねこ』の木村拓氏が就任し、新しいキービジュアルも公開された。</p>
-<p class="src"><a href="https://times.abema.tv/articles/-/10288852">出典: ABEMA TIMES</a></p>
-</div>
-<div class="art">
-<h3>ABEMAで「勤労感謝のお仕事アニメ特集」</h3>
-<p>お仕事アニメ5作品の無料一挙放送が13日から始まった。</p>
-<p class="src"><a href="https://news.denfaminicogamer.jp/news/2611123o">出典: 電ファミニコゲーマー</a></p>
+<h3>プライズフィギュアの新ブランド「STRAVENTO」、第1弾は『カグラバチ』</h3>
+<p>6〜7日のアミューズメントエキスポで発表。大型で演出パーツ付きが特徴。TVアニメは2027年4月放送開始予定。</p>
+<p class="src"><a href="https://animeanime.jp/article/2026/11/09/104634.html">出典: アニメ！アニメ！</a></p>
 </div>
 </section>
 <section>
 <h2>よもやま</h2>
 <div class="art">
-<h3>しし座流星群、17日深夜から18日未明が見頃</h3>
-<p>1時間に約15個と数は控えめだが、速度が速く明るい火球が出ることがある。月は夜のうちに沈む見込み。</p>
-<p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p>
+<h3>近鉄のレストラン列車「Les Saveurs 志摩」、1日から運行中</h3>
+<p>特急車両を改造した4両編成で、座席は50席。名古屋と賢島の間をフレンチを楽しみながら走る。</p>
+<p class="src"><a href="https://tabi-mag.jp/lessaveurs-shima/">出典: tabi-mag</a></p>
 </div>
 <div class="art">
-<h3>大相撲九州場所、22日まで開催中</h3>
-<p>前売りは今年も初日に完売。休場続きだった横綱・豊昇龍は2日目に白星発進、横綱・大の里は初日に黒星だった。</p>
-<p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261108de72604">出典: NHK</a></p>
+<h3>一畑電車に新車「天叢雲」、今月導入予定</h3>
+<p>デザインは水戸岡鋭治氏。2両が加わり、観光にも通勤通学にも使う。古い5000系が置き換わる。</p>
+<p class="src"><a href="https://trafficnews.jp/post/637637">出典: 乗りものニュース</a></p>
 </div>
 </section>
 <section>
 <h2>コラム</h2>
-<p>月の光は約1.3秒かけて地球に届く。つまり夜空の月は、いつも1秒ちょっと前の姿である。流星群を見上げるなら、月の遅刻くらいは許してやりたい。</p>
+<p>新幹線の線路幅は1435mm、在来線は1067mm。差は368mmで、大人の肩幅ほどの隙間が速さの差を生んでいる。</p>
 </section>
 </div>
 </div>

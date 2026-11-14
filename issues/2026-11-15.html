@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f5f3ee;--fg:#1c1a17;--sub:#5b574f;--rule:#1c1a17;--hair:#bdb8ad;--accent:#8a1c1c;--link:#1d3f72;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16150f;--fg:#ebe7dc;--sub:#a9a498;--rule:#ebe7dc;--hair:#4a473e;--accent:#e08a7a;--link:#9db8e6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16150f;--fg:#ebe7dc;--sub:#a9a498;--rule:#ebe7dc;--hair:#4a473e;--accent:#e08a7a;--link:#9db8e6;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{text-align:center;border-top:4px double var(--rule);border-bottom:1px solid var(--rule);padding:10px 0 8px}
+h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.5em;padding-left:.5em;font-weight:900;line-height:1.2}
+.date{margin:0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+h2{font-size:.95rem;letter-spacing:.3em;margin:0 0 10px;padding:2px 0;border-bottom:2px solid var(--rule);color:var(--accent)}
+h3{margin:0 0 2px;font-size:1.05rem;line-height:1.5;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;font-size:.95rem;word-break:auto-phrase}
+.art{padding:10px 0;border-bottom:1px solid var(--hair)}
+.art:last-child{border-bottom:0}
+.src{font-size:.8rem;margin-top:2px}
+a{color:var(--link)}
+.lead{padding:14px 0;border-bottom:1px solid var(--rule)}
+.lead h3{font-size:clamp(1.4rem,4.5vw,2.1rem);line-height:1.4;font-weight:900;margin-bottom:6px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0;padding-top:4px}
+.col:first-child{border-right:1px solid var(--hair);padding-right:28px;margin-right:-28px}
+.col section{margin-bottom:18px}
+.col2 section:last-child{margin-bottom:0}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col:first-child{border-right:0;padding-right:0;margin-right:0}}
+.sub{color:var(--sub);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1>朝刊</h1><p class="date" >令和8年11月15日（日）</p></header>
+
+<section class="lead">
+<h2>脆弱性</h2>
+<h3>UnrealIRCdの欠陥、実際の攻撃で悪用　CISAが悪用確認済みリストに追加</h3>
+<p>13日にKEVへ加わった2件が直近2日の追加分。どちらも対応期限は11月16日で、該当製品を使う場合は早めの更新を。</p>
+<div class="art">
+<p><b>CVE-2026-114713（UnrealIRCd）</b>：区切り文字の無害化不備で、サーバー権限のコマンド実行につながる。CVSSは8.6（High）と報じられた。NVD取得失敗のため影響バージョンは未確認。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<p><b>CVE-2026-123039（Check Point）</b>：Gaia OSのDynamicCLIに起因し、ローカルの認証済み利用者がroot権限でコマンドを実行できる。Quantum Security Gateway/ManagementのR81.20（Jumbo Hotfix Take 173以下）、R82（同130以下）、R82.10（同50以下）、R82.20（同10以下）が対象。CVSS 7.8（High）。</p>
+<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123039">出典: NVD</a></p>
+</div>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<h2>技術</h2>
+<div class="art">
+<h3>PHP 8.6、19日に正式版の予定　最終RCは出そろった</h3>
+<p>RC6が10日に出ており、あとは正式リリースを待つ段階。部分関数適用やclamp()などが入る見込みで、DrupalなどCMS側の対応確認は続いている。</p>
+<p class="src"><a href="https://www.linuxcompatible.org/story/php-860-rc6-released-ahead-of-19-november-stable-deadline/">出典: Linux Compatible</a></p>
+</div>
+<div class="art">
+<h3>Unity 7、中身はCoreCLR化とエージェント連携</h3>
+<p>Unity 6の延長として2027年第1四半期に登場予定で、ベータは12月開始。実行基盤の刷新に加え、コーディングエージェントをエディターにつなぐMCPサーバーが無料で付くとされる。</p>
+<p class="src"><a href="https://80.lv/articles/unity-7-has-been-announced">出典: 80.lv</a></p>
+</div>
+<div class="art">
+<h3>OllamaはAnthropic形式のAPIを直接話せる</h3>
+<p>0.14以降、ローカルモデルをClaude Codeにつなぐのに中継が要らない。ただし実用面では、ツール呼び出しの不安定さを指摘する声も多い。</p>
+<p class="src"><a href="https://tessl.io/blog/ollama-paves-a-path-for-claude-code-to-run-locally-on-open-weight-models/">出典: Tessl</a></p>
+</div>
+</section>
+</div>
+
+<div class="col col2">
+<section>
+<h2>カルチャー</h2>
+<div class="art">
+<h3>プライズフィギュアの新ブランド「STRAVENTO」、第1弾は『カグラバチ』</h3>
+<p>6〜7日のアミューズメントエキスポで発表。大型で演出パーツ付きが特徴。TVアニメは2027年4月放送開始予定。</p>
+<p class="src"><a href="https://animeanime.jp/article/2026/11/09/104634.html">出典: アニメ！アニメ！</a></p>
+</div>
+</section>
+<section>
+<h2>よもやま</h2>
+<div class="art">
+<h3>近鉄のレストラン列車「Les Saveurs 志摩」、1日から運行中</h3>
+<p>特急車両を改造した4両編成で、座席は50席。名古屋と賢島の間をフレンチを楽しみながら走る。</p>
+<p class="src"><a href="https://tabi-mag.jp/lessaveurs-shima/">出典: tabi-mag</a></p>
+</div>
+<div class="art">
+<h3>一畑電車に新車「天叢雲」、今月導入予定</h3>
+<p>デザインは水戸岡鋭治氏。2両が加わり、観光にも通勤通学にも使う。古い5000系が置き換わる。</p>
+<p class="src"><a href="https://trafficnews.jp/post/637637">出典: 乗りものニュース</a></p>
+</div>
+</section>
+<section>
+<h2>コラム</h2>
+<p>新幹線の線路幅は1435mm、在来線は1067mm。差は368mmで、大人の肩幅ほどの隙間が速さの差を生んでいる。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
