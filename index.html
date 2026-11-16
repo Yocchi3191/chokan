@@ -36,23 +36,20 @@ a{color:var(--link)}
 <body>
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="wrap">
-<header><h1>朝刊</h1><p class="date">令和8年11月16日（月）</p></header>
+<header><h1>朝刊</h1><p class="date">令和8年11月17日（火）</p></header>
 
 <section class="lead">
 <h2>脆弱性</h2>
-<h3>盗まれた鍵から開発ツール拡張が改ざん、最大5,000人が約11時間さらされる</h3>
-<p>Cursorが公表。外部事業者に渡していたアクセスキーが奪われ、そこから拡張機能の配布先に改ざん版のClaude Code拡張が置かれた。キーは無効化済みで、11月1日以降は新たな不審な動きなし。10月29日前後に拡張を入れた人は認証情報の入れ替えを。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html">出典: The Hacker News</a></p>
+<h3>冷凍機コントローラーに修正未提供の欠陥が6件、ログイン不要で乗っ取りの恐れ</h3>
+<p>Danfossの冷凍管理機器AK-SM800Aが対象。最新の5.4.0でも直っていないとされ、欧州の政府機関が運用者に注意を呼びかけている。CVE番号とCVSSは未確認。ネットから到達できないよう隔離するのが当面の対策。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html">出典: The Hacker News</a></p>
 <div class="art">
-<p><b>悪用確認済みリスト（KEV）</b>：11月14日以降の新規追加はなし。直近は13日の2件。</p>
+<p><b>悪用確認済みリスト（KEV）</b>：直近2日の新規追加はなし。最新は13日のUnrealIRCdとCheck Pointの2件。</p>
 </div>
 <div class="art">
-<p><b>CVE-2026-114713（UnrealIRCd）</b>：区切り文字の扱いの不備。6.0.0〜6.2.7.1未満が対象。CVSS 8.6（High）。</p>
-<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-114713">出典: NVD</a></p>
-</div>
-<div class="art">
-<p><b>CVE-2026-123039（Check Point）</b>：重要資源の権限設定の誤り。Quantum Security Gateway/ManagementのR81.20（Jumbo Hotfix Take 173以下）、R82（同130以下）、R82.10（同50以下）、R82.20（同10以下）が対象。CVSS 7.8（High）。</p>
-<p class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123039">出典: NVD</a></p>
+<h3>攻撃者のAIエージェントが、公開中のLiteLLMやDifyを探索してAPIキーを窃取</h3>
+<p>Amazonがおとりサーバーで観測。盗まれたAI事業者のキーは、別の攻撃用モデルの実行に使われていた。AI中継・開発基盤をネットに直接さらしている場合は、認証とキーの管理を見直したい。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html">出典: The Hacker News</a></p>
 </div>
 </section>
 
@@ -60,56 +57,26 @@ a{color:var(--link)}
 <div class="col">
 <section>
 <h2>技術</h2>
-<div class="art">
-<h3>Claude Codeのfast mode、Opus 4.8向けは11月30日で終了</h3>
-<p>週次の更新まとめによると、該当モードは廃止予定として告知済み。同じ週にはWriteツールの挙動の堅牢化も進んだ。</p>
-<p class="src"><a href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">出典: releases.sh</a></p>
-</div>
-<div class="art">
-<h3>Ollama 0.40.16、Apple siliconでメモリ使用量が大幅減</h3>
-<p>9日公開。Qwen3.8 Flash Nextで約27GiB減ったと報じられ、コーディングエージェント向けの制御も強化された。公式の告知は未確認。</p>
-<p class="src"><a href="https://www.remio.ai/post/ollama-v0-40-16-adds-ripple-preview-and-tightens-coding-agent-controls">出典: remio.ai</a></p>
-</div>
-<div class="art">
-<h3>Unity 7は12月にベータ、正式版は2027年第1四半期</h3>
-<p>Unity 6の「直接の続き」と位置づけられ、移行の負担は抑えられる見込み。</p>
-<p class="src"><a href="https://unity.com/blog/unite-seoul-keynote-2026-recap">出典: Unity公式ブログ</a></p>
-</div>
+<div class="art"><h3>Claude Codeにコードモードが試験追加</h3><p>v2.1.323で実験的に選べるようになった。プラグイン定義にも対応バージョンの範囲指定が加わった。13日の2.1.325では復号まわりの安全性も修正されている。</p><p class="src"><a href="https://dev.to/aicoding-guide/this-week-in-claude-code-codex-and-gemini-cli-week-of-november-15-2026-4pmm">出典: DEV Community</a></p></div>
+<div class="art"><h3>ローカルLLMをClaude Codeにつなぐと、ツール名の大小文字で空回りする</h3><p>モデルが「Bash」でなく「bash」と呼ぶと、検索が大小文字を区別するため失敗して堂々巡りになる。報告者は間に変換役のプロキシを挟んで回避している。</p><p class="src"><a href="https://mer.vin/2026/11/run-claude-code-locally-for-free-with-ollama/">出典: mer.vin</a></p></div>
+<div class="art"><h3>Unity、発売約1年前のインディー10組に5万ドルを助成</h3><p>返済も株式提供も不要の支援枠「Unity Fellowship」を立ち上げた。ゲーム開発の小規模チーム向け。</p><p class="src"><a href="https://unity.com/news/unity-launches-the-unity-fellowship-to-support-indie-studios">出典: Unity</a></p></div>
+<div class="art"><h3>Unite Tokyoが7年ぶりに復活、17日に開催予定</h3><p>Unity開発者向けの年次イベントが東京で戻ってくる。インディー作品の出展も公開されている。</p><p class="src"><a href="https://gamemakers.jp/article/2026_04_07_135178/">出典: ゲームメーカーズ</a></p></div>
 </section>
 </div>
-
 <div class="col col2">
 <section>
 <h2>カルチャー</h2>
-<div class="art">
-<h3>11月の劇場アニメ、『魔法使いの夜』が公開</h3>
-<p>ufotable制作の待望作。今月はほかに『楽園追放』の続編や『ボトムズ』の新作も公開される。</p>
-<p class="src"><a href="https://weekly.ascii.jp/elem/000/004/449/4449492/">出典: 週刊アスキー</a></p>
-</div>
-<div class="art">
-<h3>Unity公式ゲームジャム、5日に開幕</h3>
-<p>公式フォーラムで告知された個人・小規模向けの催し。参加作は今後ぞくぞくと出てきそう。</p>
-<p class="src"><a href="https://discussions.unity.com/tag/official/160110">出典: Unity Discussions</a></p>
-</div>
+<div class="art"><h3>コージーMMO『クロスランド』が16日に発売</h3><p>Switch、Switch 2、PCに対応し、価格は3,700円。10月末のインディー向け紹介番組で発表された作品が、約2週間で発売を迎えた。</p><p class="src"><a href="https://bestcalendar.jp/press/161955">出典: ベストカレンダー</a></p></div>
+<div class="art"><h3>『シャングリラ・フロンティア』第3期、2027年1月放送へ</h3><p>人気ゲーム攻略もののアニメ。ティザーPVが公開された。</p><p class="src"><a href="https://dengekionline.com/article/202607/80697">出典: 電撃オンライン</a></p></div>
 </section>
 <section>
 <h2>よもやま</h2>
-<div class="art">
-<h3>しし座流星群、17日深夜から18日未明が見頃</h3>
-<p>1時間に数個〜15個ほどと数は多くないが、明るい火球が混じるのが持ち味。街明かりを避けて目を暗さに慣らすのがコツ。</p>
-<p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p>
-</div>
-<div class="art">
-<h3>大相撲九州場所、初日から波乱</h3>
-<p>8日に開幕し、前の場所を制した横綱が初日に小結へ敗れた。前売り券は発売直後に完売するほどの人気。</p>
-<p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261108de72509">出典: NHK</a></p>
-</div>
+<div class="art"><h3>しし座流星群、17日深夜から18日未明が見頃</h3><p>毎時15個ほどの見込み。上弦の月は23時ごろ沈むので、それ以降が暗く見やすい。速くて明るい火球が多いのが特徴。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
+<div class="art"><h3>九州場所、復帰の横綱・豊昇龍が3日目に初黒星</h3><p>平幕の藤凌駕に敗れた。同じ日、前頭の琴栄峰は首のヘルニアで休場している。</p><p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261110de73500">出典: NHK</a></p></div>
 </section>
 <section>
 <h2>コラム</h2>
-<div class="art">
-<p>しし座流星群のもとになる彗星は、約33年かけて太陽を一周する。つまり今夜の流れ星は、数十年前に彗星が落としていった砂粒が大気にぶつかったもの。夜空の掃除くずを眺めて願い事をするわけで、ご利益のほうは大らかな気持ちで。</p>
-</div>
+<p>流星群の「毎時15個」は、暗い空で理想的に見た場合の目安。街なかだと、見える数は数分の一まで減ることが多い。見るなら空を広く、スマホは仕舞って目を慣らすのがいい。</p>
 </section>
 </div>
 </div>
