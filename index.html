@@ -36,20 +36,30 @@ a{color:var(--link)}
 <body>
 <header style="margin:0;padding:.5em 1em;font-size:.9em;border-bottom:1px solid #ccc"><a href="archive.html">バックナンバー</a></header>
 <div class="wrap">
-<header><h1>朝刊</h1><p class="date">令和8年11月17日（火）</p></header>
+<header><h1>朝刊</h1><p class="date">令和8年11月18日（水）</p></header>
 
 <section class="lead">
 <h2>脆弱性</h2>
-<h3>冷凍機コントローラーに修正未提供の欠陥が6件、ログイン不要で乗っ取りの恐れ</h3>
-<p>Danfossの冷凍管理機器AK-SM800Aが対象。最新の5.4.0でも直っていないとされ、欧州の政府機関が運用者に注意を呼びかけている。CVE番号とCVSSは未確認。ネットから到達できないよう隔離するのが当面の対策。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html">出典: The Hacker News</a></p>
+<h3>ScreenConnectへの攻撃が続く、技術者用クライアントを26.6.5以降へ更新を</h3>
+<p>ConnectWiseが注意喚起。自社運用（オンプレミス）で更新が遅れ、特定の外部拡張機能を有効にしたままの環境が狙われている。CVE番号とCVSSは未確認。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html">出典: The Hacker News</a></p>
 <div class="art">
-<p><b>悪用確認済みリスト（KEV）</b>：直近2日の新規追加はなし。最新は13日のUnrealIRCdとCheck Pointの2件。</p>
+<p><b>悪用確認済みリスト（KEV）</b>：直近2日の新規追加はなし。最新は13日の追加分。NVDによる補足も該当なし。</p>
 </div>
 <div class="art">
-<h3>攻撃者のAIエージェントが、公開中のLiteLLMやDifyを探索してAPIキーを窃取</h3>
-<p>Amazonがおとりサーバーで観測。盗まれたAI事業者のキーは、別の攻撃用モデルの実行に使われていた。AI中継・開発基盤をネットに直接さらしている場合は、認証とキーの管理を見直したい。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html">出典: The Hacker News</a></p>
+<h3>N-able、N-centralの17件を修正。既知の欠陥を突いたマイナー設置も</h3>
+<p>2026.4 Hotfix 3で重大な問題を含む17件に対応。攻撃者は既存の脆弱性を使い、暗号通貨マイナーを送り込んでいる。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<h3>Optimizelyの欠陥を悪用、178組織以上のサイトで不正コードが配信</h3>
+<p>実験用スクリプトが改ざんされ、訪問者にカード情報の窃取コードなどが届いた。有名メディアやWeb会議のサイトも含まれる。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html">出典: The Hacker News</a></p>
+</div>
+<div class="art">
+<h3>Oracle、Java SEの11件を修正。未認証のリモート悪用が可能</h3>
+<p>最大のCVSS 3.1は8.1。OpenJDKでも重大なRCEの恐れがあるとの報告が別途出ている。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html">出典: The Hacker News</a></p>
 </div>
 </section>
 
@@ -57,26 +67,24 @@ a{color:var(--link)}
 <div class="col">
 <section>
 <h2>技術</h2>
-<div class="art"><h3>Claude Codeにコードモードが試験追加</h3><p>v2.1.323で実験的に選べるようになった。プラグイン定義にも対応バージョンの範囲指定が加わった。13日の2.1.325では復号まわりの安全性も修正されている。</p><p class="src"><a href="https://dev.to/aicoding-guide/this-week-in-claude-code-codex-and-gemini-cli-week-of-november-15-2026-4pmm">出典: DEV Community</a></p></div>
-<div class="art"><h3>ローカルLLMをClaude Codeにつなぐと、ツール名の大小文字で空回りする</h3><p>モデルが「Bash」でなく「bash」と呼ぶと、検索が大小文字を区別するため失敗して堂々巡りになる。報告者は間に変換役のプロキシを挟んで回避している。</p><p class="src"><a href="https://mer.vin/2026/11/run-claude-code-locally-for-free-with-ollama/">出典: mer.vin</a></p></div>
-<div class="art"><h3>Unity、発売約1年前のインディー10組に5万ドルを助成</h3><p>返済も株式提供も不要の支援枠「Unity Fellowship」を立ち上げた。ゲーム開発の小規模チーム向け。</p><p class="src"><a href="https://unity.com/news/unity-launches-the-unity-fellowship-to-support-indie-studios">出典: Unity</a></p></div>
-<div class="art"><h3>Unite Tokyoが7年ぶりに復活、17日に開催予定</h3><p>Unity開発者向けの年次イベントが東京で戻ってくる。インディー作品の出展も公開されている。</p><p class="src"><a href="https://gamemakers.jp/article/2026_04_07_135178/">出典: ゲームメーカーズ</a></p></div>
+<div class="art"><h3>Unity 7は12月にベータ、2027年第1四半期に正式版へ</h3><p>Unity 6の直接の延長で、既存プロジェクトを作り直さずに移れる方針。スクリプト実行基盤はCoreCLRになり、先にUnity 6系で実績を積んでから載せる。</p><p class="src"><a href="https://unity.com/blog/unite-seoul-keynote-2026-recap">出典: Unity</a></p></div>
+<div class="art"><h3>Claude Code、Opus 4.8の高速モードを11月30日に廃止</h3><p>終了後に指定すると、通常モデルへ切り替わらずエラーになる。使っている人は設定の見直しを。</p><p class="src"><a href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">出典: releases.sh</a></p></div>
+<div class="art"><h3>Devin、SSOや予算管理を追加。複数リポジトリ走査の上限は1,000に</h3><p>エージェント型開発ツールの企業向け機能が着実に増えている。権限承認の既定値も調整された。</p><p class="src"><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02.md">出典: releases.sh</a></p></div>
 </section>
 </div>
 <div class="col col2">
 <section>
 <h2>カルチャー</h2>
-<div class="art"><h3>コージーMMO『クロスランド』が16日に発売</h3><p>Switch、Switch 2、PCに対応し、価格は3,700円。10月末のインディー向け紹介番組で発表された作品が、約2週間で発売を迎えた。</p><p class="src"><a href="https://bestcalendar.jp/press/161955">出典: ベストカレンダー</a></p></div>
-<div class="art"><h3>『シャングリラ・フロンティア』第3期、2027年1月放送へ</h3><p>人気ゲーム攻略もののアニメ。ティザーPVが公開された。</p><p class="src"><a href="https://dengekionline.com/article/202607/80697">出典: 電撃オンライン</a></p></div>
+<div class="art"><h3>『Littlelands』がPCでアーリーアクセス開始</h3><p>のんびり暮らす生活シミュレーション系の冒険ゲーム。16日にSteamで早期公開が始まった。</p><p class="src"><a href="https://www.playnews.gg/en/release-dates/littlelands-release-date-early-access-starts-on-pc-on-november-16-2026">出典: PlayNews</a></p></div>
 </section>
 <section>
 <h2>よもやま</h2>
-<div class="art"><h3>しし座流星群、17日深夜から18日未明が見頃</h3><p>毎時15個ほどの見込み。上弦の月は23時ごろ沈むので、それ以降が暗く見やすい。速くて明るい火球が多いのが特徴。</p><p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典: るるぶKids</a></p></div>
-<div class="art"><h3>九州場所、復帰の横綱・豊昇龍が3日目に初黒星</h3><p>平幕の藤凌駕に敗れた。同じ日、前頭の琴栄峰は首のヘルニアで休場している。</p><p class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261110de73500">出典: NHK</a></p></div>
+<div class="art"><h3>3億2400万年前の化石が、全昆虫の「姉妹」と位置づけられた</h3><p>米テキサス州で見つかった節足動物で、水中で使う櫂状の脚が残る。昆虫が水から陸へ上がった道筋の手がかりになる。</p><p class="src"><a href="https://www.natureasia.com/ja-jp/nature/highlights/137462">出典: Nature ハイライト</a></p></div>
+<div class="art"><h3>稲は虫にかじられたことをどう察知するのか、仕組みが判明</h3><p>中国の研究チームが、イネがカメムシ類の食害を感じ取って防御を始める新しい経路を報告した。12日付のNatureに掲載。</p><p class="src"><a href="https://www.news.cn/tech/20261112/d18a50a83a60424ba65652041caacd7c/c.html">出典: 新華網</a></p></div>
 </section>
 <section>
 <h2>コラム</h2>
-<p>流星群の「毎時15個」は、暗い空で理想的に見た場合の目安。街なかだと、見える数は数分の一まで減ることが多い。見るなら空を広く、スマホは仕舞って目を慣らすのがいい。</p>
+<p>多くのUnix系システムが使う32ビットの時刻表現は、2038年1月19日3時14分7秒（UTC）で上限に達する。1970年からの秒数が約21億を超える瞬間で、「2038年問題」と呼ばれる。いま作るシステムが、その頃も動いている可能性は案外高い。</p>
 </section>
 </div>
 </div>
