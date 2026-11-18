@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月19日（木）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>Puppet Enterpriseの深刻な欠陥、悪用確認でKEV入り</h2>
+<p>CISAが既知の悪用脆弱性カタログ（KEV）に、Puppet EnterpriseのCVE-2026-115731（信頼できないデータのデシリアライズ）を11月17日付で追加。実際の攻撃が報告されている。</p>
+<p class="src">NVD：影響は2023.8.0〜2023.8.12、2025.0.0〜2025.12.0、2026.0.0。CVSS v3.1は9.9、v4.0は9.4でいずれも緊急。 <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html">The Hacker News</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-115731">NVD</a></p>
+<ul>
+<li><b>Apache Roller：認証なしでコード実行、悪用確認済み。</b>XML-RPCの欠陥（CVE-2026-129448、CVSS 9.8）で、開発元も攻撃を確認。 <a href="https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html">出典</a></li>
+<li><b>NGINXのHTTP/2に10年来の欠陥。</b>CVE-2026-123007、認証なしでコード実行の恐れ。修正版は1.31.9と1.30.7。 <a href="https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html">出典</a></li>
+<li><b>Java「Java4Shell」にCISAが即時パッチを要請。</b>CVE-2026-114938（CVSS 8.1）。条件次第でDoSやコード実行に至る。 <a href="https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html">出典</a></li>
+<li><b>F5 BIG-IPに重大な欠陥6件。</b>特定の設定下で通信が止まる恐れがあり、コード実行の可能性も指摘。 <a href="https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html">出典</a></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>Ollama 0.40.16、Apple siliconでのメモリ使用量が減少</h3>
+<p>11月9日公開とされる版で、新機能のプレビュー追加に加え、Qwen系モデルの必要メモリが約27GiB減ったという。ローカルLLMが手元のMacで動かしやすくなる流れ。二次情報のため公式の確認を。</p>
+<p class="src"><a href="https://www.remio.ai/post/ollama-v0-40-16-adds-ripple-preview-and-tightens-coding-agent-controls">出典</a></p>
+</article>
+<article>
+<h3>Opus 4.8の高速モードは11月30日で終了</h3>
+<p>Claude CodeやAPIで高速モードを使い続けるには、Opus 5.5への切り替えが必要になる。期限が迫っている。</p>
+<p class="src"><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">出典</a></p>
+</article>
+<article>
+<h3>Unity 7は12月にベータ、正式版は2027年第1四半期の見込み</h3>
+<p>11月17日にはUnite Tokyoも開催。Unity CLIのベータも更新が続いており、開発環境の世代交代が近づいている。時期は掲載サイトの表記による。</p>
+<p class="src"><a href="https://gamedev.net/news/topic/unity/">出典</a></p>
+</article>
+<article>
+<h3>ロボット基盤モデルの実機投入が加速</h3>
+<p>DeepMindのGemini Robotics 2.5がメルセデス・ベンツの生産ラインで試験中。NvidiaのGR00T 2は人の動画から学び、両腕ロボの成功率が40%から95%に上がったと報じられた。</p>
+<p class="src"><a href="https://techenclave.com/news/archive/2026/11">出典</a></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>Netflixの新作アニメ『フールナイト』、11月26日配信</h3>
+<p>Netflixがアヌシー国際アニメーション映画祭で発表した日本アニメ新作群の一つ。配信まで1週間ほどに迫った。</p>
+<p class="src"><a href="https://www.sakigake.jp/news/article/20260624OR0018/">出典</a></p>
+</article>
+<article>
+<h3>ufotable制作の劇場版『魔法使いの夜』が公開</h3>
+<p>11月の劇場アニメは、12年ぶりの続編『楽園追放 心のレゾナンス』や押井守監督の『装甲騎兵ボトムズ』新作も並ぶ。</p>
+<p class="src"><a href="https://weekly.ascii.jp/elem/000/004/449/4449492/">出典</a></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>九州場所、横綱が勝ち越し。1敗が4人で並ぶ</h3>
+<p>9日目（11月16日）、大の里が尊富士を寄り切って勝ち越しを決めた。豊昇龍は熱海富士に敗れて5敗目。1敗で大の里、霧島、熱海富士、若元春が並ぶ混戦。</p>
+<p class="src"><a href="https://kumanichi.com/articles/2058490">出典</a></p>
+</article>
+<article>
+<h3>しし座流星群は終盤戦、観測の好機は過ぎたばかり</h3>
+<p>見頃は17日深夜から18日未明で、月が23時ごろに沈んだ後が暗く好条件だった。母天体はテンペル・タットル彗星で、約33年周期で大出現することで知られる。明け方には惑星の並びも見られる。</p>
+<p class="src"><a href="https://kids.rurubu.jp/article/245879/">出典</a></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>一円玉は直径20ミリ、重さ1グラムのアルミ製。おつりで受け取るたびに、小さな分銅を持ち歩いている計算になる。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
