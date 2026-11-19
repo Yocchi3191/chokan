@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月20日（金）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>Synology DSM・LiteLLMなど4件がKEV入り、ランサムや鍵の奪取に悪用</h2>
+<p>CISAが11月18日、Synology DSM、LiteLLM、Apache Axis、REDCapの脆弱性4件を悪用確認済みとして追加。NASへのランサム攻撃、暗号資産マイナーの設置、LLM利用枠の乗っ取りに使われた。Axis 1は保守終了で修正なし。</p>
+<p class="src">NVD：DSM（CVE-2024-10441）は7.2.2-72806-1未満などが対象、CVSS 9.8（緊急）。LiteLLM（CVE-2026-40217）は1.81.8以上1.83.10未満、CVSS 8.8（高）。Axis（CVE-2026-90436）とREDCap（CVE-2026-90817）は記事によればともに9.8。 <a href="https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html">The Hacker News</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-10441">NVD（DSM）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-40217">NVD（LiteLLM）</a></p>
+<ul>
+<li><b>VMware vCenterに認証回避（CVSS 9.8）。</b>ネットワーク越しに不正アクセスされうる。修正版は出ているが回避策はない。 <a href="https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html">出典</a></li>
+<li><b>PAN-OSの管理画面で「PHP2Shell」が悪用。</b>認証なしでコード実行が可能。公開された管理インターフェースが狙われた。 <a href="https://thehackernews.com/2026/11/everything-is-web-application-including.html">出典</a></li>
+<li><b>Drupalのインストーラーに重大な欠陥。</b>特定条件で未認証の攻撃者がサイトを乗っ取れる。全サポート版で修正済み。 <a href="https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html">出典</a></li>
+<li><b>N-ableのクラウドサーバーに不正侵入。</b>メール防御サービスの管理機能が3地域で止まった。調査は継続中。 <a href="https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html">出典</a></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>PHPが重大な欠陥7件を修正、条件次第でコード実行</h3>
+<p>全サポート版が対象。別件でセッション保存の欠陥（CVE-2026-126714）も解説され、アプリ側の弱点と組むと危険。早めの更新を。</p>
+<p class="src"><a href="https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html">出典</a></p>
+</article>
+<article>
+<h3>Unity 7は12月にベータ、正式版は2027年第1四半期の見込み</h3>
+<p>Unity 6の延長線上の進化と位置づけられ、大きな断絶は避ける方針。時期は掲載サイトの表記による。</p>
+<p class="src"><a href="https://gamedev.net/news/5297-unite-seoul-2026-keynote-recap-announcing-unity-7/">出典</a></p>
+</article>
+<article>
+<h3>Claude Codeは2日弱ごとに更新、v2.1.326が公開</h3>
+<p>エージェントチームが自動でコードモードで始まるようになった。集計サイトの情報で、公式の変更履歴での確認が望ましい。</p>
+<p class="src"><a href="https://www.havoptic.com/r/claude-code-2.1.326">出典</a></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>BMXで郵便を配るタヌキのADV、Switch向けに11月10日発売</h3>
+<p>神社の再建資金を稼ぐため、BMXで荷物を届けるアドベンチャー。Indie Worldで紹介された。</p>
+<p class="src"><a href="https://dengekionline.com/article/202610/92470">出典</a></p>
+</article>
+<article>
+<h3>『楽園追放』12年ぶりの続編が劇場公開</h3>
+<p>『楽園追放 心のレゾナンス』は11月13日公開と発表されていた。公開日は2025年時点の告知による。</p>
+<p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典</a></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>ジャパンカップは29日、国内外の強豪が集う</h3>
+<p>JRAの格付けでは国内首位がマスカレードボール。連覇を狙うカランダガンや英国のオンブズマンも名を連ねる。出走は最終確認が必要。</p>
+<p class="src"><a href="https://www.jra.go.jp/news/202611/111306.html">出典</a></p>
+</article>
+<article>
+<h3>ボジョレー・ヌーヴォーが解禁、価格は据え置き</h3>
+<p>解禁日は毎年11月の第3木曜。今年はサントリーの商品が19日発売で、アートラベルとよりフルーティな味わいが売り。</p>
+<p class="src"><a href="https://gourmet.watch.impress.co.jp/docs/news/2123194.html">出典</a></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>バナナは木に見えて、実は草の仲間。あの太い幹は葉の付け根が重なったもので、ひと房ずつ草の実を買っていることになる。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
