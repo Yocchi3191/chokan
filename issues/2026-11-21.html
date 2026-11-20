@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月21日（土）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>VMware vCenterとCisco Expresswayの認証不要の欠陥が悪用、KEV入り（CVSS 9.8）</h2>
+<p>CISAが11月20日、VMware vCenter、Cisco Expressway、Apache Roller、SAP NetWeaverの4件を悪用確認済みとして追加。vCenterは中国系の攻撃者がゼロデイで使い、Expresswayは公開された検証コードの直後に侵害が確認された。連邦機関の対応期限は11月23日。</p>
+<p class="src">NVD：vCenter（CVE-2026-123890）は9.1.1.0200未満、9.0.2.0200未満、8.0 U3m未満などが対象、CVSS 9.8（緊急）。Expressway（CVE-2026-76466）はX15.5.3までの各系列が対象、CVSS 9.8（緊急）。Roller（CVE-2026-129448）は4.0.0以上6.1.5未満、CVSS 9.8（緊急）。NetWeaver（CVE-2025-42884）はEP-BASIS・EP-RUNTIME 7.50、CVSS 6.5（中）。 <a href="https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html">The Hacker News（vCenter）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html">The Hacker News（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123890">NVD（vCenter）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76466">NVD（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-129448">NVD（Roller）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-42884">NVD（NetWeaver）</a></p>
+<ul>
+<li><b>SonicWallがGen 6ファイアウォールは重大な欠陥でも修正を出さないと警告。</b>使い続ける場合は交換を急ぎ、インターネット側への公開をやめるよう勧めている。 <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html">出典</a></li>
+<li><b>Linux KVMの欠陥で、AMDホスト上のゲストVMからホストのメモリを読める。</b>入れ子の仮想化が有効な環境が対象。修正版カーネルは出ている。 <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html">出典</a></li>
+<li><b>WhatsAppが3件の欠陥を修正。</b>Android版の1件は詐欺メッセージでの悪用が疑われる。2.26.17.4より前が対象。 <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html">出典</a></li>
+<li><b>未修正のWindows欠陥「FastUnlock」。</b>画面ロック中の機器に触れた人が、サインインなしでプログラムを起動できる。得られるのは制限付き権限。 <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html">出典</a></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>Claude Codeチームのコードの約9割はClaudeが書き、レビューも担う</h3>
+<p>Anthropicが自社での使い方を説明。焦点は、AIが書いたものをどう検証するかという運用面にある。</p>
+<p class="src"><a href="https://thenewstack.io/anthropic-claude-code-verification">出典</a></p>
+</article>
+<article>
+<h3>Ollamaの最新版v0.40.14、Apple Silicon向けMLX関連の改善を含む</h3>
+<p>11月3日公開。公式の性能数値はまだなく、導入前に更新履歴の確認が無難。</p>
+<p class="src"><a href="https://github.com/ollama/ollama/releases">出典</a></p>
+</article>
+<article>
+<h3>Tailscaleの法人顧客が1年で倍増し4万社に</h3>
+<p>個人の自宅サーバー向けの道具から、企業の標準的な接続基盤へ広がっている。</p>
+<p class="src"><a href="https://betakit.com/?p=410234">出典</a></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>『デモンズ・クレスト』、全感覚没入VRMMOを描くアニメがPrime Videoで配信中</h3>
+<p>テストプレイに参加した高校生たちが、仮想世界で戦う物語。11月6日に配信が始まった。</p>
+<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
+</article>
+<article>
+<h3>『フールナイト』は11月26日にNetflixで配信予定</h3>
+<p>秋アニメの一覧に掲載された予定。日程は公式サイトでの確認が確実。</p>
+<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>九州場所13日目、大の里と若元春が11勝2敗で並ぶ</h3>
+<p>横綱大の里は若元春を寄り切って首位に並んだ。熱海富士と霧島には敗れて3敗に後退した。</p>
+<p class="src"><a href="https://www.nikkei.com/sports/sumo/">出典</a></p>
+</article>
+<article>
+<h3>24日夕、月がプレアデス星団を隠す</h3>
+<p>18時30分ごろから20時30分ごろの間に、月が星団の星々を次々に隠していく。11月21日には公開天文台100周年の「太陽系マラソン」も全国で行われる。</p>
+<p class="src"><a href="https://www.astroarts.co.jp/">出典</a></p>
+</article>
+<article>
+<h3>21・22日、えちごトキめき鉄道としなの鉄道が「オータム信越号」を運転</h3>
+<p>2社が組んだ臨時列車。紅葉の季節に合わせた企画。</p>
+<p class="src"><a href="https://www.tetsudo.com/calendar/20261107/">出典</a></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>月は星々の間を、1時間に自分の直径ぶんほど動いていく。よもやまの欄にある星の隠れる様子が2時間ほどで見納めになるのは、そのせいだ。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>

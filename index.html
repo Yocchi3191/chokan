@@ -41,19 +41,19 @@ a{color:var(--link)}
 <div class="wrap">
 <header class="mast">
 <h1>朝刊</h1>
-<p>令和8年11月20日（金）</p>
+<p>令和8年11月21日（土）</p>
 </header>
 
 <section class="lead">
 <div class="sec">脆弱性</div>
-<h2>Synology DSM・LiteLLMなど4件がKEV入り、ランサムや鍵の奪取に悪用</h2>
-<p>CISAが11月18日、Synology DSM、LiteLLM、Apache Axis、REDCapの脆弱性4件を悪用確認済みとして追加。NASへのランサム攻撃、暗号資産マイナーの設置、LLM利用枠の乗っ取りに使われた。Axis 1は保守終了で修正なし。</p>
-<p class="src">NVD：DSM（CVE-2024-10441）は7.2.2-72806-1未満などが対象、CVSS 9.8（緊急）。LiteLLM（CVE-2026-40217）は1.81.8以上1.83.10未満、CVSS 8.8（高）。Axis（CVE-2026-90436）とREDCap（CVE-2026-90817）は記事によればともに9.8。 <a href="https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html">The Hacker News</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-10441">NVD（DSM）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-40217">NVD（LiteLLM）</a></p>
+<h2>VMware vCenterとCisco Expresswayの認証不要の欠陥が悪用、KEV入り（CVSS 9.8）</h2>
+<p>CISAが11月20日、VMware vCenter、Cisco Expressway、Apache Roller、SAP NetWeaverの4件を悪用確認済みとして追加。vCenterは中国系の攻撃者がゼロデイで使い、Expresswayは公開された検証コードの直後に侵害が確認された。連邦機関の対応期限は11月23日。</p>
+<p class="src">NVD：vCenter（CVE-2026-123890）は9.1.1.0200未満、9.0.2.0200未満、8.0 U3m未満などが対象、CVSS 9.8（緊急）。Expressway（CVE-2026-76466）はX15.5.3までの各系列が対象、CVSS 9.8（緊急）。Roller（CVE-2026-129448）は4.0.0以上6.1.5未満、CVSS 9.8（緊急）。NetWeaver（CVE-2025-42884）はEP-BASIS・EP-RUNTIME 7.50、CVSS 6.5（中）。 <a href="https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html">The Hacker News（vCenter）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html">The Hacker News（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123890">NVD（vCenter）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76466">NVD（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-129448">NVD（Roller）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-42884">NVD（NetWeaver）</a></p>
 <ul>
-<li><b>VMware vCenterに認証回避（CVSS 9.8）。</b>ネットワーク越しに不正アクセスされうる。修正版は出ているが回避策はない。 <a href="https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html">出典</a></li>
-<li><b>PAN-OSの管理画面で「PHP2Shell」が悪用。</b>認証なしでコード実行が可能。公開された管理インターフェースが狙われた。 <a href="https://thehackernews.com/2026/11/everything-is-web-application-including.html">出典</a></li>
-<li><b>Drupalのインストーラーに重大な欠陥。</b>特定条件で未認証の攻撃者がサイトを乗っ取れる。全サポート版で修正済み。 <a href="https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html">出典</a></li>
-<li><b>N-ableのクラウドサーバーに不正侵入。</b>メール防御サービスの管理機能が3地域で止まった。調査は継続中。 <a href="https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html">出典</a></li>
+<li><b>SonicWallがGen 6ファイアウォールは重大な欠陥でも修正を出さないと警告。</b>使い続ける場合は交換を急ぎ、インターネット側への公開をやめるよう勧めている。 <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html">出典</a></li>
+<li><b>Linux KVMの欠陥で、AMDホスト上のゲストVMからホストのメモリを読める。</b>入れ子の仮想化が有効な環境が対象。修正版カーネルは出ている。 <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html">出典</a></li>
+<li><b>WhatsAppが3件の欠陥を修正。</b>Android版の1件は詐欺メッセージでの悪用が疑われる。2.26.17.4より前が対象。 <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html">出典</a></li>
+<li><b>未修正のWindows欠陥「FastUnlock」。</b>画面ロック中の機器に触れた人が、サインインなしでプログラムを起動できる。得られるのは制限付き権限。 <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html">出典</a></li>
 </ul>
 </section>
 
@@ -62,19 +62,19 @@ a{color:var(--link)}
 <section>
 <div class="sec">技術</div>
 <article>
-<h3>PHPが重大な欠陥7件を修正、条件次第でコード実行</h3>
-<p>全サポート版が対象。別件でセッション保存の欠陥（CVE-2026-126714）も解説され、アプリ側の弱点と組むと危険。早めの更新を。</p>
-<p class="src"><a href="https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html">出典</a></p>
+<h3>Claude Codeチームのコードの約9割はClaudeが書き、レビューも担う</h3>
+<p>Anthropicが自社での使い方を説明。焦点は、AIが書いたものをどう検証するかという運用面にある。</p>
+<p class="src"><a href="https://thenewstack.io/anthropic-claude-code-verification">出典</a></p>
 </article>
 <article>
-<h3>Unity 7は12月にベータ、正式版は2027年第1四半期の見込み</h3>
-<p>Unity 6の延長線上の進化と位置づけられ、大きな断絶は避ける方針。時期は掲載サイトの表記による。</p>
-<p class="src"><a href="https://gamedev.net/news/5297-unite-seoul-2026-keynote-recap-announcing-unity-7/">出典</a></p>
+<h3>Ollamaの最新版v0.40.14、Apple Silicon向けMLX関連の改善を含む</h3>
+<p>11月3日公開。公式の性能数値はまだなく、導入前に更新履歴の確認が無難。</p>
+<p class="src"><a href="https://github.com/ollama/ollama/releases">出典</a></p>
 </article>
 <article>
-<h3>Claude Codeは2日弱ごとに更新、v2.1.326が公開</h3>
-<p>エージェントチームが自動でコードモードで始まるようになった。集計サイトの情報で、公式の変更履歴での確認が望ましい。</p>
-<p class="src"><a href="https://www.havoptic.com/r/claude-code-2.1.326">出典</a></p>
+<h3>Tailscaleの法人顧客が1年で倍増し4万社に</h3>
+<p>個人の自宅サーバー向けの道具から、企業の標準的な接続基盤へ広がっている。</p>
+<p class="src"><a href="https://betakit.com/?p=410234">出典</a></p>
 </article>
 </section>
 </div>
@@ -83,34 +83,39 @@ a{color:var(--link)}
 <section>
 <div class="sec">カルチャー</div>
 <article>
-<h3>BMXで郵便を配るタヌキのADV、Switch向けに11月10日発売</h3>
-<p>神社の再建資金を稼ぐため、BMXで荷物を届けるアドベンチャー。Indie Worldで紹介された。</p>
-<p class="src"><a href="https://dengekionline.com/article/202610/92470">出典</a></p>
+<h3>『デモンズ・クレスト』、全感覚没入VRMMOを描くアニメがPrime Videoで配信中</h3>
+<p>テストプレイに参加した高校生たちが、仮想世界で戦う物語。11月6日に配信が始まった。</p>
+<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
 </article>
 <article>
-<h3>『楽園追放』12年ぶりの続編が劇場公開</h3>
-<p>『楽園追放 心のレゾナンス』は11月13日公開と発表されていた。公開日は2025年時点の告知による。</p>
-<p class="src"><a href="https://en.mantan-web.jp/article/20251123dog00m200006000c.html">出典</a></p>
+<h3>『フールナイト』は11月26日にNetflixで配信予定</h3>
+<p>秋アニメの一覧に掲載された予定。日程は公式サイトでの確認が確実。</p>
+<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
 </article>
 </section>
 
 <section>
 <div class="sec">よもやま</div>
 <article>
-<h3>ジャパンカップは29日、国内外の強豪が集う</h3>
-<p>JRAの格付けでは国内首位がマスカレードボール。連覇を狙うカランダガンや英国のオンブズマンも名を連ねる。出走は最終確認が必要。</p>
-<p class="src"><a href="https://www.jra.go.jp/news/202611/111306.html">出典</a></p>
+<h3>九州場所13日目、大の里と若元春が11勝2敗で並ぶ</h3>
+<p>横綱大の里は若元春を寄り切って首位に並んだ。熱海富士と霧島には敗れて3敗に後退した。</p>
+<p class="src"><a href="https://www.nikkei.com/sports/sumo/">出典</a></p>
 </article>
 <article>
-<h3>ボジョレー・ヌーヴォーが解禁、価格は据え置き</h3>
-<p>解禁日は毎年11月の第3木曜。今年はサントリーの商品が19日発売で、アートラベルとよりフルーティな味わいが売り。</p>
-<p class="src"><a href="https://gourmet.watch.impress.co.jp/docs/news/2123194.html">出典</a></p>
+<h3>24日夕、月がプレアデス星団を隠す</h3>
+<p>18時30分ごろから20時30分ごろの間に、月が星団の星々を次々に隠していく。11月21日には公開天文台100周年の「太陽系マラソン」も全国で行われる。</p>
+<p class="src"><a href="https://www.astroarts.co.jp/">出典</a></p>
+</article>
+<article>
+<h3>21・22日、えちごトキめき鉄道としなの鉄道が「オータム信越号」を運転</h3>
+<p>2社が組んだ臨時列車。紅葉の季節に合わせた企画。</p>
+<p class="src"><a href="https://www.tetsudo.com/calendar/20261107/">出典</a></p>
 </article>
 </section>
 
 <section class="column">
 <div class="sec">コラム</div>
-<p>バナナは木に見えて、実は草の仲間。あの太い幹は葉の付け根が重なったもので、ひと房ずつ草の実を買っていることになる。</p>
+<p>月は星々の間を、1時間に自分の直径ぶんほど動いていく。よもやまの欄にある星の隠れる様子が2時間ほどで見納めになるのは、そのせいだ。</p>
 </section>
 </div>
 </div>
