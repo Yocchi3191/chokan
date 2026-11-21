@@ -41,19 +41,17 @@ a{color:var(--link)}
 <div class="wrap">
 <header class="mast">
 <h1>朝刊</h1>
-<p>令和8年11月21日（土）</p>
+<p>令和8年11月22日（日）</p>
 </header>
 
 <section class="lead">
 <div class="sec">脆弱性</div>
-<h2>VMware vCenterとCisco Expresswayの認証不要の欠陥が悪用、KEV入り（CVSS 9.8）</h2>
-<p>CISAが11月20日、VMware vCenter、Cisco Expressway、Apache Roller、SAP NetWeaverの4件を悪用確認済みとして追加。vCenterは中国系の攻撃者がゼロデイで使い、Expresswayは公開された検証コードの直後に侵害が確認された。連邦機関の対応期限は11月23日。</p>
-<p class="src">NVD：vCenter（CVE-2026-123890）は9.1.1.0200未満、9.0.2.0200未満、8.0 U3m未満などが対象、CVSS 9.8（緊急）。Expressway（CVE-2026-76466）はX15.5.3までの各系列が対象、CVSS 9.8（緊急）。Roller（CVE-2026-129448）は4.0.0以上6.1.5未満、CVSS 9.8（緊急）。NetWeaver（CVE-2025-42884）はEP-BASIS・EP-RUNTIME 7.50、CVSS 6.5（中）。 <a href="https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html">The Hacker News（vCenter）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html">The Hacker News（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123890">NVD（vCenter）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76466">NVD（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-129448">NVD（Roller）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-42884">NVD（NetWeaver）</a></p>
+<h2>攻撃側のAIエージェントが医用画像ソフトのゼロデイを発見、サーバーのroot権限を奪取</h2>
+<p>Amazonの脅威インテリジェンスチームが報告。中国関連が疑われる攻撃者が、AIで見つけた欠陥を使って大学のサーバーを掌握した。対象は医用画像の支援ソフトMONAI Label 0.8.5以前で、アカウントなしで保存先の外へファイルを書き込める。</p>
+<p class="src">KEVの新規追加は11月20日分の4件が最新で、昨日から増えていない。NVD：vCenter（CVE-2026-123890）は9.1.1.0200未満、9.0.2.0200未満、8.0 U3m未満などが対象、CVSS 9.8（緊急）。Expressway（CVE-2026-76466）はX8.1〜X15.5.3、CVSS 9.8（緊急）。Roller（CVE-2026-129448）は4.0.0以上6.1.5未満、CVSS 9.8（緊急）。NetWeaver（CVE-2025-42884）はEP-BASIS・EP-RUNTIME 7.50、CVSS 6.5（中）。 <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html">The Hacker News（MONAI Label）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html">The Hacker News（KEV追加）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123890">NVD（vCenter）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76466">NVD（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-129448">NVD（Roller）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-42884">NVD（NetWeaver）</a></p>
 <ul>
-<li><b>SonicWallがGen 6ファイアウォールは重大な欠陥でも修正を出さないと警告。</b>使い続ける場合は交換を急ぎ、インターネット側への公開をやめるよう勧めている。 <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html">出典</a></li>
-<li><b>Linux KVMの欠陥で、AMDホスト上のゲストVMからホストのメモリを読める。</b>入れ子の仮想化が有効な環境が対象。修正版カーネルは出ている。 <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html">出典</a></li>
-<li><b>WhatsAppが3件の欠陥を修正。</b>Android版の1件は詐欺メッセージでの悪用が疑われる。2.26.17.4より前が対象。 <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html">出典</a></li>
-<li><b>未修正のWindows欠陥「FastUnlock」。</b>画面ロック中の機器に触れた人が、サインインなしでプログラムを起動できる。得られるのは制限付き権限。 <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html">出典</a></li>
+<li><b>GnuPGがGPGMEの重大な欠陥を警告。</b>異常に長いユーザーIDを持つ悪意ある鍵で、メモリのバグを誘発できる。2.3.0より前が対象で、修正版は公開済み（CVE-2026-129975）。 <a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html">出典</a></li>
+<li><b>Meta Museで、悪意あるページ1枚から非公開チャットを抜き取れると研究者が実証。</b>承認の確認なしで保存済みの記憶も読めた。研究室での実証で、実被害は報告されていない。 <a href="https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html">出典</a></li>
 </ul>
 </section>
 
@@ -62,19 +60,19 @@ a{color:var(--link)}
 <section>
 <div class="sec">技術</div>
 <article>
-<h3>Claude Codeチームのコードの約9割はClaudeが書き、レビューも担う</h3>
-<p>Anthropicが自社での使い方を説明。焦点は、AIが書いたものをどう検証するかという運用面にある。</p>
-<p class="src"><a href="https://thenewstack.io/anthropic-claude-code-verification">出典</a></p>
+<h3>Claude Codeの高速モード、Opus 4.8向けは11月30日で提供終了とされる</h3>
+<p>10月末に廃止予告が出たとの情報。まとめ記事経由なので、利用中なら公式の更新履歴で確認を。</p>
+<p class="src"><a href="https://blog.mean.ceo/claude-code-news-november-2026/">出典</a></p>
 </article>
 <article>
-<h3>Ollamaの最新版v0.40.14、Apple Silicon向けMLX関連の改善を含む</h3>
-<p>11月3日公開。公式の性能数値はまだなく、導入前に更新履歴の確認が無難。</p>
-<p class="src"><a href="https://github.com/ollama/ollama/releases">出典</a></p>
+<h3>Tailscale 1.104.7、Goの更新で制御サーバーとのTLS接続の不具合に対処</h3>
+<p>11月12日の公開。自宅サーバーや社内網で常用している場合は、更新しておくと安心。</p>
+<p class="src"><a href="https://releasebot.io/updates/tailscale">出典</a></p>
 </article>
 <article>
-<h3>Tailscaleの法人顧客が1年で倍増し4万社に</h3>
-<p>個人の自宅サーバー向けの道具から、企業の標準的な接続基盤へ広がっている。</p>
-<p class="src"><a href="https://betakit.com/?p=410234">出典</a></p>
+<h3>Unity Hub 4.0のベータが公開、Unity 6.7ではNetcode for Entitiesが独立パッケージに戻る</h3>
+<p>Hubの新版は試用段階。マルチプレイ開発では、パッケージの構成変更に注意が要る。</p>
+<p class="src"><a href="https://discussions.unity.com/tag/official/160110">出典</a></p>
 </article>
 </section>
 </div>
@@ -83,39 +81,29 @@ a{color:var(--link)}
 <section>
 <div class="sec">カルチャー</div>
 <article>
-<h3>『デモンズ・クレスト』、全感覚没入VRMMOを描くアニメがPrime Videoで配信中</h3>
-<p>テストプレイに参加した高校生たちが、仮想世界で戦う物語。11月6日に配信が始まった。</p>
-<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
-</article>
-<article>
-<h3>『フールナイト』は11月26日にNetflixで配信予定</h3>
-<p>秋アニメの一覧に掲載された予定。日程は公式サイトでの確認が確実。</p>
-<p class="src"><a href="https://play.rakuten.co.jp/static/animelist_autumn_2026">出典</a></p>
+<h3>秋アニメ『アオのハコ』第2期が11月7日から放送中</h3>
+<p>バドミントンと部活の恋を描く青春ものの続編。秋の改編期とは別枠で、遅れて始まった。</p>
+<p class="src"><a href="https://www.crank-in.net/animation/autumn2026">出典</a></p>
 </article>
 </section>
 
 <section>
 <div class="sec">よもやま</div>
 <article>
-<h3>九州場所13日目、大の里と若元春が11勝2敗で並ぶ</h3>
-<p>横綱大の里は若元春を寄り切って首位に並んだ。熱海富士と霧島には敗れて3敗に後退した。</p>
-<p class="src"><a href="https://www.nikkei.com/sports/sumo/">出典</a></p>
+<h3>ジャパンカップは29日、東京芝2400m。英国のG1・3連勝中の馬が予備登録</h3>
+<p>JRAが11月13日に追加の外国馬登録を発表。天皇賞（秋）組との対戦が見どころになる。顔ぶれは最終確定前。</p>
+<p class="src"><a href="https://www.jra.go.jp/news/202611/111306.html">出典</a></p>
 </article>
 <article>
-<h3>24日夕、月がプレアデス星団を隠す</h3>
-<p>18時30分ごろから20時30分ごろの間に、月が星団の星々を次々に隠していく。11月21日には公開天文台100周年の「太陽系マラソン」も全国で行われる。</p>
-<p class="src"><a href="https://www.astroarts.co.jp/">出典</a></p>
-</article>
-<article>
-<h3>21・22日、えちごトキめき鉄道としなの鉄道が「オータム信越号」を運転</h3>
-<p>2社が組んだ臨時列車。紅葉の季節に合わせた企画。</p>
-<p class="src"><a href="https://www.tetsudo.com/calendar/20261107/">出典</a></p>
+<h3>ミツバチ不足の施設園芸で、県がクロマルハナバチの導入を支援</h3>
+<p>猛暑やダニ被害で花粉交配用のミツバチが減り、代役を立てて産地を守る狙い。</p>
+<p class="src"><a href="https://kumanichi.com/articles/1986126">出典</a></p>
 </article>
 </section>
 
 <section class="column">
 <div class="sec">コラム</div>
-<p>月は星々の間を、1時間に自分の直径ぶんほど動いていく。よもやまの欄にある星の隠れる様子が2時間ほどで見納めになるのは、そのせいだ。</p>
+<p>ミツバチは羽を1秒に200回ほど動かす。よもやまの欄のハチが代役に呼ばれるのも、あの小さな体でそれだけ働くからだ。</p>
 </section>
 </div>
 </div>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月22日（日）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>攻撃側のAIエージェントが医用画像ソフトのゼロデイを発見、サーバーのroot権限を奪取</h2>
+<p>Amazonの脅威インテリジェンスチームが報告。中国関連が疑われる攻撃者が、AIで見つけた欠陥を使って大学のサーバーを掌握した。対象は医用画像の支援ソフトMONAI Label 0.8.5以前で、アカウントなしで保存先の外へファイルを書き込める。</p>
+<p class="src">KEVの新規追加は11月20日分の4件が最新で、昨日から増えていない。NVD：vCenter（CVE-2026-123890）は9.1.1.0200未満、9.0.2.0200未満、8.0 U3m未満などが対象、CVSS 9.8（緊急）。Expressway（CVE-2026-76466）はX8.1〜X15.5.3、CVSS 9.8（緊急）。Roller（CVE-2026-129448）は4.0.0以上6.1.5未満、CVSS 9.8（緊急）。NetWeaver（CVE-2025-42884）はEP-BASIS・EP-RUNTIME 7.50、CVSS 6.5（中）。 <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html">The Hacker News（MONAI Label）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html">The Hacker News（KEV追加）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-123890">NVD（vCenter）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-76466">NVD（Cisco）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-129448">NVD（Roller）</a> ／ <a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-42884">NVD（NetWeaver）</a></p>
+<ul>
+<li><b>GnuPGがGPGMEの重大な欠陥を警告。</b>異常に長いユーザーIDを持つ悪意ある鍵で、メモリのバグを誘発できる。2.3.0より前が対象で、修正版は公開済み（CVE-2026-129975）。 <a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html">出典</a></li>
+<li><b>Meta Museで、悪意あるページ1枚から非公開チャットを抜き取れると研究者が実証。</b>承認の確認なしで保存済みの記憶も読めた。研究室での実証で、実被害は報告されていない。 <a href="https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html">出典</a></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>Claude Codeの高速モード、Opus 4.8向けは11月30日で提供終了とされる</h3>
+<p>10月末に廃止予告が出たとの情報。まとめ記事経由なので、利用中なら公式の更新履歴で確認を。</p>
+<p class="src"><a href="https://blog.mean.ceo/claude-code-news-november-2026/">出典</a></p>
+</article>
+<article>
+<h3>Tailscale 1.104.7、Goの更新で制御サーバーとのTLS接続の不具合に対処</h3>
+<p>11月12日の公開。自宅サーバーや社内網で常用している場合は、更新しておくと安心。</p>
+<p class="src"><a href="https://releasebot.io/updates/tailscale">出典</a></p>
+</article>
+<article>
+<h3>Unity Hub 4.0のベータが公開、Unity 6.7ではNetcode for Entitiesが独立パッケージに戻る</h3>
+<p>Hubの新版は試用段階。マルチプレイ開発では、パッケージの構成変更に注意が要る。</p>
+<p class="src"><a href="https://discussions.unity.com/tag/official/160110">出典</a></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>秋アニメ『アオのハコ』第2期が11月7日から放送中</h3>
+<p>バドミントンと部活の恋を描く青春ものの続編。秋の改編期とは別枠で、遅れて始まった。</p>
+<p class="src"><a href="https://www.crank-in.net/animation/autumn2026">出典</a></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>ジャパンカップは29日、東京芝2400m。英国のG1・3連勝中の馬が予備登録</h3>
+<p>JRAが11月13日に追加の外国馬登録を発表。天皇賞（秋）組との対戦が見どころになる。顔ぶれは最終確定前。</p>
+<p class="src"><a href="https://www.jra.go.jp/news/202611/111306.html">出典</a></p>
+</article>
+<article>
+<h3>ミツバチ不足の施設園芸で、県がクロマルハナバチの導入を支援</h3>
+<p>猛暑やダニ被害で花粉交配用のミツバチが減り、代役を立てて産地を守る狙い。</p>
+<p class="src"><a href="https://kumanichi.com/articles/1986126">出典</a></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>ミツバチは羽を1秒に200回ほど動かす。よもやまの欄のハチが代役に呼ばれるのも、あの小さな体でそれだけ働くからだ。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
