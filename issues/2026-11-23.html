@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月23日（月）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>画像変換に使われるGhostscriptでサンドボックス脱出、細工ファイルのアップロードだけでコマンド実行の恐れ</h2>
+<p>CVE-2026-125396はフォント読み込み部のuse-after-freeで、10.08.0より前が対象（CVSS相当8.5）。ImageMagickやPillow経由でもGhostscriptが呼ばれるため、アプリ側が直接使っていなくても影響しうる。悪用の報告はまだなく、同梱コピーを含めて10.08.0以降へ更新を。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html">The Hacker News</a></span></p>
+<ul>
+<li><b>KEV:</b> 直近2日（11/21〜23）の追加はなし。最新の追加は11/20のVMware vCenter、SAP NetWeaver、Cisco Expressway、Apache Rollerの4件。 <span class="src">出典: <a href="https://github.com/cisagov/kev-data">CISA KEV</a>／NVDは対象CVEなしのため未取得</span></li>
+<li><b>AI推論の中継大手OpenRouter、プロバイダー3社を提携から除外。</b>各社の内部で数か月にわたりリクエストが盗まれ、データ非保持設定の分も含まれていたという。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html">The Hacker News</a></span></li>
+<li><b>PHPが11/19に重大な修正版を公開。</b>8.5.13、8.4.28、8.3.37、8.2.36でRCEやPHP-FPMのリクエスト密輸などを修正（最大9.2）。 <span class="src">出典: <a href="https://almalinux.org/blog/2026-11-19-php-security-release/">AlmaLinux</a></span></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>Claude Code 2.1.330、企業向けサインインや組み込みグラフを追加</h3>
+<p>11/20公開とされる更新で、セルフホスト実行環境の制御やVS Codeの作業支援も強化された。日付は第三者の追跡サイトによる。 <span class="src"><a href="https://releasebot.io/updates/anthropic/claude-code">Releasebot</a></span></p>
+</article>
+<article>
+<h3>AIが自らJavaScriptを書いて道具を束ねる「Code Mode」</h3>
+<p>11/12の2.1.323で実験導入。複数のツール操作を1回のコードにまとめて一括実行させる狙いだ。 <span class="src"><a href="https://finance.biggo.com/news/6efa4746-51a2-4806-b2cd-1049feb0153f">BigGo Finance</a></span></p>
+</article>
+<article>
+<h3>Ollama、0.40.16を公開</h3>
+<p>11/19付の更新。ローカルLLMをClaude Codeにつなぐ使い方の解説記事も増えており、実用度は引き続き注目点。 <span class="src"><a href="https://releasebot.io/updates/ollama">Releasebot</a></span></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>「死亡遊戯で飯を食う。」に続編制作決定</h3>
+<p>1〜3月放送のテレビアニメと7月の期間限定上映に続く展開。主人公・幽鬼の新ビジュアルも公開された。 <span class="src"><a href="https://mantan-web.jp/article/20261122dog00m200012000a.html">MANTANWEB</a></span></p>
+</article>
+<article>
+<h3>「地元のいじめっ子達に仕返ししようとしたら…」が2027年にTVアニメ化</h3>
+<p>勘違いバトルラブコメで、監督は熊野千尋氏。主要キャスト4人は毎日正午に1人ずつ発表される。 <span class="src"><a href="https://animeanime.jp/article/2026/11/20/104963.html">アニメ!アニメ!</a></span></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>九州場所、大の里が決定戦で若元春を下し7度目V</h3>
+<p>13勝2敗で並んだ平幕の若元春との優勝決定戦を制した。横綱昇進後、2場所連続の優勝は初めて。 <span class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261122de80055">NHK</a></span></p>
+</article>
+<article>
+<h3>しし座流星群は今年、極大でも1時間に数個の少なめ予想</h3>
+<p>見頃は11/18の未明から明け方で、天気は崩れ気味。月明かりより天候が勝負を分ける年だった。 <span class="src"><a href="https://tenki.jp/forecaster/y_nakagawa/2026/11/17/41341.html">tenki.jp</a></span></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>脆弱性の欄のGhostscriptは、1988年に登場したPostScript互換の処理系で、30年以上たった今も、画像をひとつ縮小するたびに裏で呼ばれている。目立たない働き者ほど、見落とされやすい。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
