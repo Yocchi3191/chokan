@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--sub:#5a5750;--rule:#1c1b19;--hair:#b9b4a8;--accent:#8c1c13;--link:#1b3f6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e8e6df;--sub:#a29e94;--rule:#e8e6df;--hair:#4a4a48;--accent:#e0705f;--link:#8fb4e3;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:10px}
+header.mast h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.4em;padding-left:.4em;font-weight:800}
+header.mast p{margin:4px 0 0;font-size:.95rem;color:var(--sub);letter-spacing:.1em}
+.sec{font-size:.85rem;letter-spacing:.3em;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);margin:0 0 10px;padding-bottom:2px}
+.lead{padding:16px 0;border-bottom:2px solid var(--rule)}
+.lead h2{margin:0 0 6px;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.35;word-break:auto-phrase}
+.lead p{margin:0 0 8px;word-break:auto-phrase}
+.lead ul{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.lead li{padding:8px 0;border-bottom:1px solid var(--hair)}
+.lead li b{word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--rule);padding-left:28px}
+section{margin-bottom:20px}
+article{padding:8px 0;border-bottom:1px solid var(--hair)}
+article:last-child{border-bottom:0}
+h3{margin:0 0 2px;font-size:1.08rem;line-height:1.45;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0;word-break:auto-phrase}
+article p{font-size:.95rem}
+a{color:var(--link)}
+.src{font-size:.8rem;color:var(--sub)}
+.column p{font-size:.95rem}
+@media (max-width:700px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<h1>朝刊</h1>
+<p>令和8年11月24日（火）</p>
+</header>
+
+<section class="lead">
+<div class="sec">脆弱性</div>
+<h2>ScreenConnectの重大な欠陥が悪用中、接続してきた客が技術者のPCでファイルを勝手に実行できる</h2>
+<p>CVE-2026-84869（CVSS 9.9）。ゲストとして入った攻撃者が、技術者側に確認を出さずにファイルを送り込んで実行させる。10/20〜11/16に42台のサーバーへ68万件超の試行が観測された。ホスト側クライアントを26.6.5以降へ更新し、急げない場合はTransferFiles権限を外す。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html">The Hacker News</a></span></p>
+<ul>
+<li><b>KEV:</b> 直近2日の追加はなし。最新の追加は11/20のVMware vCenter、SAP NetWeaver、Cisco Expressway、Apache Rollerの4件。 <span class="src">出典: <a href="https://github.com/cisagov/kev-data">CISA KEV</a>／NVDは対象CVEなしのため未取得</span></li>
+<li><b>ASP.NETの古いCSRF対策ライブラリ（Idunno.AntiCsrf）で認証なしの遠隔実行。</b>CVE-2026-131914（CVSS 9.3）が実際に悪用中で、対象は0.9.1.0と0.9.1 Beta。使うのをやめるよう勧告されている。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html">The Hacker News</a></span></li>
+<li><b>GL.iNetのクラウド管理の欠陥が悪用され、一部のルーターやKVM機器に不正プログラムが入った。</b>同社は修正し、攻撃者のアクセスも遮断した。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html">The Hacker News</a></span></li>
+</ul>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<div class="sec">技術</div>
+<article>
+<h3>Alibabaが「Qwen 3.8 27B」を公開、視覚入力に対応しApache 2.0</h3>
+<p>手元のGPUで動かせる27B級の新モデル。LM Studioで動くが、考え込みすぎる癖があるとの感想も出ている。 <span class="src"><a href="https://simonwillison.net/tags/local-llms/">Simon Willison</a></span></p>
+</article>
+<article>
+<h3>llama.cppに複数トークン同時予測、Gemma 26Bで約4割の高速化</h3>
+<p>コミュニティの報告では、ローカル推論の体感速度がまた一段上がる。Ollama系のツールにも波及しそうだ。 <span class="src"><a href="https://dev.to/soytuber/llamacpp-mtp-boost-new-gemma-4-gguf-qwen-36-local-benchmarks-2a16">DEV Community</a></span></p>
+</article>
+<article>
+<h3>ローカルLLMにコーディングを任せる比較、QwenがGemmaより安定</h3>
+<p>1.5万行規模のFlutterアプリで試したところ、Qwenは実用圏、Gemmaは失敗が多めという結果。 <span class="src"><a href="https://www.epam.com/insights/ai/blogs/qwen-vs-gemma-local-llm-coding-agent-test">EPAM</a></span></p>
+</article>
+<article>
+<h3>Claude Codeで、Opus 4.8の高速モードが11/30に廃止へ</h3>
+<p>期日以降は該当リクエストがエラーになる。使っている場合は設定の見直しを。第三者の更新まとめによる情報。 <span class="src"><a href="https://releases.sh/collections/coding-agents/digest/2026-11-09">releases.sh</a></span></p>
+</article>
+</section>
+</div>
+
+<div class="col">
+<section>
+<div class="sec">カルチャー</div>
+<article>
+<h3>ufotable制作の劇場アニメ「魔法使いの夜」が公開</h3>
+<p>奈須きのこ・TYPE-MOON原作。今月は「楽園追放」の続編や押井守監督のボトムズ新作も控えている。 <span class="src"><a href="https://weekly.ascii.jp/elem/000/004/449/4449492/">週刊アスキー</a></span></p>
+</article>
+<article>
+<h3>インディー開発者向けの催し、11/28に銀座で開催</h3>
+<p>チケットの予約が始まり、「文字遊戯」の日本語化の舞台裏などの講演が発表されている。 <span class="src"><a href="https://www.gamebusiness.jp/article/2026/11/04/28541.html">GameBusiness.jp</a></span></p>
+</article>
+</section>
+
+<section>
+<div class="sec">よもやま</div>
+<article>
+<h3>明けの明星・金星が11/30に最大光度、マイナス4.9等</h3>
+<p>日の出前の東南東の空で輝く。望遠鏡で見ると、この時期は三日月のように細く欠けて見える。 <span class="src"><a href="https://weathernews.jp/news/202611/010021/">ウェザーニュース</a></span></p>
+</article>
+<article>
+<h3>オリオン座流星群は11/28ごろ極大、ただし月明かりと少なめの数が難点</h3>
+<p>活動はもともと穏やかで、今年は月の影響も受ける見込み。期待しすぎないのが吉。 <span class="src"><a href="https://starwalk.space/zh-Hant/news/november-meteor-showers">Star Walk</a></span></p>
+</article>
+</section>
+
+<section class="column">
+<div class="sec">コラム</div>
+<p>よもやまの欄の金星は、自転に約243日かかるのに公転は約225日。つまり金星では、1日が1年より長い。しかも自転の向きが逆なので、太陽は西から昇る。</p>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
