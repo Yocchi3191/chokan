@@ -41,17 +41,18 @@ a{color:var(--link)}
 <div class="wrap">
 <header class="mast">
 <h1>朝刊</h1>
-<p>令和8年11月24日（火）</p>
+<p>令和8年11月25日（水）</p>
 </header>
 
 <section class="lead">
 <div class="sec">脆弱性</div>
-<h2>ScreenConnectの重大な欠陥が悪用中、接続してきた客が技術者のPCでファイルを勝手に実行できる</h2>
-<p>CVE-2026-84869（CVSS 9.9）。ゲストとして入った攻撃者が、技術者側に確認を出さずにファイルを送り込んで実行させる。10/20〜11/16に42台のサーバーへ68万件超の試行が観測された。ホスト側クライアントを26.6.5以降へ更新し、急げない場合はTransferFiles権限を外す。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html">The Hacker News</a></span></p>
+<h2>VMware vCenterにまた深刻な認証バイパス、ゼロデイ悪用の直後に23件を一括修正</h2>
+<p>Broadcomが公開した修正のうち、CVE-2026-123903（CVSS 9.8）はディレクトリサービス（vmdir）の認証バイパスで、ネットワーク越しに悪用されうる。先に別の認証バイパスが実際に悪用されており、その続報にあたる。vCenterは速やかに最新パッチへ。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html">The Hacker News</a></span></p>
 <ul>
-<li><b>KEV:</b> 直近2日の追加はなし。最新の追加は11/20のVMware vCenter、SAP NetWeaver、Cisco Expressway、Apache Rollerの4件。 <span class="src">出典: <a href="https://github.com/cisagov/kev-data">CISA KEV</a>／NVDは対象CVEなしのため未取得</span></li>
-<li><b>ASP.NETの古いCSRF対策ライブラリ（Idunno.AntiCsrf）で認証なしの遠隔実行。</b>CVE-2026-131914（CVSS 9.3）が実際に悪用中で、対象は0.9.1.0と0.9.1 Beta。使うのをやめるよう勧告されている。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html">The Hacker News</a></span></li>
-<li><b>GL.iNetのクラウド管理の欠陥が悪用され、一部のルーターやKVM機器に不正プログラムが入った。</b>同社は修正し、攻撃者のアクセスも遮断した。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html">The Hacker News</a></span></li>
+<li><b>KEV追加（11/24）: Drupal Coreの遠隔コード実行</b>（CVE-2026-132165）と、<b>Optimizely Web Experimentation</b>の状態データ制御不備（CVE-2026-132224、2026-11-17より前の版、CVSS 8.7・High）。Drupalは対象版・スコアともNVDに記載がなく確認できていない。 <span class="src">出典: <a href="https://github.com/cisagov/kev-data">CISA KEV</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-132224">NVD</a>（Drupalは取得失敗）</span></li>
+<li><b>KEV追加（11/23）: N-able MailAssureのSSRF</b>（CVE-2026-134624）。20261121.1943より前の全版が対象で、認証済みAPIユーザーが内部ホストへ接続させられる。CVSS 8.7（High）、ベンダー側評価は9.3。ほかにMONAI Labelのパストラバーサル（CVE-2026-133968）も追加されたがNVD取得は未実施。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html">The Hacker News</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-134624">NVD</a></span></li>
+<li><b>ホスティング向け請求基盤WHMCSに、ログイン不要のSQLインジェクション。</b>顧客情報や管理者のパスワードハッシュが漏れるおそれ。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html">The Hacker News</a></span></li>
+<li><b>Azure API Managementの欠陥を突き、アクセストークンやシークレットを探る動き。</b>ノルウェー当局が公表し、Microsoftは修正済み。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html">The Hacker News</a></span></li>
 </ul>
 </section>
 
@@ -60,20 +61,16 @@ a{color:var(--link)}
 <section>
 <div class="sec">技術</div>
 <article>
-<h3>Alibabaが「Qwen 3.8 27B」を公開、視覚入力に対応しApache 2.0</h3>
-<p>手元のGPUで動かせる27B級の新モデル。LM Studioで動くが、考え込みすぎる癖があるとの感想も出ている。 <span class="src"><a href="https://simonwillison.net/tags/local-llms/">Simon Willison</a></span></p>
+<h3>PHP 8.6.0が11/19に正式リリース</h3>
+<p>関数の引数を一部だけ先に渡して残りを後で受ける「部分適用」が入った。readonlyプロパティの初期値、clamp()関数、複数ストリームを監視するポーリングAPIも加わる。 <span class="src"><a href="https://phoronix.com/news/PHP-8.6-Released">Phoronix</a></span></p>
 </article>
 <article>
-<h3>llama.cppに複数トークン同時予測、Gemma 26Bで約4割の高速化</h3>
-<p>コミュニティの報告では、ローカル推論の体感速度がまた一段上がる。Ollama系のツールにも波及しそうだ。 <span class="src"><a href="https://dev.to/soytuber/llamacpp-mtp-boost-new-gemma-4-gguf-qwen-36-local-benchmarks-2a16">DEV Community</a></span></p>
+<h3>Unity 7は12月にプレビュー、2027年第1四半期に正式版の予定</h3>
+<p>エンジンの中核をCoreCLRへ刷新し、再生開始やドメインリロードの高速化を狙う。Unity 6からは壊れない更新経路をうたっている。 <span class="src"><a href="https://unity.com/blog/unite-seoul-keynote-2026-recap">Unity</a></span></p>
 </article>
 <article>
-<h3>ローカルLLMにコーディングを任せる比較、QwenがGemmaより安定</h3>
-<p>1.5万行規模のFlutterアプリで試したところ、Qwenは実用圏、Gemmaは失敗が多めという結果。 <span class="src"><a href="https://www.epam.com/insights/ai/blogs/qwen-vs-gemma-local-llm-coding-agent-test">EPAM</a></span></p>
-</article>
-<article>
-<h3>Claude Codeで、Opus 4.8の高速モードが11/30に廃止へ</h3>
-<p>期日以降は該当リクエストがエラーになる。使っている場合は設定の見直しを。第三者の更新まとめによる情報。 <span class="src"><a href="https://releases.sh/collections/coding-agents/digest/2026-11-09">releases.sh</a></span></p>
+<h3>.NETファイルの1ビット変更でWindowsのコード整合性を回避</h3>
+<p>Project Zeroの研究者が、.NET Frameworkの読み込み挙動を突いて未承認コードを実行できると示した。ローカル攻撃者が前提の話。 <span class="src"><a href="https://thehackernews.com/2026/11/google-researcher-shows-single-bit.html">The Hacker News</a></span></p>
 </article>
 </section>
 </div>
@@ -82,30 +79,26 @@ a{color:var(--link)}
 <section>
 <div class="sec">カルチャー</div>
 <article>
-<h3>ufotable制作の劇場アニメ「魔法使いの夜」が公開</h3>
-<p>奈須きのこ・TYPE-MOON原作。今月は「楽園追放」の続編や押井守監督のボトムズ新作も控えている。 <span class="src"><a href="https://weekly.ascii.jp/elem/000/004/449/4449492/">週刊アスキー</a></span></p>
-</article>
-<article>
-<h3>インディー開発者向けの催し、11/28に銀座で開催</h3>
-<p>チケットの予約が始まり、「文字遊戯」の日本語化の舞台裏などの講演が発表されている。 <span class="src"><a href="https://www.gamebusiness.jp/article/2026/11/04/28541.html">GameBusiness.jp</a></span></p>
+<h3>『おでかけ子ザメ』の劇場版第2弾が制作決定、特報映像も公開</h3>
+<p>タイトルは『映画 おでかけ子ザメ 水のまちの思い出』。劇場版としては第2弾にあたり、特報が出た。 <span class="src"><a href="https://realsound.jp/movie/2026/11/post-2584946.html">Real Sound</a></span></p>
 </article>
 </section>
 
 <section>
 <div class="sec">よもやま</div>
 <article>
-<h3>明けの明星・金星が11/30に最大光度、マイナス4.9等</h3>
-<p>日の出前の東南東の空で輝く。望遠鏡で見ると、この時期は三日月のように細く欠けて見える。 <span class="src"><a href="https://weathernews.jp/news/202611/010021/">ウェザーニュース</a></span></p>
+<h3>大相撲九州場所、終盤は平幕の若元春が1敗で先頭</h3>
+<p>12日目に義ノ富士を破って1敗を守り、優勝争いをリードした。千秋楽の結果は今回の取材では確認できていない。 <span class="src"><a href="https://news.web.nhk/newsweb/na/nd-20261119de78449">NHK</a></span></p>
 </article>
 <article>
-<h3>オリオン座流星群は11/28ごろ極大、ただし月明かりと少なめの数が難点</h3>
-<p>活動はもともと穏やかで、今年は月の影響も受ける見込み。期待しすぎないのが吉。 <span class="src"><a href="https://starwalk.space/zh-Hant/news/november-meteor-showers">Star Walk</a></span></p>
+<h3>ジャパンカップは11/29、海外招待馬6頭が来日済み</h3>
+<p>東京芝2400mのGⅠ。昨年のこのレースは「世界最高のレース」に選ばれ、日本の競走が世界1位になるのは2度目だった。 <span class="src"><a href="https://jra.jp/keiba/g1/jc.html">JRA</a></span></p>
 </article>
 </section>
 
 <section class="column">
 <div class="sec">コラム</div>
-<p>よもやまの欄の金星は、自転に約243日かかるのに公転は約225日。つまり金星では、1日が1年より長い。しかも自転の向きが逆なので、太陽は西から昇る。</p>
+<p>よもやまの欄のレースは2400m。ちなみにタコの心臓は3つあり、泳ぐときは全身に血を送る心臓のうち2つが止まるため、泳ぐより這うほうを好む。走るのが苦手な生き物にジャパンカップは無理だ。</p>
 </section>
 </div>
 </div>
