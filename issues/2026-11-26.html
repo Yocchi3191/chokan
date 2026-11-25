@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1a1a1a;--sub:#555;--rule:#1a1a1a;--hair:#b9b5aa;--accent:#8b1a1a;--link:#1a3a6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16171a;--fg:#e8e6e1;--sub:#a5a39d;--rule:#e8e6e1;--hair:#44464b;--accent:#e08a7a;--link:#9db8e8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16171a;--fg:#e8e6e1;--sub:#a5a39d;--rule:#e8e6e1;--hair:#44464b;--accent:#e08a7a;--link:#9db8e8;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;line-height:1.7}
+.page{max-width:60rem;margin:0 auto;padding-block:1.25rem 2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{text-align:center;border-top:4px double var(--rule);border-bottom:1px solid var(--rule);padding:.4rem 0}
+h1{margin:0;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:.5em;padding-left:.5em;font-weight:900;line-height:1.2}
+.date{margin:0;font-size:.9rem;color:var(--sub);letter-spacing:.1em}
+h2{font-size:.95rem;letter-spacing:.3em;margin:0 0 .6rem;padding:.1rem .6rem;display:inline-block;background:var(--fg);color:var(--bg);font-weight:700}
+section{margin-top:1.4rem}
+.lead{border-bottom:2px solid var(--rule);padding-bottom:1.1rem}
+.lead h3{font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.4;margin:.2rem 0 .5rem;color:var(--accent);width:100%;text-wrap:pretty;word-break:auto-phrase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--hair);padding-left:1.6rem}
+h3{font-size:1.08rem;line-height:1.45;margin:.9rem 0 .2rem;text-wrap:pretty;word-break:auto-phrase}
+p{margin:.1rem 0;font-size:.95rem;word-break:auto-phrase}
+.art{border-top:1px solid var(--hair);padding-bottom:.4rem}
+.art:first-of-type{border-top:0}
+.src{font-size:.8rem;color:var(--sub)}
+a{color:var(--link)}
+ul.kev{margin:.4rem 0 0;padding:0;list-style:none}
+ul.kev li{border-top:1px solid var(--hair);padding:.45rem 0;font-size:.92rem;word-break:auto-phrase}
+ul.kev b{font-weight:700}
+.tag{font-size:.78rem;color:var(--sub)}
+.column{border:1px solid var(--rule);padding:.5rem .8rem;margin-top:1.4rem}
+@media (max-width:640px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<h1>朝刊</h1>
+<p class="date">令和8年11月26日（木）</p>
+</header>
+
+<section class="lead">
+<h2>脆弱性</h2>
+<h3>Drupal本体にCVSS 9.8の遠隔コード実行、悪用確認でCISAが警告リスト入り</h3>
+<p>「Fail2Install」と呼ばれる欠陥（CVE-2026-132165）。連邦機関の修正期限は11月27日。NVDには該当データがまだ返らず（NVD取得失敗）、深刻度は報道の値による。 <span class="src"><a href="https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html">The Hacker News</a></span></p>
+<ul class="kev">
+<li><b>CVE-2026-131914 ／ Idunno AntiCsrf</b>（ASP.NET向け）　0.9.1以前。信頼できないデータのデシリアライズで未認証のコード実行。CVSS 9.8（Critical）。 <span class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-131914">NVD</a></span></li>
+<li><b>CVE-2026-132224 ／ Optimizely Web Experimentation</b>　2026-11-17より前の版。登録処理の不備で配信アセットに攻撃者のコードが混入。CVSS 8.7（High）。 <span class="src"><a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-132224">NVD</a></span></li>
+<li><b>GeoServer</b>　2件の欠陥が悪用中。任意ファイル読み取り（CVE-2026-120705、CVSS 8.6）などが、未認証RCEの連鎖につながると指摘。 <span class="src"><a href="https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html">The Hacker News</a></span></li>
+<li><b>Hex.pm</b>　パッケージレジストリのCVSS 10.0のRCEが悪用され、本番6台でコマンド実行。約15分で修正版に更新。 <span class="src"><a href="https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html">The Hacker News</a></span></li>
+<li><b>Check Point管理サーバー</b>　AI駆動とみられる攻撃で24台が侵害、22組織に影響。悪用CVEは抜粋から不明。 <span class="src"><a href="https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html">The Hacker News</a></span></li>
+</ul>
+<p class="tag">CISA KEV（11月24日追加）は上記3件。</p>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<h2>技術</h2>
+<div class="art">
+<h3>Unity 7、12月に早期ベータへ</h3>
+<p>正式版は2027年第1四半期の予定。次世代エンジンの動向を追うなら年末が節目になりそう。 <span class="src"><a href="https://unity.com/blog/unite-seoul-keynote-2026-recap">Unity Blog</a></span></p>
+</div>
+<div class="art">
+<h3>Unity、インディー向けの支援枠「Fellowship」を開始</h3>
+<p>11月16日付の発表で、小規模スタジオの制作を後押しする取り組み。 <span class="src"><a href="https://unity.com/public-relations">Unity</a></span></p>
+</div>
+<div class="art">
+<h3>Ollamaは0.40.17の候補版が進行中</h3>
+<p>MLX実行系に新モデル「Inkling 2 Mini」を追加する変更を含む。0.40.16は11月9日公開。安定版の確定は未確認。 <span class="src"><a href="https://releasebot.io/updates/ollama">Releasebot</a></span></p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>カルチャー</h2>
+<div class="art">
+<h3>屋根裏の工房で古い物を直す『Reshine』、11月26日発売</h3>
+<p>忘れられた品を修復していくまったり系の作品。インディーの月間まとめに掲載。使用エンジンは未確認。 <span class="src"><a href="https://www.greenmangaming.com/blog/indie-game-release-round-up-november-2026/">Green Man Gaming</a></span></p>
+</div>
+</section>
+
+<section>
+<h2>よもやま</h2>
+<div class="art">
+<h3>ジャパンカップは29日、東京の芝2400メートル</h3>
+<p>昨年は欧州の強豪が2分20秒3のJRAレコードで勝ち、外国馬の勝利は20年ぶりだった。今年の出走確定は公式発表待ち。 <span class="src"><a href="https://jra.jp/keiba/g1/jc.html">JRA</a></span></p>
+</div>
+<div class="art">
+<h3>3億2400万年前の化石、最初期の昆虫に近い仲間か</h3>
+<p>米テキサス州で見つかった節足動物の化石が、昆虫類の起源を探る手がかりとして紹介された。 <span class="src"><a href="https://www.natureasia.com/ja-jp/nature/highlights/137462">Nature ハイライト</a></span></p>
+</div>
+</section>
+
+<div class="column">
+<h2>コラム</h2>
+<p>「一時しのぎの修正」は、たいてい一番長く現役を務める。脆弱性の欄の期限も、守られる前提の仮置きだ。</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
