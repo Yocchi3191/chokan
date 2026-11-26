@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ee;--fg:#1b1a17;--sub:#5b574d;--rule:#1b1a17;--hair:#b9b4a6;--accent:#8c1c13;--link:#1d4a7a;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#e9e6dd;--sub:#a8a498;--rule:#e9e6dd;--hair:#4a4750;--accent:#e2705f;--link:#8fb8e8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17161a;--fg:#e9e6dd;--sub:#a8a498;--rule:#e9e6dd;--hair:#4a4750;--accent:#e2705f;--link:#8fb8e8;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP",serif;line-height:1.7;padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1000px;margin:0 auto}
+header{text-align:center;border-top:4px double var(--rule);border-bottom:1px solid var(--rule);padding:10px 0 8px}
+h1{margin:0;font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:.5em;padding-left:.5em;font-weight:900}
+.date{margin:0;font-size:.9rem;color:var(--sub);letter-spacing:.15em}
+h2{font-size:.95rem;letter-spacing:.3em;margin:0 0 8px;padding:2px 0;border-top:2px solid var(--rule);border-bottom:1px solid var(--hair);color:var(--accent)}
+h3{font-size:1.02rem;line-height:1.5;margin:0 0 2px;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0 0 10px;font-size:.92rem;word-break:auto-phrase}
+a{color:var(--link)}
+.src{font-size:.78rem;color:var(--sub)}
+.lead{margin:16px 0 0}
+.lead h3{font-size:clamp(1.35rem,4.6vw,1.9rem);line-height:1.4;font-weight:800;margin-bottom:6px}
+.lead .item{border-bottom:1px solid var(--hair);padding-bottom:6px;margin-bottom:8px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--hair);padding-left:28px}
+.item{margin-bottom:12px}
+section{margin-bottom:14px}
+footer{margin-top:14px;border-top:1px solid var(--rule)}
+@media (max-width:680px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>朝刊</h1>
+<p class="date">令和8年11月27日（金）</p>
+</header>
+
+<section class="lead">
+<h2>脆弱性</h2>
+<div class="item">
+<h3>Drupal本体に「極めて重大」な乗っ取り欠陥、すでに悪用中。KEVには新たに10件</h3>
+<p>Drupalコアの CVE-2026-136716 は、導入作業が中途半端な状態のサイトを乗っ取れる欠陥で、実際の攻撃が確認されています。修正版は 11.4.14／11.3.23／10.6.23。サポート終了の旧版には修正が出ません。更新後は update.php の実行も必要です。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html">The Hacker News</a></span></p>
+</div>
+<div class="item">
+<h3>CISAのKEVに10件追加（11月25日）：Mitel、Juniper、Vates、Danfoss</h3>
+<p>Mitel MiCollab は5件。うち CVE-2026-133323（OSコマンド注入）は、10.3.0.18までの全版が対象で、認証なしで実行されうる深刻なもの（CVSS 9.8・Critical）。連邦機関の対応期限は11月28日です。Juniper Session Smart Conductor の CVE-2026-103406 も同様に認証不要でroot権限のコマンド実行に至り、7.0.5未満／7.1.0〜7.1.6／7.2.0〜7.2.2が対象（CVSS 9.8・Critical）。ほかに Vates Xen Orchestra（CVE-2026-133469）と Danfoss AK-SM 800A の3件（CVE-2025-41450、CVE-2023-25914、CVE-2023-25915）が登録されました。これら残りのNVD詳細は取得していません。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html">The Hacker News</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-133323">NVD</a>／<a href="https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-103406">NVD</a></span></p>
+</div>
+<div class="item">
+<h3>NGINXのHTTP/2に10年来の欠陥群、公開サーバー1,000万件超が対象</h3>
+<p>「NGINX2Root」と呼ばれる一連の欠陥で、認証なしの攻撃者がワーカーのメモリを壊し、条件次第でコード実行に至る恐れがあります。悪用の確認は記事に記載なし。HTTP/2を有効にしている環境は設定を点検してください。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html">The Hacker News</a></span></p>
+</div>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<h2>技術</h2>
+<div class="item">
+<h3>Unity 7は12月に初のベータ、正式版は2027年第1四半期</h3>
+<p>Unity 6の延長線上に作られる新世代で、既存の作業の流れはおおむね引き継げる見込みです。ベータが出たら手元のプロジェクトで早めに試したいところです。 <span class="src">出典: <a href="https://gamedev.net/news/unity-7-to-launch-in-q1-2027-new-engine-is-a-direct-continuation-of-unity-6-r4582/">GameDev.net</a></span></p>
+</div>
+<div class="item">
+<h3>Ollamaは0.40系が高速更新中、MLX実行系に新モデル対応</h3>
+<p>11月21日時点の最新候補版では、推測デコードの検証をまとめて行う改良や、Apple向けMLX実行系への新モデル追加が入りました。集計サイト経由の情報なので、公式のリリース欄で確認を。 <span class="src">出典: <a href="https://releasebot.io/updates/ollama">Releasebot</a></span></p>
+</div>
+<div class="item">
+<h3>Claude CodeのOpus 4.8向け高速モードは11月30日で廃止</h3>
+<p>期日以降は該当設定のリクエストがエラーになります。使っている人は今のうちに設定を外しておくと安心です。二次情報のため、公式の更新履歴で最終確認を。 <span class="src">出典: <a href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">releases.sh</a></span></p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>カルチャー</h2>
+<div class="item">
+<h3>2027年冬アニメの顔ぶれ：『ゴールデンカムイ 最終章』『SAKAMOTO DAYS 第2期』ほか</h3>
+<p>1月開始の作品が出そろってきました。長く続いたシリーズの終盤戦と、人気アクションの続編が並び、冬の視聴計画が立てやすくなっています。 <span class="src">出典: <a href="https://www.crank-in.net/animation/winter2027">クランクイン！</a></span></p>
+</div>
+</section>
+
+<section>
+<h2>よもやま</h2>
+<div class="item">
+<h3>ジャパンカップは29日、前哨の格付け首位は128のマスカレードボール</h3>
+<p>JRAが公表した日本馬のレーティングは、2位ダノンデサイル124、3位メイショウタバル123、4位クロワデュノール122の順。上位10頭は優先的に出走できる仕組みです。枠順の確定はこれから。 <span class="src">出典: <a href="https://www.jra.go.jp/news/tokubetsu/2026jc.html">JRA</a></span></p>
+</div>
+<div class="item">
+<h3>世界に35種だけの「氷の虫」、学生が1年かけて見つけた</h3>
+<p>米国の公園で、ガロアムシの仲間を大学生が約1年探し続けて発見。冷涼な環境にすむ珍しいグループです。今月初めの話題ですが、粘り勝ちの一話として。 <span class="src">出典: <a href="https://nazology.kusuguru.co.jp/archives/206053">ナゾロジー</a></span></p>
+</div>
+</section>
+
+<section>
+<h2>コラム</h2>
+<p>「すぐ直ります」は、天気予報の「ところにより」と同じで、どこで当たるかは誰にも約束されていない。脆弱性の欄の期限が11月28日なのも、約束は期日で決まるからだ。</p>
+</section>
+</div>
+</div>
+
+<footer></footer>
+</div>
+</body>
+</html>
