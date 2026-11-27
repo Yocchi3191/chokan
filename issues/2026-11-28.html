@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>朝刊</title>
+<style>
+:root{--bg:#f6f4ee;--fg:#1b1a17;--sub:#5b574d;--rule:#1b1a17;--hair:#b9b4a6;--accent:#8c1c13;--link:#1d4a7a;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#e9e6dd;--sub:#a8a498;--rule:#e9e6dd;--hair:#4a4750;--accent:#e2705f;--link:#8fb8e8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17161a;--fg:#e9e6dd;--sub:#a8a498;--rule:#e9e6dd;--hair:#4a4750;--accent:#e2705f;--link:#8fb8e8;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP",serif;line-height:1.7;padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1000px;margin:0 auto}
+header{text-align:center;border-top:4px double var(--rule);border-bottom:1px solid var(--rule);padding:10px 0 8px}
+h1{margin:0;font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:.5em;padding-left:.5em;font-weight:900}
+.date{margin:0;font-size:.9rem;color:var(--sub);letter-spacing:.15em}
+h2{font-size:.95rem;letter-spacing:.3em;margin:0 0 8px;padding:2px 0;border-top:2px solid var(--rule);border-bottom:1px solid var(--hair);color:var(--accent)}
+h3{font-size:1.02rem;line-height:1.5;margin:0 0 2px;text-wrap:pretty;word-break:auto-phrase}
+p{margin:0 0 10px;font-size:.92rem;word-break:auto-phrase}
+a{color:var(--link)}
+.src{font-size:.78rem;color:var(--sub)}
+.lead{margin:16px 0 0}
+.lead h3{font-size:clamp(1.35rem,4.6vw,1.9rem);line-height:1.4;font-weight:800;margin-bottom:6px}
+.lead .item{border-bottom:1px solid var(--hair);padding-bottom:6px;margin-bottom:8px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.col{min-width:0}
+.col+.col{border-left:1px solid var(--hair);padding-left:28px}
+.item{margin-bottom:12px}
+section{margin-bottom:14px}
+footer{margin-top:14px;border-top:1px solid var(--rule)}
+@media (max-width:680px){.cols{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>朝刊</h1>
+<p class="date">令和8年11月28日（土）</p>
+</header>
+
+<section class="lead">
+<h2>脆弱性</h2>
+<div class="item">
+<h3>監視ツールCactiに未修正のゼロデイ、ゲスト有効なら4回の通信でサーバー乗っ取り</h3>
+<p>最新版1.2.31が対象で、CVE番号も修正版もまだありません。ゲストアカウントを有効にしている場合に限り、ログインなしでコマンド実行に至る実証コードが公開されています。修正が出るまではゲストを無効にし、管理画面への接続元を絞り、ポーラーの設定に見覚えのない値がないか確認を。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html">The Hacker News</a></span></p>
+</div>
+<div class="item">
+<h3>1Password、GitHubアカウント経由で侵入され顧客データとソースコードが流出</h3>
+<p>攻撃者は社内の基盤システムと一部の顧客情報に到達しました。保管庫（Vault）の中身には触れられていないと同社は説明しています。利用者は公式の案内を確認し、念のため主要アカウントの二段階認証を見直しておくと安心です。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html">The Hacker News</a></span></p>
+</div>
+<div class="item">
+<h3>CISA KEV：直近2日の新規登録はなし</h3>
+<p>最新の登録は11月25日の10件（Mitel、Juniperなど）で、昨日の号で報じたものです。11月26日以降に追加されたCVEはありません。 <span class="src">出典: <a href="https://github.com/cisagov/kev-data">CISA KEV（GitHubミラー）</a></span></p>
+</div>
+</section>
+
+<div class="cols">
+<div class="col">
+<section>
+<h2>技術</h2>
+<div class="item">
+<h3>AIエージェントによる攻撃、スイスで重要インフラ事業者まで突破</h3>
+<p>スイス当局が、AIエージェントを使った攻撃で5件の標的のうち4件が侵入され、うち2件が重要インフラの事業者だったと認めました。攻撃の自動化が現実の被害として公式に確認された例です。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html">The Hacker News</a></span></p>
+</div>
+<div class="item">
+<h3>GitHubの7,600超のリポジトリに不正コード、多くは実在の開発者のもの</h3>
+<p>北朝鮮系とされるグループが、乗っ取った開発者のリポジトリにPython製のローダーなどを仕込んでいました。2025年2月から続いていた可能性があります。依存先のリポジトリに見慣れないコミットがないか確認を。 <span class="src">出典: <a href="https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html">The Hacker News</a></span></p>
+</div>
+<div class="item">
+<h3>Volvo、ベルギー工場で人型ロボットの訓練を開始</h3>
+<p>Hexagon社の人型ロボット「AEON」を工場で訓練中で、2027年前半に規模を広げた試験、同年半ばから生産ラインへの投入を予定しています。人型ロボットの自動車工場への導入が具体的な日程に入りました。 <span class="src">出典: <a href="https://thenextweb.com/news/volvo-humanoid-robots-hexagon-aeon-ghent">The Next Web</a></span></p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>カルチャー</h2>
+<div class="item">
+<h3>『ラーメン赤猫』第2期は1月10日から放送</h3>
+<p>猫たちが営むラーメン店の物語の続編。メインPVと主題歌の情報が公開されました。冬の番組表に、のんびり食べ物系の一本が加わります。 <span class="src">出典: <a href="https://natalie.mu/comic/news/699988">コミックナタリー</a></span></p>
+</div>
+<div class="item">
+<h3>『昭和米国物語』、発売を2027年10月28日へ再延期</h3>
+<p>昭和の日本文化に染まった米国を舞台にしたアクションRPG。ディレクターは、納得のいく形で届けるために何度も作り直してきたと説明しています。 <span class="src">出典: <a href="https://4gamer.net/games/613/G061307/20261126026">4Gamer.net</a></span></p>
+</div>
+</section>
+
+<section>
+<h2>よもやま</h2>
+<div class="item">
+<h3>都心で1か月毎日雨、観測史上初。冬野菜の高値は年明けまで続く見方</h3>
+<p>秋の長雨でダイコン、ハクサイ、キャベツなどの入荷が不安定です。農水省は11月の価格が平年を上回ると見込んでおり、市場関係者からは高値が年明けまで続くとの声も出ています。 <span class="src">出典: <a href="https://www.alic.go.jp/content/001294364.pdf">農畜産業振興機構</a>／<a href="https://www.maff.go.jp/j/press/nousan/engei/261030.html">農林水産省</a></span></p>
+</div>
+<div class="item">
+<h3>キノコに化ける甲虫、中国・秦嶺山脈で新種として発表</h3>
+<p>保護区の巡視員が樹皮のキノコの上で見つけた甲虫で、体の色がキノコとほぼ見分けがつきませんでした。見つけてから新種と確かめるまで2年以上かかっています。 <span class="src">出典: <a href="https://m.gmw.cn/2026-11/26/content_1304589301.htm">光明網</a></span></p>
+</div>
+</section>
+
+<section>
+<h2>コラム</h2>
+<p>ダイコンは首に近いほど甘く、先に行くほど辛い。大根おろしは先っぽ、煮物は真ん中と使い分けると、よもやまの欄の高値の一本も無駄にならない。</p>
+</section>
+</div>
+</div>
+
+<footer></footer>
+</div>
+</body>
+</html>
